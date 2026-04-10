@@ -1,0 +1,50 @@
+:root {
+  --purple-primary: #dfa9f6; /* global scope */
+}
+
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    height: 75 px;
+    color: white;    
+}
+
+.logo-name-container {
+    width: 20%;
+}
+
+/* Nav Bar */
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    color: white;
+    margin-left: 50px;
+    width: 70%;
+}
+
+.navbar-items :hover {
+    color: black;
+    /* background-color: var(--purple-primary); */
+    background-position: 0 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px; 
+    padding-top:10px  ;
+    border-radius: 10px;
+}
+
+   
+
+.navbar-items a {
+    color: #FFFFFF;
+    text-decoration: none;    
+}
+
+
+.logo{
+    height: 10vh;
+    padding: 20px;
+}
