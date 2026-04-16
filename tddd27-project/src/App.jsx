@@ -9,23 +9,21 @@ import About from "./pages/About";
 import Account from "./pages/account";
 import Landing from "./pages/Landing";
 
-
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/account" element={<Account />} />
-        </Routes>
-        
-        <Landing />
+    return (
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/account" element={<Account />} />
+                </Routes>
 
-      </div>
-    </BrowserRouter>
-  );
+                <Landing />
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
