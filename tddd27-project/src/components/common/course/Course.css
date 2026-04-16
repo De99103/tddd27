@@ -1,21 +1,47 @@
-body {
+.page {
     display: flex;
-    align-items: center;
-    font-family: 'Times New Roman', Times, serif;
+    justify-self: center;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 20pt;
 }
 
-
-
+.page p {
+    padding-bottom: 0px;
+}
 
 .course-container {
-    background-color: #FFFFF0;
-    border-bottom: grey solid;
+    background-color: #fffff0;
+    color: black;
     width: 50vw;
-    height: 50vh;
+    height: fit-content;
+    text-wrap: nowrap;
     text-align: left;
+    padding: 40px;
 }
 
 .codeAndModule {
-    
-    
+    display: flex;
+    flex-direction: row;
+}
+
+.codeAndModule p {
+    padding-right: 10px;
+}
+
+input {
+    color: gray;
+    font-size: 20pt;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.codeAndModule input {
+    width: 10vw;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
 }
