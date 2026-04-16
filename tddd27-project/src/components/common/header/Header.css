@@ -5,7 +5,7 @@
 header {
     display: flex;
     flex-direction: row;
-    background-color: black;
+    background-color: #7c809b;
     height: 75 px;
     color: white;
 }
@@ -24,6 +24,7 @@ header {
 
 .logo-name-container p {
     font-size: xx-large;
+    font-weight: bold;
 }
 
 /* Nav Bar */
@@ -39,7 +40,7 @@ header {
 
 .navbar-items :hover {
     color: black;
-    background-color: var(--purple-primary);
+    background-color: rgb(225, 225, 225);
 }
 
 .navbar-items a {

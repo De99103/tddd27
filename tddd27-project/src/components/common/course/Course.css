@@ -1,3 +1,21 @@
 body {
-    background-color: red;
+    display: flex;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+.course-container {
+    background-color: #FFFFF0;
+    border-bottom: grey solid;
+    width: 50vw;
+    height: 50vh;
+    text-align: left;
+}
+
+.codeAndModule {
+    
+    
 }

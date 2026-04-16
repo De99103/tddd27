@@ -45,7 +45,7 @@ A website that lets you keep up with your courses, HP:s and grades. Keeps track 
 
 ## Installation
 
-This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Google OAuth, JWT Decode, Vite, and ESLint.
+This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Firebase Authentication (including Google sign-in), Vite, and ESLint.
 
 ## Roadmap
 
