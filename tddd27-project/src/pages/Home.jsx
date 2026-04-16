@@ -1,8 +1,10 @@
-import { Course } from "../components/common";
+import { Course, Login } from "../components/common";
 
 function Home() {
     return (
         <>
+            <Login />
+
             <h1>Home page</h1>
             <Course />
         </>

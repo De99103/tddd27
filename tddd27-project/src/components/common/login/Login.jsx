@@ -44,20 +44,22 @@ function Login() {
   return (
     <div>
       {user ? (
-        <>
+        <div style={{ display: "flex", width: "100%" }}>
           <div className="logging">
             <p className="user-name">Inloggad som: {user.displayName}</p>
-            <button onClick={handleLogout} className="login-btn">
+            <button onClick={handleLogout} className="logut-btn">
               <img src={logoutIcon} alt="Logga ut" className="login-icon" />
               <span>Logga ut</span>
             </button>
           </div>
-        </>
+        </div>
       ) : (
-        <button onClick={handleLogin} className="login-btn">
-          <img src={loginIcon} alt="Logga in" className="login-icon" />
-          <span>Logga in med Google</span>
-        </button>
+        <div className="login-div" >
+          <button onClick={handleLogin} className="login-btn">
+            <img src={loginIcon} alt="Logga in" className="login-icon" />
+            <span>Logga in med Google</span>
+          </button>
+        </div>
       )}
     </div>
   );
