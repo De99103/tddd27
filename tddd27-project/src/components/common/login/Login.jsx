@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../../../firebase"; 
+import { auth } from "../../../firebase";
 import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+
+import loginIcon from "/src/assets/images/login.svg";
+import logoutIcon from "/src/assets/images/logut.svg";
+
+import "./Login.css";
 
 function Login() {
   const [user, setUser] = useState(null);
@@ -40,12 +45,19 @@ function Login() {
     <div>
       {user ? (
         <>
-          <p>Inloggad som: {user.displayName}</p>
-          <p>{user.email}</p>
-          <button onClick={handleLogout}>Logga ut</button>
+          <div className="logging">
+            <p className="user-name">Inloggad som: {user.displayName}</p>
+            <button onClick={handleLogout} className="login-btn">
+              <img src={logoutIcon} alt="Logga ut" className="login-icon" />
+              <span>Logga ut</span>
+            </button>
+          </div>
         </>
       ) : (
-        <button onClick={handleLogin}>Logga in med Google</button>
+        <button onClick={handleLogin} className="login-btn">
+          <img src={loginIcon} alt="Logga in" className="login-icon" />
+          <span>Logga in med Google</span>
+        </button>
       )}
     </div>
   );
