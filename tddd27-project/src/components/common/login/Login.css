@@ -1,0 +1,60 @@
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  color: #7C809B;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: auto;   
+  font-size: 15px;
+
+
+}
+
+.logut-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #7C809B;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+.logout-icon,
+.login-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.logging {
+  display: inline-flex;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.495);
+  border-radius: 10px;
+  padding: 10px;
+  gap: 6px;
+  text-align: center;
+  margin-left: auto;
+}
+
+/* Remove the white background from user-name since the container handles it */
+.user-name {
+  display: inline-block;
+  color: #7C809B;
+  padding: 4px 8px;
+  margin-bottom: 0; /* remove the gap, let the container gap handle it */
+  background-color: transparent; /* or keep white if you want a pill inside */
+}
+
+
+.login-div{
+    align-items: flex-end;
+}
