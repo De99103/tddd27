@@ -1,14 +1,11 @@
 :root {
-  --purple-primary: #dfa9f6; /* global scope */
+    --purple-primary: #dfa9f6; /* global scope */
 }
 
-
 .header-container {
-    display: flex;
-    flex-direction: row;
     background-color: black;
     height: 75 px;
-    color: white;    
+    color: white;
 }
 
 .logo-name-container {
@@ -17,8 +14,6 @@
 
 /* Nav Bar */
 .navbar-items {
-    display: flex;
-    flex-direction: row;
     padding: 20px;
     color: white;
     margin-left: 50px;
@@ -31,20 +26,17 @@
     background-position: 0 100%;
     padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 10px; 
-    padding-top:10px  ;
+    padding-bottom: 10px;
+    padding-top: 10px;
     border-radius: 10px;
 }
 
-   
-
 .navbar-items a {
-    color: #FFFFFF;
-    text-decoration: none;    
+    color: #ffffff;
+    text-decoration: none;
 }
 
-
-.logo{
+.logo {
     height: 10vh;
     padding: 20px;
 }
