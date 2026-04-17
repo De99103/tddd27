@@ -1,0 +1,983 @@
+{
+  "program": {
+    "code": "6CMEA",
+    "name": "Master of Science in Media Technology, AI and Engineering",
+    "name_sv": "Civilingenjörsprogram i medieteknik och AI",
+    "credits_total": 300,
+    "campus": "Norrköping",
+    "university": "Linköpings universitet",
+    "degree": "Degree of Master of Science in Engineering – Media Technology, AI and Engineering",
+    "notes": "Terms 1–6 are compulsory. Terms 7–9 are mainly elective (specialisation courses). Term 10 is the master's degree project. ECV codes: C = Compulsory, E = Elective, V = Voluntary (cannot count toward degree)."
+  },
+  "courses": [
+    {
+      "year": 1,
+      "semester": 1,
+      "semester_name": "Autumn 2025",
+      "period": "0+1",
+      "block": "3/4",
+      "course_code": "TNA001",
+      "course_name": "Foundation Course in Mathematics",
+      "course_name_sv": "Matematisk grundkurs",
+      "credits_hp": 6,
+      "level": "G1N",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Spans periods 0 and 1",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4.5, "grading": "U, 3, 4, 5" },
+        { "code": "KTR2", "name": "Optional examinations", "credits": 0, "grading": "U, G" },
+        { "code": "UPG2", "name": "Assignments and oral presentations", "credits": 1.5, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "semester_name": "Autumn 2025",
+      "period": "0+1",
+      "block": "1",
+      "course_code": "TND012",
+      "course_name": "Programming",
+      "course_name_sv": "Programmering grk",
+      "credits_hp": 6,
+      "level": "G1N",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Spans periods 0 and 1",
+      "examination": [
+        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" },
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "semester_name": "Autumn 2025",
+      "period": "1+2",
+      "block": "2",
+      "course_code": "TNM120",
+      "course_name": "Introduction to Digital Media and AI",
+      "course_name_sv": "Introduktion till digitala medier och AI",
+      "credits_hp": 6,
+      "level": "G1N",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Spans periods 1 and 2",
+      "examination": [
+        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" },
+        { "code": "UPG1", "name": "Assignment / Project", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "semester_name": "Autumn 2025",
+      "period": "2",
+      "block": "2/4",
+      "course_code": "TNA002",
+      "course_name": "Linear Algebra",
+      "course_name_sv": "Linjär algebra",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "semester_name": "Autumn 2025",
+      "period": "2",
+      "block": "3",
+      "course_code": "TND002",
+      "course_name": "Object-Oriented Programming",
+      "course_name_sv": "Objektorienterad programmering",
+      "credits_hp": 6,
+      "level": "G1N",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "semester_name": "Spring 2026",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNA003",
+      "course_name": "Calculus I",
+      "course_name_sv": "Analys I",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "semester_name": "Spring 2026",
+      "period": "1+2",
+      "block": "4",
+      "course_code": "TNA011",
+      "course_name": "Applied Mathematics with AI",
+      "course_name_sv": "Tillämpad matematik med AI",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Spans periods 1 and 2",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work / assignments", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "semester_name": "Spring 2026",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM121",
+      "course_name": "Introduction to Web Programming",
+      "course_name_sv": "Introduktion till webbprogrammering",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" },
+        { "code": "UPG1", "name": "Assignment / Project", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "semester_name": "Spring 2026",
+      "period": "2",
+      "block": "2",
+      "course_code": "TNA004",
+      "course_name": "Calculus II",
+      "course_name_sv": "Analys II",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "semester_name": "Spring 2026",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM122",
+      "course_name": "Fundamental Computer Graphics",
+      "course_name_sv": "Grundläggande datorgrafik",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "semester_name": "Autumn 2026",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNA006",
+      "course_name": "Calculus III",
+      "course_name_sv": "Analys III",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "semester_name": "Autumn 2026",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNE043",
+      "course_name": "Mechanics and Wave Physics",
+      "course_name_sv": "Mekanik och vågfysik",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "semester_name": "Autumn 2026",
+      "period": "1+2",
+      "block": "2",
+      "course_code": "TNM040",
+      "course_name": "Communication and User Interfaces",
+      "course_name_sv": "Kommunikation och användargränssnitt",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Spans periods 1 and 2",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "semester_name": "Autumn 2026",
+      "period": "2",
+      "block": "4",
+      "course_code": "TNA007",
+      "course_name": "Vector Analysis",
+      "course_name_sv": "Vektoranalys",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "semester_name": "Autumn 2026",
+      "period": "2",
+      "block": "3",
+      "course_code": "TNG033",
+      "course_name": "Programming in C++",
+      "course_name_sv": "Programmering i C++",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNA005",
+      "course_name": "Transform Theory",
+      "course_name_sv": "Transformer",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM086",
+      "course_name": "Image Processing",
+      "course_name_sv": "Bildbehandling",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNM085",
+      "course_name": "Introduction to Computer Science",
+      "course_name_sv": "Introduktion till datavetenskap",
+      "credits_hp": 6,
+      "level": "G1F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM079",
+      "course_name": "Modelling and Animation",
+      "course_name_sv": "Modellering och animering",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work / project", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "2",
+      "block": "3",
+      "course_code": "TNM046",
+      "course_name": "Information Visualisation",
+      "course_name_sv": "Informationsvisualisering",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "semester_name": "Spring 2027",
+      "period": "2",
+      "block": "2",
+      "course_code": "TDDD38",
+      "course_name": "Advanced Programming in C++",
+      "course_name_sv": "Avancerad programmering i C++",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNM088",
+      "course_name": "Perception, Colour and Imaging",
+      "course_name_sv": "Perception, färg och avbildning",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM048",
+      "course_name": "Information Theory",
+      "course_name_sv": "Informationsteori",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNM101",
+      "course_name": "Machine Learning",
+      "course_name_sv": "Maskininlärning",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM094",
+      "course_name": "Media Technology Project",
+      "course_name_sv": "Medieteknikprojekt",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "2",
+      "block": "2",
+      "course_code": "TNM093",
+      "course_name": "Game and Reality",
+      "course_name_sv": "Spel och verklighet",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work / project", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "semester_name": "Autumn 2027",
+      "period": "2",
+      "block": "3",
+      "course_code": "TNM102",
+      "course_name": "Sound Technology",
+      "course_name_sv": "Ljudteknik",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "semester_name": "Spring 2028",
+      "period": "1+2",
+      "block": "1-3",
+      "course_code": "TNM114",
+      "course_name": "Bachelor's Thesis in Media Technology",
+      "course_name_sv": "Kandidatarbete i medieteknik",
+      "credits_hp": 18,
+      "level": "G2F",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Candidate project (term 6), spans the full semester",
+      "examination": [
+        { "code": "PRA1", "name": "Project report", "credits": 12, "grading": "U, G" },
+        { "code": "PRA2", "name": "Oral presentation and opposition", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM108",
+      "course_name": "Advanced Computer Graphics",
+      "course_name_sv": "Avancerad datorgrafik",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Computer Graphics",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNM097",
+      "course_name": "Advanced Image Processing",
+      "course_name_sv": "Avancerad bildbehandling",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Image Analysis",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNM095",
+      "course_name": "Advanced Visualisation",
+      "course_name_sv": "Avancerad visualisering",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Visualisation",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM112",
+      "course_name": "Game Programming",
+      "course_name_sv": "Spelprogrammering",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Game Development",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "2",
+      "block": "2",
+      "course_code": "TNM096",
+      "course_name": "Geometry Processing",
+      "course_name_sv": "Geometriprocessning",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Computer Graphics",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "semester_name": "Autumn 2028",
+      "period": "2",
+      "block": "3",
+      "course_code": "TNM098",
+      "course_name": "Deep Learning for Media Technology",
+      "course_name_sv": "Djupinlärning för medieteknik",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "AI and Machine Learning",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM089",
+      "course_name": "Global Lighting",
+      "course_name_sv": "Global belysning",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Computer Graphics",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNM100",
+      "course_name": "Visualisation Project",
+      "course_name_sv": "Visualiseringsprojekt",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Visualisation",
+      "examination": [
+        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNM099",
+      "course_name": "Generative AI",
+      "course_name_sv": "Generativ AI",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "AI and Machine Learning",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM104",
+      "course_name": "Game Design",
+      "course_name_sv": "Speldesign",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Game Development",
+      "examination": [
+        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "2",
+      "block": "2",
+      "course_code": "TNM091",
+      "course_name": "Interaction Programming",
+      "course_name_sv": "Interaktionsprogrammering",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Interaction Design",
+      "examination": [
+        { "code": "LAB1", "name": "Laboratory work / project", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "2",
+      "block": "3",
+      "course_code": "TNM113",
+      "course_name": "Spatial Computing",
+      "course_name_sv": "Spatial datavetenskap",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Extended Reality (XR)",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "semester_name": "Spring 2029",
+      "period": "1",
+      "block": "4",
+      "course_code": "TEIO98",
+      "course_name": "Entrepreneurship and Business Development",
+      "course_name_sv": "Entreprenörskap och affärsutveckling",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Business and Management",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "1",
+      "block": "1",
+      "course_code": "TNM107",
+      "course_name": "Medical Visualization",
+      "course_name_sv": "Medicinsk visualisering",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Visualisation",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "1",
+      "block": "2",
+      "course_code": "TNM106",
+      "course_name": "Research Methodology in Media Technology",
+      "course_name_sv": "Forskningsmetodik i medieteknik",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": null,
+      "note": "Compulsory methodological course preceding the master's thesis",
+      "examination": [
+        { "code": "UPG1", "name": "Assignments", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "1",
+      "block": "3",
+      "course_code": "TNM109",
+      "course_name": "Visual Analytics",
+      "course_name_sv": "Visuell analys",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Visualisation",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
+        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "2",
+      "block": "1",
+      "course_code": "TNM115",
+      "course_name": "Rendering",
+      "course_name_sv": "Rendering",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "Computer Graphics",
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "2",
+      "block": "2",
+      "course_code": "TNM110",
+      "course_name": "AI Project",
+      "course_name_sv": "AI-projekt",
+      "credits_hp": 6,
+      "level": "A1X",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": "AI and Machine Learning",
+      "examination": [
+        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "1",
+      "block": "4",
+      "course_code": "TDDD97",
+      "course_name": "Web Programming",
+      "course_name_sv": "Webbprogrammering",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
+        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "semester_name": "Autumn 2029",
+      "period": "2",
+      "block": "4",
+      "course_code": "TDDC73",
+      "course_name": "Interaction Programming",
+      "course_name_sv": "Interaktionsprogrammering",
+      "credits_hp": 6,
+      "level": "G2F",
+      "ecv": "E",
+      "is_voluntary": false,
+      "specialisation": null,
+      "examination": [
+        { "code": "LAB1", "name": "Laboratory project", "credits": 6, "grading": "U, G" }
+      ]
+    },
+    {
+      "year": 5,
+      "semester": 10,
+      "semester_name": "Spring 2030",
+      "period": "1+2",
+      "block": "-",
+      "course_code": "TQXX30",
+      "course_name": "Master's Thesis in Media Technology (30 hp)",
+      "course_name_sv": "Examensarbete i medieteknik (30 hp)",
+      "credits_hp": 30,
+      "level": "A2X",
+      "ecv": "C",
+      "is_voluntary": false,
+      "specialisation": "Media Technology or Computer Science (main field for master's degree)",
+      "note": "30 hp master's thesis. Main subject area: Media Technology and Engineering or Computer Science and Engineering.",
+      "examination": [
+        { "code": "PRA1", "name": "Written thesis report", "credits": 22.5, "grading": "U, G" },
+        { "code": "OPPO", "name": "Opposition", "credits": 4.5, "grading": "U, G" },
+        { "code": "AUSK", "name": "Attendance at thesis presentations (3x)", "credits": 3, "grading": "U, G" }
+      ]
+    }
+  ],
+  "specialisations": [
+    {
+      "name": "Computer Graphics",
+      "description": "Advanced rendering, global lighting, geometry processing, 3D graphics"
+    },
+    {
+      "name": "Image Analysis",
+      "description": "Advanced image processing and computer vision"
+    },
+    {
+      "name": "Visualisation",
+      "description": "Scientific and information visualisation, visual analytics, medical visualisation"
+    },
+    {
+      "name": "AI and Machine Learning",
+      "description": "Deep learning, generative AI, AI project work"
+    },
+    {
+      "name": "Game Development",
+      "description": "Game programming, game design"
+    },
+    {
+      "name": "Interaction Design",
+      "description": "Interaction programming, user interface design"
+    },
+    {
+      "name": "Extended Reality (XR)",
+      "description": "Virtual and augmented reality, spatial computing"
+    },
+    {
+      "name": "Business and Management",
+      "description": "Entrepreneurship, business development, project management"
+    }
+  ],
+  "metadata": {
+    "source": "https://liu.se/utbildning/program/6cmea and https://studieinfo.liu.se/program/6CMEA/6118",
+    "notes_on_terms_4_to_10": "The full elective course list for terms 7–9 is rendered dynamically on studieinfo.liu.se and changes each academic year. The courses listed here for years 4–5 represent the known elective offer based on the 6CMEA and predecessor 6CMEN programme plans. Students must choose elective courses so that at least 30 hp at advanced level are within their chosen master's main field (Media Technology or Computer Science). Always verify the current programme plan at studieinfo.liu.se.",
+    "ecv_legend": {
+      "C": "Compulsory – must be included in the degree",
+      "E": "Elective – may be included in the degree",
+      "V": "Voluntary – cannot be counted toward the degree"
+    }
+  }
+}

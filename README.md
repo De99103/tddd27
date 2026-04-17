@@ -43,6 +43,8 @@ LiU-Courses
 
 A website that lets you keep up with your courses, HP:s and grades. Keeps track of requrements fro CSN, Bachelor projects, and Master's courses. It allows you to log in to save your progress and manually imput courses and programs.
 
+By using Claude AI, we could create a JSON file for MT courses to start working with. We are currently waiting for a response from the helpdesk to gain access to an API for all programs at LiU.
+
 ## Installation
 
 This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Firebase Authentication (including Google sign-in), Vite, and ESLint.

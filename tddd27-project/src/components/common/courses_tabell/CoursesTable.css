@@ -1,0 +1,22 @@
+.courses-table-wrapper{
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.courses-table {
+    width: 100%;
+    padding: 2%;
+    /* border-collapse: collapse; */
+
+
+}
+
+.courses-table th{
+    background-color:
+    #7C809B;
+    padding: 10px;
+    text-align: center;
+}
+.courses-table tr {
+    background-color:  rgba(255, 255, 255, 0.495);
+}
