@@ -1,38 +1,40 @@
 import "./Course.css";
 
-
 function Course() {
     return (
         <div className="page">
             <div className="course-container">
-                <div className="codeAndModule">
-                    <p>
-                        Utbildingskod/
-                        <i>
-                            Education code: <input name="input_courseCode" type="text"></input>
-                        </i>
-                    </p>
+                <div className="codeAndGrade">
+                    <div className="textAndInput">
+                        <p>
+                            Utbildingskod/<i>Education code:</i>
+                        </p>
+                        <input name="input_courseCode" type="text"></input>
+                    </div>
 
-                    <p>
-                        Modul/
-                        <i>
-                            Module: <input name="input_module" type="text"></input>
-                        </i>
-                    </p>
+                    <div className="textAndInput">
+                        <p>
+                            Betyg/<i>Grade:</i>
+                        </p>
+                        <input name="input_grade" type="text"></input>
+                    </div>
                 </div>
 
-                <p>
-                    Kursnamn/
-                    <i>
-                        Course title: <input name="input_courseTitle" type="text"></input>
-                    </i>
-                </p>
-                <p>
-                    Institution/
-                    <i>
-                        Department: <input name="input_department" type="text"></input>
-                    </i>
-                </p>
+                <div className="titleAndDepartment">
+                    <div className="textAndInput">
+                        <p>
+                            Kursnamn/<i>Course title:</i>
+                        </p>
+                        <input name="input_courseTitle" type="text"></input>
+                    </div>
+
+                    <div className="textAndInput">
+                        <p>
+                            Institution/<i>Department:</i>
+                        </p>
+                        <input name="input_department" type="text"></input>
+                    </div>
+                </div>
             </div>
         </div>
     );

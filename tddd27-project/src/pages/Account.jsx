@@ -1,5 +1,4 @@
-import { Course } from "../components/common";
-import { Login } from "../components/common";
+import { Course, Login } from "../components/common";
 
 function Account() {
     return (
@@ -8,8 +7,6 @@ function Account() {
 
             <h1>Account Page</h1>
             <p>This is the account page.</p>
-
-
         </div>
     );
 }

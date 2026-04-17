@@ -9,43 +9,71 @@
 }
 
 .page p {
-    padding-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .course-container {
-    display: grid;
-    background-color: #fffff0;
+    background-image: url("/src/assets/images/paper.jpg");
     color: black;
     width: fit-content;
     height: fit-content;
     text-wrap: nowrap;
     text-align: left;
-    padding: 40px;
+    padding: 40px 40px 40px 30px;
 }
 
-.codeAndModule {
+.textAndInput {
     display: flex;
     flex-direction: row;
+    padding-bottom: 30px;
 }
 
-.codeAndModule p {
-    padding-right: 10px;
+.codeAndGrade {
+    display: flex;
+    flex-direction: row;
 }
 
 input {
     color: gray;
     font-size: 18pt;
     border: none;
+    width: 100%;
     border-bottom: 1px solid black;
     background-color: transparent;
     font-family: "Indie Flower", cursive;
 }
 
-.codeAndModule input {
-    width: 10vw;
+.codeAndGrade input {
+    width: 100%;
 }
 
 textarea:focus,
 input:focus {
     outline: none;
+}
+
+@media screen and (max-width: 880px) {
+    .course-container {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        font-size: 14pt;
+        padding: 20px;
+    }
+
+    .codeAndGrade {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .textAndInput {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+
+    .page p {
+        padding: 0px;
+    }
 }

@@ -10,19 +10,19 @@ import About from "./pages/About";
 import Account from "./pages/Account";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
+    return (
+        <BrowserRouter>
+            <div className="App">
+                <Header />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/account" element={<Account />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/account" element={<Account />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
