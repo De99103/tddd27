@@ -3,7 +3,7 @@
 ## Getting started
 
 
-## Integrate with your tools
+<!-- ## Integrate with your tools
 
 - [ ] [Set up project integrations](https://gitlab.liu.se/deeso509/tddd27_2026/-/settings/integrations)
 
@@ -23,8 +23,8 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
 - [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
 - [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
+- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html) -->
+<!-- 
 ---
 
 # Editing this README
@@ -33,7 +33,7 @@ When you're ready to make this README your own, just edit this file and use the 
 
 ## Suggestions for a good README
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information. -->
 
 ## Name
 
