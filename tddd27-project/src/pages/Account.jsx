@@ -1,7 +1,6 @@
 import { Course, Login } from "../components/common";
 
 import { useState } from "react";
-import { Login } from "../components/common";
 import { Autocomplete } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
 

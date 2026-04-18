@@ -4,7 +4,6 @@ import Course from "./course";
 import Login from "./login/Login";
 import Stats_Window from "./stats_window";
 
-export { Header, Login, Navbar, Course, Stats_Window };
 import Autocomplete from "./autocomplete/Autocomplete";
 
 
@@ -15,5 +14,6 @@ export {
     Navbar,
     Course,
     Autocomplete,
+    Stats_Window,
 
 }
