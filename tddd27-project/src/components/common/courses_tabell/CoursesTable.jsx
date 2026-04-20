@@ -16,16 +16,31 @@ const CoursesTable = ({ courses = [] }) => {
                 </thead>
 
                 <tbody>
-                    {courses.map((course) => (
-                        <tr key={course.course_code}>
-                            <td>{course.year}</td>
-                            <td>{course.semester}</td>
-                            <td>{course.course_code}</td>
-                            <td>{course.course_name}</td>
-                            <td>{course.credits_hp}</td>
-                            <td>{course.period}</td>
-                        </tr>
-                    ))}
+                    {courses
+                        .filter((course) => !course.elective)
+                        .map((course) => (
+                            <tr key={course.course_code}>
+                                <td>{course.year}</td>
+                                <td>{course.semester}</td>
+                                <td>{course.course_code}</td>
+                                <td>{course.course_name}</td>
+                                <td>{course.credits_hp}</td>
+                                <td>{course.period}</td>
+                            </tr>
+                        ))}
+
+                    {courses
+                        .filter((course) => course.elective)
+                        .map((course) => (
+                            <tr key={course.course_code} className="voluntary-course">
+                                <td>{course.year}</td>
+                                <td>{course.semester}</td>
+                                <td>{course.course_code}</td>
+                                <td>{course.course_name} (Voluntary)</td>
+                                <td>{course.credits_hp}</td>
+                                <td>{course.period}</td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
         </div>
