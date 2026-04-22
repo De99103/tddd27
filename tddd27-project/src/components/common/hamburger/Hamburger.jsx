@@ -1,4 +1,4 @@
-// import "./Hamburger.css";
+import "./Hamburger.css";
 
 function Hamburger({ isOpen }) {
     return (
@@ -13,24 +13,6 @@ function Hamburger({ isOpen }) {
 Fattar inte hur man importerar variabeln "isOpen" till CSS-filen */}
 
             <style>{`
-                .hamburger {
-                    width: 2rem;
-                    height: 2rem;
-                    display: flex;
-                    justify-content: space-around;
-                    flex-flow: column nowrap;
-                    z-index: 10;
-                }
-
-                .burger {
-                    width: 2rem;
-                    height: 0.25rem;
-                    border-radius: 10px;
-                    background-color: black;
-                    transform-origin: 1px;
-                    transition: all 0.3s linear;
-                }
-
                 .burger1 {
                     transform: ${isOpen ? "rotate(45deg)" : "rotate(0)"};
                 }
@@ -41,9 +23,6 @@ Fattar inte hur man importerar variabeln "isOpen" till CSS-filen */}
                 .burger3 {
                     transform: ${isOpen ? "rotate(-45deg)" : "rotate(0)"};
                 }
-
-
-
             `}</style>
         </>
     );

@@ -3,21 +3,23 @@ header {
     flex-direction: row;
     background-color: #7c809b;
     color: white;
+    height: 12vh;
+    width: 100%;
 }
 
 .logo-name-container {
     display: flex;
     align-items: center;
-    width: 30%;
 }
 
 .logo {
-    height: 9vh;
-    padding: 20px 0px 20px 20px;
+    height: 10vh;
+    padding: 10px 0px 10px 10px;
 }
 
 .logo-name-container p {
-    font-size: xx-large;
+    font-size: 2em;
+    /* padding: 10px 10px 10px 0px; */
     font-weight: bold;
 }
 
@@ -26,6 +28,8 @@ header {
     flex-direction: row;
     justify-content: right;
     width: 70%;
+    z-index: 12;
+    height: 12vh;
 }
 
 .navbar-items-desktop {
@@ -56,11 +60,10 @@ header {
     visibility: hidden;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 767px) {
     .navbar-items {
         width: 100%;
         background-color: #7c809b;
-        padding: 10px;
     }
 
     .navbar-items a {
@@ -73,26 +76,7 @@ header {
         width: 70%;
     }
 
-    /* .navbar-items-desktop {
-        display: ${hamburgerOpen ? 'inline' : 'none'};
-    } */
-
-    .logo {
-        padding: 5px 0px 5px 5px;
-        height: 6vh;
-    }
-
-    .logo-name-container p {
-        padding: 7px 7px 7px 0px;
-    }
-
-    /* .burger-icon {
-        height: 5vh;
-    } */
     .hamburger {
         visibility: visible;
-        justify-content: center;
-        align-items: center;
-        z-index: 10;
     }
 }
