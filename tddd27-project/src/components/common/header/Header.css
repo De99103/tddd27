@@ -1,19 +1,12 @@
-:root {
-    --purple-primary: #dfa9f6; /* global scope */
-}
-
 header {
     display: flex;
     flex-direction: row;
     background-color: #7c809b;
-    height: 10vh;
     color: white;
-    width: 100%;
 }
 
 .logo-name-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 30%;
 }
@@ -28,22 +21,18 @@ header {
     font-weight: bold;
 }
 
-/* Nav Bar */
-
 .navbar-items {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: right;
     width: 70%;
 }
 
 .navbar-items-desktop {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     color: white;
-    padding-left: 25vw;
 }
 
 .navbar-items-desktop :hover {
@@ -54,33 +43,56 @@ header {
 .navbar-items-desktop a {
     color: #ffffff;
     text-decoration: none;
+    margin: 10px;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
 }
 
-.burger-icon {
-    height: 0px;
-}
+/* .navbar-items-mobile {
+    display: none;
+} */
 
-.navbar-items-mobile {
+.hamburger {
     visibility: hidden;
 }
 
 @media screen and (max-width: 880px) {
-    .navbar-items-desktop {
-        visibility: hidden;
+    .navbar-items {
+        width: 100%;
+        background-color: #7c809b;
+        padding: 10px;
     }
+
+    .navbar-items a {
+        border-bottom: 1px solid lightgray;
+        border-radius: 0;
+    }
+
+    /* Här håller du på: */
+    .navbar-items-desktop {
+        width: 70%;
+    }
+
+    /* .navbar-items-desktop {
+        display: ${hamburgerOpen ? 'inline' : 'none'};
+    } */
 
     .logo {
         padding: 5px 0px 5px 5px;
+        height: 6vh;
     }
 
-    .navbar-items-mobile {
+    .logo-name-container p {
+        padding: 7px 7px 7px 0px;
+    }
+
+    /* .burger-icon {
+        height: 5vh;
+    } */
+    .hamburger {
         visibility: visible;
-        background-color: blueviolet;
-    }
-
-    .burger-icon {
-        height: 8vh;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
     }
 }
