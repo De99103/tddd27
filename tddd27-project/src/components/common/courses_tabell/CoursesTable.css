@@ -1,22 +1,138 @@
-.courses-table-wrapper{
-    margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.courses-table {
+.courses-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 30px;
     width: 100%;
-    padding: 2%;
-    /* border-collapse: collapse; */
-
-
 }
 
-.courses-table th{
-    background-color:
-    #7C809B;
-    padding: 10px;
+.year-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.year-title {
+    margin: 0;
+    color: #7C809B;
+    border-bottom: 1px solid #7C809B;
+    padding-bottom: 6px;
+}
+
+.semester-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.semester-column {
+    background-color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(124, 128, 155, 0.35);
+    border-radius: 22px;
+    padding: 18px;
+    backdrop-filter: blur(3px);
+}
+
+.semester-title {
+    margin: 0 0 16px 0;
+    color: #7C809B;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: 18px;
+}
+    /* if we have a five boxes ( courses) the five one will be in the middel  */
+.course-grid > :last-child:nth-child(odd) {  
+    grid-column: 1 / -1; /*gör att kortet får använda hela raden */
+    justify-self: center;
+    width: 40%;
+}
+.course-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(124, 128, 155, 0.45);
+    border-radius: 28px;
+    padding: 12px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(124, 128, 155, 0.12);
+    border-color: #7C809B;
+}
+.course-code-box {
+    width: fit-content;
+    min-width: 110px;
+    max-width: 150px;
+    padding: 8px 14px;
+    margin: 0 auto 24px auto;
+    border: 1px solid #7C809B;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.45);
+    font-size: 20px;
+    color: #7C809B;
     text-align: center;
 }
-.courses-table tr {
-    background-color:  rgba(255, 255, 255, 0.495);
+
+.course-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+}
+
+.course-name {
+    margin: 0;
+    line-height: 1.2;
+    color: #5f637c;
+}
+
+.course-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.course-details p {
+    margin: 0;
+    color: #6f738d;
+}
+
+.add-btn {
+    margin-top: 8px;
+    align-self: flex-start;
+    padding: 8px 16px;
+    border: 1px solid #7C809B;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.45);
+    color: #7C809B;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.add-btn:hover {
+    background-color: rgba(124, 128, 155, 0.12);
+    transform: scale(1.02);
+}
+
+.course-card.selectable {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.course-card.mandatory {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 700px) {
+    .semester-grid {
+        grid-template-columns: 1fr;
+    }
 }

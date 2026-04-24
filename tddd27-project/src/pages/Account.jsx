@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Login, Autocomplete, Course } from "../components/common";
+import { Login, Course } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
+import mtData from "../assets/data/MT.json";
+import mtAiData from "../assets/data/MT-AI.json";
+import dtData from "../assets/data/DT.json";
 
 function Account() {
     const [courses, setCourses] = useState([]);
@@ -8,32 +11,37 @@ function Account() {
     const [selectedCourse, setSelectedCourse] = useState(null);
 
     const programOptions = [
-        { name: "Civilingenjörsprogram i medieteknik (MT)", filePath: "/src/assets/data/MT.json" },
-        { name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", filePath: "/src/assets/data/MT-AI.json" },
-        { name: "Civilingenjörsprogram i elektronik och systemdesign (ED)", filePath: "/src/assets/data/ESD.json" },
-        { name: "Civilingenjörsprogram i medicinsk teknik", filePath: "/src/assets/data/MTK.json" },
-        { name: "Civilingenjörsprogram i mjukvaruteknik", filePath: "/src/assets/data/MVK.json" },
-        { name: "Civilingenjörsprogram i informationsteknologi (IT)", filePath: "/src/assets/data/IT.json" },
-        { name: "Civilingenjörsprogram i datateknik (DT)", filePath: "/src/assets/data/DT.json" },
+        {
+            id: "MT",
+            name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
+            courses: mtData.courses || [],
+        },
+        {
+            id: "MT_AI",
+            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
+            courses: mtAiData.courses || [],
+        },
+        {
+            id: "DT",
+            name: "Civilingenjörsprogram i datateknik (DT)",
+            courses: dtData.courses || [],
+        },
+        {
+            id : "ED", 
+            name : "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses : [], // No courses available for this program än 
+        },
+        {
+            id : "IT", 
+            name : "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses : [], // No courses available for this program än 
+        }
     ];
 
-    const handleProgramChange = async (program) => {
+    const handleProgramChange = (program) => {
         setSelectedProgram(program);
         setSelectedCourse(null);
-
-        if (!program?.filePath) {
-            setCourses([]);
-            return;
-        }
-
-        try {
-            const response = await fetch(program.filePath);
-            const data = await response.json();
-            setCourses(data.courses || []);
-        } catch (error) {
-            console.error("Could not load courses:", error);
-            setCourses([]);
-        }
+        setCourses(program?.courses || []);
     };
 
     return (
@@ -41,24 +49,14 @@ function Account() {
             <Login />
             <h1>Account Page</h1>
 
-            <div className="program-row">
-                <span>Välja ditt program:</span>
-                <Autocomplete
-                    options={programOptions}
-                    label="Välj program"
-                    value={selectedProgram}
-                    getOptionLabel={(option) => option?.name || ""}
-                    onChange={handleProgramChange}
-                />
-            </div>
-
             <Course
+                programOptions={programOptions}
+                selectedProgram={selectedProgram}
+                onProgramChange={handleProgramChange}
                 courses={courses}
                 selectedCourse={selectedCourse}
                 setSelectedCourse={setSelectedCourse}
             />
-
-
 
             <CoursesTable courses={selectedCourse ? [selectedCourse] : courses} />
         </div>

@@ -1,32 +1,32 @@
 import "./Course.css";
 import Autocomplete from "../autocomplete/Autocomplete";
 
-function Course({ courses, selectedCourse, setSelectedCourse }) {
+function Course({
+    programOptions = [],
+    selectedProgram = null,
+    onProgramChange = () => { },
+    courses = [],
+    selectedCourse = null,
+    setSelectedCourse = () => { },
+}) {
     return (
         <div className="page">
             <div className="course-container">
-                <div className="codeAndGrade">
-                    <div className="textAndInput">
-                        <p>
-                            Utbildingskod/<i>Education code:</i>
-                        </p>
-                        <input
-                            name="input_courseCode"
-                            type="text"
-                            value={selectedCourse?.course_code || ""}
-                            readOnly
-                        />
-                    </div>
-
-                    <div className="textAndInput">
-                        <p>
-                            Betyg/<i>Grade:</i>
-                        </p>
-                        <input name="input_grade" type="text" />
-                    </div>
+                <div className="textAndInput">
+                    <p>
+                        Utbildingskod/<i>Education code:</i>
+                    </p>
+                    <Autocomplete
+                        options={programOptions}
+                        label=""
+                        className="line-autocomplete"
+                        value={selectedProgram}
+                        getOptionLabel={(option) => option?.name || ""}
+                        onChange={onProgramChange}
+                    />
                 </div>
 
-                <div className="titleAndDepartment">
+                <div className="codeAndGrade">
                     <div className="textAndInput">
                         <p>
                             Kursnamn/<i>Course title:</i>
@@ -44,16 +44,24 @@ function Course({ courses, selectedCourse, setSelectedCourse }) {
                         />
                     </div>
 
-                    <div className="textAndInput">
-                        <p>
-                            Institution/<i>Department:</i>
-                        </p>
-                        <input
-                            name="input_department"
-                            type="text"
-                            value={selectedCourse?.department || ""}
-                            readOnly
-                        />
+                    <div className="titleAndDepartment">
+                        <div className="textAndInput">
+                            <p>
+                                Institution/<i>Department:</i>
+                            </p>
+                            <input
+                                name="input_department"
+                                type="text"
+                                value={selectedCourse?.department || ""}
+                                readOnly
+                            />
+                            <div className="textAndInput">
+                                <p>
+                                    Betyg/<i>Grade:</i>
+                                </p>
+                                <input name="input_grade" type="text" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
