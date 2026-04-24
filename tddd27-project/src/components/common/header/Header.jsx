@@ -10,7 +10,6 @@ function Header() {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen);
-        console.log("hamburgaren har tryckts på");
     };
 
     return (
