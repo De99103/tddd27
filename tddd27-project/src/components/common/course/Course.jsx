@@ -1,5 +1,6 @@
 import "./Course.css";
 import Autocomplete from "../autocomplete/Autocomplete";
+import { saveProgram } from "../../../fireBase/userData";
 
 function Course({
     programOptions = [],
@@ -14,15 +15,18 @@ function Course({
             <div className="course-container">
                 <div className="textAndInput">
                     <p>
-                        Programnamn/ <i>Program name:</i>                    
-                        </p>
+                        Programnamn/ <i>Program name:</i>
+                    </p>
                     <Autocomplete
                         options={programOptions}
                         label=""
                         className="line-autocomplete"
                         value={selectedProgram}
                         getOptionLabel={(option) => option?.name || ""}
-                        onChange={onProgramChange}
+                        onChange={(program) => {
+                            onProgramChange(program);
+                            saveProgram(program?.code || program?.name || "");
+                        }}
                     />
                 </div>
 

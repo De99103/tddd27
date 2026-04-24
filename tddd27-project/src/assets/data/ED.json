@@ -1,0 +1,1385 @@
+{
+  "program": {
+    "name": "Civilingenjörsprogram i elektronikdesign",
+    "program_code": "6CIEN",
+    "total_credits_hp": 300,
+    "language": "svenska",
+    "campus": "Norrköping",
+    "admission_term": "HT 2022",
+    "note": "Den här exporten bygger på programplanen för 6CIEN, antagningstillfälle HT 2022, från LiU Studieinfo. Kurser som ligger över två perioder har periodformat som exempelvis \"1+2\". För examensdetaljer används null eftersom de inte framgår i programplanstabellen."
+  },
+  "specialisations": [
+    "Trådlösa system",
+    "Organisk elektronik och energisystem"
+  ],
+  "courses": [
+    {
+      "year": 1,
+      "semester": 1,
+      "course_code": "TNA001",
+      "course_name": "Matematisk grundkurs",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "0+1",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "course_code": "TND012",
+      "course_name": "Programmering grk",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "course_code": "TNE094",
+      "course_name": "Digitalteknik och konstruktion",
+      "credits_hp": 12,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 1,
+      "course_code": "TNA002",
+      "course_name": "Linjär algebra",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "course_code": "TNA003",
+      "course_name": "Analys I",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "course_code": "TNA005",
+      "course_name": "Tillämpad matematik i teknik och naturvetenskap",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "course_code": "TNGE37",
+      "course_name": "Kretsteori",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "course_code": "TNA004",
+      "course_name": "Analys II",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 1,
+      "semester": 2,
+      "course_code": "TNGE20",
+      "course_name": "Analog elektronik 1",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "course_code": "TNA006",
+      "course_name": "Analys III",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "course_code": "TNE043",
+      "course_name": "Mekanik och vågfysik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "course_code": "TNGE25",
+      "course_name": "Analog elektronik 2",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "2+1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "course_code": "TNA007",
+      "course_name": "Vektoranalys",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 3,
+      "course_code": "TNE097",
+      "course_name": "Mikrodatorsystem",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TNE056",
+      "course_name": "Ellära och elektromagnetism",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "3+4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TNE087",
+      "course_name": "Metoder och processer vid elektronikproduktion",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TNG032",
+      "course_name": "Tillämpad transformteori",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TKMJ24",
+      "course_name": "Miljöteknik",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TNG006",
+      "course_name": "Matematisk statistik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TNG015",
+      "course_name": "Signaler och system",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 2,
+      "semester": 4,
+      "course_code": "TPTE06",
+      "course_name": "Praktik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNE088",
+      "course_name": "RF-elektronik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNE100",
+      "course_name": "Mikrodatorprojekt",
+      "credits_hp": 2,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNE101",
+      "course_name": "Kretsteori fk",
+      "credits_hp": 4,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNG028",
+      "course_name": "Reglerteknik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNG022",
+      "course_name": "Modellbygge och simulering",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 5,
+      "course_code": "TNG033",
+      "course_name": "Programmering i C++",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TNE041",
+      "course_name": "Modern fysik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TNE107",
+      "course_name": "Elektronikdesign kandidatprojekt",
+      "credits_hp": 16,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "3+1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TNG041",
+      "course_name": "Vetenskaplig metodik, källkritik och rapportskrivning",
+      "credits_hp": 2,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TEIE53",
+      "course_name": "Industriell ekonomi",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TINT01",
+      "course_name": "Introduktionskurs i interkulturell kompetens",
+      "credits_hp": 2,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TNE106",
+      "course_name": "Tillämpad effektelektronik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TND004",
+      "course_name": "Datastrukturer",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 3,
+      "semester": 6,
+      "course_code": "TNG016",
+      "course_name": "Systemtekniska tillämpningar i Matlab",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TGTU94",
+      "course_name": "Teknik och etik",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TEIO87",
+      "course_name": "Projektledning",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TNE064",
+      "course_name": "Digital kommunikationselektronik",
+      "credits_hp": 12,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TSDT14",
+      "course_name": "Signalteori",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TSTE12",
+      "course_name": "Konstruktion av digitala system",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TNE105",
+      "course_name": "Halvledarteknik",
+      "credits_hp": 6,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TNE024",
+      "course_name": "Molekylär fysik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 7,
+      "course_code": "TSEA26",
+      "course_name": "Konstruktion av inbyggda DSP-processorer",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TEIE53",
+      "course_name": "Industriell ekonomi",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TFYA85",
+      "course_name": "Alternativa energikällor och deras tillämpningar",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TKMJ15",
+      "course_name": "Miljömanagement",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TFYA38",
+      "course_name": "Optoelektronik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TINT02",
+      "course_name": "Interkulturell kompetens och interkulturell kommunikation, fortsättningskurs",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNE062",
+      "course_name": "RF Systemutveckling",
+      "credits_hp": 12,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "2+4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNE103",
+      "course_name": "Organisk elektronik 1",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNE106",
+      "course_name": "Tillämpad effektelektronik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNE112",
+      "course_name": "Trådlösa sensornätverk",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNKA10",
+      "course_name": "Retorik i tal, text och bild",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TSRT09",
+      "course_name": "Reglerteori",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TEIO94",
+      "course_name": "Entreprenörskap och idéutveckling",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TRTE21",
+      "course_name": "Ingenjörens miljöpåverkan med fokus på rening och återvinning",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNE093",
+      "course_name": "Solcellsteknik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNG016",
+      "course_name": "Systemtekniska tillämpningar i Matlab",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TNK116",
+      "course_name": "Sakernas internet",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TSKS17",
+      "course_name": "Sensorsystem",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TSRT14",
+      "course_name": "Sensorfusion",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TSTE06",
+      "course_name": "Digitala filter",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 4,
+      "semester": 8,
+      "course_code": "TSTE87",
+      "course_name": "Applikationsspecifika integrerade kretsar",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TNE110",
+      "course_name": "Projektkurs i elektronikkonstruktion",
+      "credits_hp": 12,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "4"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TNE071",
+      "course_name": "Mikrovågsteknik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TNE111",
+      "course_name": "Elektromagnetisk kompatibilitet",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "2+1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TKMJ24",
+      "course_name": "Miljöteknik",
+      "credits_hp": 6,
+      "course_type": "O/V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "3"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TEAE11",
+      "course_name": "Immaterialrätt",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TGTU49",
+      "course_name": "Teknikhistoria",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "1"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TNE083",
+      "course_name": "Antennteori",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 9,
+      "course_code": "TSTE85",
+      "course_name": "Lågeffektselektronik",
+      "credits_hp": 6,
+      "course_type": "V",
+      "voluntary": false,
+      "elective": true,
+      "mandatory": false,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "2",
+      "block": [
+        "2"
+      ],
+      "course_examination": null
+    },
+    {
+      "year": 5,
+      "semester": 10,
+      "course_code": "TQXX33",
+      "course_name": "Examensarbete",
+      "credits_hp": 30,
+      "course_type": "O",
+      "voluntary": false,
+      "elective": false,
+      "mandatory": true,
+      "specialisation": [
+        "Alla"
+      ],
+      "period": "1+2",
+      "block": [
+        "-"
+      ],
+      "course_examination": null
+    }
+  ]
+}
