@@ -6,7 +6,7 @@ function Home() {
             <Login />
 
             <h1>Home page</h1>
-            <Course />
+            <p>Working on  progress <progress value="35" max="100"></progress> </p>
         </>
     );
 }
