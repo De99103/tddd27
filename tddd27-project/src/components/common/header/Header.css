@@ -8,7 +8,9 @@ header {
 .logo-name-container {
     display: flex;
     align-items: center;
-    width: 30%;
+    width: fit-content;
+    color: inherit;
+    text-decoration: none;
 }
 
 .logo {
@@ -52,8 +54,10 @@ header {
     display: none;
 } */
 
-.hamburger {
+.hamburger-component {
+    display: flex;
     visibility: hidden;
+    align-items: baseline;
 }
 
 @media screen and (max-width: 880px) {
@@ -73,10 +77,6 @@ header {
         width: 70%;
     }
 
-    /* .navbar-items-desktop {
-        display: ${hamburgerOpen ? 'inline' : 'none'};
-    } */
-
     .logo {
         padding: 5px 0px 5px 5px;
         height: 6vh;
@@ -89,10 +89,9 @@ header {
     /* .burger-icon {
         height: 5vh;
     } */
-    .hamburger {
+    .hamburger-component {
         visibility: visible;
-        justify-content: center;
-        align-items: center;
         z-index: 10;
+        padding: 10px;
     }
 }

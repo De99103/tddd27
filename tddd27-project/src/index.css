@@ -10,10 +10,10 @@
 
 body {
     margin: 0;
+    background-color: rgb(225, 225, 225);
 }
 
 #root {
-    width: 1126px;
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -23,6 +23,12 @@ body {
     flex-direction: column;
     box-sizing: border-box;
 }
+
+/* @media screen and (max-width: 880px) {
+    root {
+        width: 100%;
+    }
+} */
 
 h1,
 h2 {

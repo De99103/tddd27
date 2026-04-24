@@ -15,10 +15,10 @@ function Header() {
 
     return (
         <header>
-            <div className="logo-name-container">
+            <a href="/" className="logo-name-container">
                 <img src={logo} className="logo" alt="Logo" />
                 <p>LiU-Courses</p>
-            </div>
+            </a>
             <span className="navbar-items">
                 <div className="navbar-items-desktop">
                     <a href="/" className="navbar-link">
@@ -38,7 +38,7 @@ function Header() {
                         alt="Logo"
                     />
                 </div> */}
-                <div className="hamburger" onClick={toggleHamburger}>
+                <div className="hamburger-component" onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>
             </span>
@@ -55,7 +55,7 @@ function Header() {
                     .navbar-items {
                         align-items: ${hamburgerOpen ? "normal" : "center"};
                     }
-
+          
                     .logo-name-container {
                         display: ${hamburgerOpen ? "none" : "flex"};
                     }

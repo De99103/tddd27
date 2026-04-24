@@ -1,4 +1,4 @@
-// import "./Hamburger.css";
+import "./Hamburger.css";
 
 function Hamburger({ isOpen }) {
     return (
@@ -12,37 +12,22 @@ function Hamburger({ isOpen }) {
             {/* Vill få detta att funkar med separat CSS-fil
 Fattar inte hur man importerar variabeln "isOpen" till CSS-filen */}
 
-            <style>{`
-                .hamburger {
-                    width: 2rem;
-                    height: 2rem;
-                    display: flex;
-                    justify-content: space-around;
-                    flex-flow: column nowrap;
-                    z-index: 10;
-                }
+            {/* transform: ${isOpen ? "rotate(-45deg)" : "rotate(0)"}; */}
+            {/* opacity: ${isOpen ? 0 : 1}; */}
 
-                .burger {
-                    width: 2rem;
-                    height: 0.25rem;
-                    border-radius: 10px;
-                    background-color: black;
-                    transform-origin: 1px;
-                    transition: all 0.3s linear;
-                }
+            <style>{`
 
                 .burger1 {
-                    transform: ${isOpen ? "rotate(45deg)" : "rotate(0)"};
+              
+                    transform: ${isOpen ? "translateY(0.65rem) rotate(-45deg)" : "translateY(0) rotate(0)"};
                 }
                 .burger2 {
-                    transform: ${isOpen ? "translateX(100%)" : "translateX(0)"};
+                    //transform: ${isOpen ? "rotate(-45deg)" : "rotate(0)"};
                     opacity: ${isOpen ? 0 : 1};
                 }
                 .burger3 {
-                    transform: ${isOpen ? "rotate(-45deg)" : "rotate(0)"};
+                    transform: ${isOpen ? "translateY(-0.65rem) rotate(45deg)" : "translateY(0) rotate(0)"};
                 }
-
-
 
             `}</style>
         </>
