@@ -4,6 +4,8 @@ import CoursesTable from "../components/common/courses_tabell/CoursesTable";
 import mtData from "../assets/data/MT.json";
 import mtAiData from "../assets/data/MT-AI.json";
 import dtData from "../assets/data/DT.json";
+import edData from "../assets/data/ED.json";
+import itData from "../assets/data/IT.json";
 
 function Account() {
     const [courses, setCourses] = useState([]);
@@ -29,12 +31,12 @@ function Account() {
         {
             id : "ED", 
             name : "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses : [], // No courses available for this program än 
+            courses : edData.courses|| []
         },
         {
             id : "IT", 
             name : "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses : [], // No courses available for this program än 
+            courses : itData.courses|| []
         }
     ];
 

@@ -16,7 +16,7 @@ const Autocomplete = ({
       <MuiAutocomplete
         options={Array.isArray(options) ? options : []}
         value={value}
-        forcePopupIcon
+        forcePopupIcon = {false}
         openOnFocus
         autoComplete
         autoHighlight
