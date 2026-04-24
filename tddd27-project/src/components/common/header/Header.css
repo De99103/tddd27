@@ -3,8 +3,6 @@ header {
     flex-direction: row;
     background-color: #7c809b;
     color: white;
-    height: 12vh;
-    width: 100%;
 }
 
 .logo-name-container {
@@ -16,13 +14,12 @@ header {
 }
 
 .logo {
-    height: 10vh;
-    padding: 10px 0px 10px 10px;
+    height: 9vh;
+    padding: 20px 0px 20px 20px;
 }
 
 .logo-name-container p {
-    font-size: 2em;
-    /* padding: 10px 10px 10px 0px; */
+    font-size: xx-large;
     font-weight: bold;
 }
 
@@ -31,8 +28,6 @@ header {
     flex-direction: row;
     justify-content: right;
     width: 70%;
-    z-index: 12;
-    height: 12vh;
 }
 
 .navbar-items-desktop {
@@ -65,10 +60,11 @@ header {
     align-items: baseline;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 880px) {
     .navbar-items {
         width: 100%;
         background-color: #7c809b;
+        padding: 10px;
     }
 
     .navbar-items a {

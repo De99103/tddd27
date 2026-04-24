@@ -45,7 +45,7 @@ function Header() {
             {/* Samma sak här med att försöka få den här CSS in i sin egna fil, men har problem med variablen "hamburgerOpen" */}
 
             <style>{`
-                @media screen and (max-width: 767px) {
+                @media screen and (max-width: 880px) {
                     .navbar-items-desktop {
                         display: ${hamburgerOpen ? "flex" : "none"};
                         flex-direction: ${hamburgerOpen ? "column" : "row"};
@@ -53,14 +53,11 @@ function Header() {
 
                     .navbar-items {
                         align-items: ${hamburgerOpen ? "normal" : "center"};
-                        height: ${hamburgerOpen ? "fit-content" : "inherit"};
                     }
           
                     .logo-name-container {
                         display: ${hamburgerOpen ? "none" : "flex"};
                     }
-
-
                 }
             `}</style>
         </header>
