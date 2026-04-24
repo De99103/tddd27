@@ -1,0 +1,11 @@
+.page-popup {
+    display: flex;
+    flex-direction: row;
+
+    background-color: green;
+    width: 70%;
+}
+
+.container-popup {
+    justify-content: center;
+}

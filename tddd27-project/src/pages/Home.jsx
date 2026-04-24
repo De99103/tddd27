@@ -1,4 +1,4 @@
-import { Course, Login } from "../components/common";
+import { Course, Login, Popup } from "../components/common";
 
 function Home() {
     return (
@@ -7,7 +7,7 @@ function Home() {
 
             <h1>Home page</h1>
             <Course />
-            <Course />
+            <Popup />
         </>
     );
 }
