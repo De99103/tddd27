@@ -30,7 +30,7 @@
     padding-bottom: 30px;
 }
 
-.codeAndGrade {
+.titleAndDepartment {
     display: flex;
     flex-direction: row;
 }

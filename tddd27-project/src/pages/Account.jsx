@@ -1,27 +1,64 @@
-import { Course, Login } from "../components/common";
-
 import { useState } from "react";
-import { Autocomplete } from "../components/common";
+import { Login, Course } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
-
-import "./Account.css";
+import mtData from "../assets/data/MT.json";
+import mtAiData from "../assets/data/MT-AI.json";
+import dtData from "../assets/data/DT.json";
 
 function Account() {
     const [courses, setCourses] = useState([]);
+    const [selectedProgram, setSelectedProgram] = useState(null);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+
+    const programOptions = [
+        {
+            id: "MT",
+            name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
+            courses: mtData.courses || [],
+        },
+        {
+            id: "MT_AI",
+            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
+            courses: mtAiData.courses || [],
+        },
+        {
+            id: "DT",
+            name: "Civilingenjörsprogram i datateknik (DT)",
+            courses: dtData.courses || [],
+        },
+        {
+            id : "ED", 
+            name : "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses : [], // No courses available for this program än 
+        },
+        {
+            id : "IT", 
+            name : "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses : [], // No courses available for this program än 
+        }
+    ];
+
+    const handleProgramChange = (program) => {
+        setSelectedProgram(program);
+        setSelectedCourse(null);
+        setCourses(program?.courses || []);
+    };
 
     return (
         <div className="account">
             <Login />
-
             <h1>Account Page</h1>
-            <p>This is the account page.</p>
 
-             <div className="program-row">
-                <span>Välja ditt program:</span>
-                <Autocomplete onCoursesLoaded={setCourses} />
-            </div>
+            <Course
+                programOptions={programOptions}
+                selectedProgram={selectedProgram}
+                onProgramChange={handleProgramChange}
+                courses={courses}
+                selectedCourse={selectedCourse}
+                setSelectedCourse={setSelectedCourse}
+            />
 
-            <CoursesTable courses={courses} />
+            <CoursesTable courses={selectedCourse ? [selectedCourse] : courses} />
         </div>
     );
 }
