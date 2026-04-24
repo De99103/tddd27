@@ -18,7 +18,6 @@ Fattar inte hur man importerar variabeln "isOpen" till CSS-filen */}
             <style>{`
 
                 .burger1 {
-              
                     transform: ${isOpen ? "translateY(0.65rem) rotate(-45deg)" : "translateY(0) rotate(0)"};
                 }
                 .burger2 {

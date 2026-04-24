@@ -49,13 +49,11 @@ function Header() {
                     .navbar-items-desktop {
                         display: ${hamburgerOpen ? "flex" : "none"};
                         flex-direction: ${hamburgerOpen ? "column" : "row"};
-                        background-color: ${hamburgerOpen ? "blue" : "blue"};
                     }
 
                     .navbar-items {
                         align-items: ${hamburgerOpen ? "normal" : "center"};
                         height: ${hamburgerOpen ? "fit-content" : "inherit"};
-                        // background-color: ${hamburgerOpen ? "red" : "red"};
                     }
           
                     .logo-name-container {

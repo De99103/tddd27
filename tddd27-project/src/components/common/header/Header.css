@@ -81,7 +81,6 @@ header {
         width: 70%;
     }
 
-<<<<<<< HEAD
     .logo {
         padding: 5px 0px 5px 5px;
         height: 6vh;
@@ -98,9 +97,5 @@ header {
         visibility: visible;
         z-index: 10;
         padding: 10px;
-=======
-    .hamburger {
-        visibility: visible;
->>>>>>> 05e61598909730eef9f5cf317cf0036b06d19c3e
     }
 }
