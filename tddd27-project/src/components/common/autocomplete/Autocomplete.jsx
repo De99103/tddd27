@@ -2,73 +2,57 @@ import MuiAutocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import "./Autocomplete.css";
 
-const options = [
-    "Civilingenjörsprogram i medieteknik",
-    "Civilingenjörsprogram i medieteknik och AI",
-    "Civilingenjörsprogram i informationsteknologi (IT)",
-    "Civilingenjörsprogram i datateknik",
-    "Civilingenjörsprogram i mjukvaruteknik",
-    "Civilingenjörsprogram i medicinsk teknik",
-    "Civilingenjörsprogram i elektronik och systemdesign"
+const Autocomplete = ({
+  options = [],
+  value = null,
+  onChange,
+  label = "Search..",
+  className = "",
+  getOptionLabel = (option) =>
+    typeof option === "string" ? option : option?.name || "",
+}) => {
+  return (
+    <div className={`autocomplete-wrapper ${className}`}>
+      <MuiAutocomplete
+        options={Array.isArray(options) ? options : []}
+        value={value}
+        forcePopupIcon
+        openOnFocus
+        autoComplete
+        autoHighlight
+        onChange={(event, newValue) => onChange?.(newValue)}
+        getOptionLabel={getOptionLabel}
+        isOptionEqualToValue={(option, value) => {
+          if (!option || !value) return false;
 
-];
+          if (typeof option === "string" || typeof value === "string") {
+            return option === value;
+          }
 
-const Autocomplete = ({ onCoursesLoaded }) => {
-    const handleChange = async (event, value) => {
-        let filePath = "";
+          if (option.id && value.id) {
+            return option.id === value.id;
+          }
 
-        if (value === "Civilingenjörsprogram i medieteknik och AI") {
-            filePath = "/src/assets/data/MT-AI.json";
-        } else if (value === "Civilingenjörsprogram i medieteknik") {
-            filePath = "/src/assets/data/MT.json";
-        }
-        else if (value === "Civilingenjörsprogram i informationsteknologi (IT)") {
-            filePath = "/src/assets/data/IT_courses.json";
-        } else if (value === "Civilingenjörsprogram i datateknik") {
-            filePath = "/src/assets/data/DT_courses.json";
-        } else if (value === "Civilingenjörsprogram i mjukvaruteknik") {
-            filePath = "/src/assets/data/MK_courses.json";
-        } else if (value === "Civilingenjörsprogram i medicinsk teknik") {
-            filePath = "/src/assets/data/MedTech_courses.json";
-        }
-        else if (value === "Civilingenjörsprogram i elektronik och systemdesign") {
-            filePath = "/src/assets/data/ED_courses.json";
-        }
+          if (option.name && value.name) {
+            return option.name === value.name;
+          }
 
-        if (!filePath) return;
+          if (option.filePath && value.filePath) {
+            return option.filePath === value.filePath;
+          }
 
-        try {
-            const response = await fetch(filePath);
-            const data = await response.json();
+          if (option.course_code && value.course_code) {
+            return option.course_code === value.course_code;
+          }
 
-            onCoursesLoaded(data.courses);
-        } catch (error) {
-            console.error("Could not load courses:", error);
-            onCoursesLoaded([]);
-        }
-    };
-
-    return (
-        <div className="autocomplete-wrapper">
-            <MuiAutocomplete
-                options={options}
-                autoComplete
-                autoHighlight
-                onChange={handleChange}
-                renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search.."
-                        sx={{
-                            "& .MuiInputLabel-root": {
-                                fontSize: "15px",
-                            },
-                        }}
-                    />
-                )}
-            />
-        </div>
-    );
+          return option === value;
+        }}
+        renderInput={(params) => (
+          <TextField {...params} label={label} variant="outlined" />
+        )}
+      />
+    </div>
+  );
 };
 
 export default Autocomplete;
