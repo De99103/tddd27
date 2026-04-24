@@ -22,7 +22,8 @@
 .semester-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 0.5rem;
+    margin: 0.5rem ;
 }
 
 .semester-column {
@@ -40,21 +41,23 @@
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     gap: 18px;
+    height: max-content;
 }
     /* if we have a five boxes ( courses) the five one will be in the middel  */
 .course-grid > :last-child:nth-child(odd) {  
     grid-column: 1 / -1; /*gör att kortet får använda hela raden */
     justify-self: center;
-    width: 40%;
+    width: 13rem;
+
 }
 .course-card {
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(124, 128, 155, 0.45);
     border-radius: 28px;
     padding: 12px;
-    min-height: 180px;
+    height: 12rem;
     display: flex;
     flex-direction: column;
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
@@ -135,4 +138,9 @@
     .semester-grid {
         grid-template-columns: 1fr;
     }
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); /* i dont like this .......*/
+    }
+    /* to continue ...  */
+   
 }

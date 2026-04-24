@@ -39,11 +39,10 @@ const CoursesTable = ({ courses = [] }) => {
                                         {semesters[semester].map((course) => (
                                             <div
                                                 key={course.course_code}
-                                                className={`course-card ${
-                                                    course.elective
-                                                        ? "selectable"
-                                                        : "mandatory"
-                                                }`}
+                                                className={`course-card ${course.elective
+                                                    ? "selectable"
+                                                    : "mandatory"
+                                                    }`}
                                             >
                                                 <div className="course-code-box">
                                                     {course.course_code}
@@ -54,11 +53,13 @@ const CoursesTable = ({ courses = [] }) => {
                                                         {course.course_name}
                                                     </h4>
 
+                                                    {/* to move into the pop-up page  */}
                                                     <div className="course-details">
                                                         <p>{course.credits_hp} hp</p>
                                                         <p>Period {course.period}</p>
                                                     </div>
 
+                                                    {/* to make it as function to move action here !  */}
                                                     {course.elective && (
                                                         <button className="add-btn">
                                                             Add course
