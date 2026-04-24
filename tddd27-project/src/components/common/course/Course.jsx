@@ -14,8 +14,8 @@ function Course({
             <div className="course-container">
                 <div className="textAndInput">
                     <p>
-                        Utbildingskod/<i>Education code:</i>
-                    </p>
+                        Programnamn/ <i>Program name:</i>                    
+                        </p>
                     <Autocomplete
                         options={programOptions}
                         label=""
