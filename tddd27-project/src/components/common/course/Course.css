@@ -6,6 +6,7 @@
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 20pt;
+    margin: 10px;
 }
 
 .page p {
@@ -53,7 +54,7 @@ input:focus {
     outline: none;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 767px) {
     .course-container {
         display: flex;
         flex-direction: column;
