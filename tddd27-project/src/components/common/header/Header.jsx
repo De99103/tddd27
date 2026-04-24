@@ -23,11 +23,11 @@ function Header() {
                     <a href="/" className="navbar-link">
                         Home
                     </a>
-                    <a href="/about" className="navbar-link">
-                        About
-                    </a>
                     <a href="/account" className="navbar-link">
                         Account
+                    </a>
+                    <a href="/about" className="navbar-link">
+                        About
                     </a>
                 </div>
                 {/* <div className="navbar-items-mobile">

@@ -3,6 +3,7 @@ header {
     flex-direction: row;
     background-color: #7c809b;
     color: white;
+    justify-content: space-between;
 }
 
 .logo-name-container {
