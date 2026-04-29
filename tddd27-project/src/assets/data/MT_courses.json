@@ -35,10 +35,26 @@
       "specialisation": null,
       "examiner_name": "Claes Algström",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4.5, "grading": "U, 3, 4, 5" },
-        { "code": "UPG1", "name": "Assignments and oral presentations", "credits": 1.5, "grading": "U, G" },
-        { "code": "KTR1", "name": "Optional examinations", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4.5,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "UPG1",
+          "name": "Assignments and oral presentations",
+          "credits": 1.5,
+          "grading": "U, G"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examinations",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -56,10 +72,26 @@
       "specialisation": null,
       "examiner_name": "Aida Nordman",
       "examination": [
-        { "code": "DAT1", "name": "Computer examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory Work", "credits": 3, "grading": "U, G" },
-        { "code": "UPG1", "name": "Voluntary assignment", "credits": 0, "grading": "U, G" }
-      ]
+        {
+          "code": "DAT1",
+          "name": "Computer examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory Work",
+          "credits": 3,
+          "grading": "U, G"
+        },
+        {
+          "code": "UPG1",
+          "name": "Voluntary assignment",
+          "credits": 0,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -78,11 +110,32 @@
       "examiner_name": "Daniel Nyström",
       "note": "Disused after Autumn 2024, replaced by TNM120",
       "examination": [
-        { "code": "UPG1", "name": "Assignment", "credits": 2, "grading": "U, G" },
-        { "code": "PRA2", "name": "Project work", "credits": 2, "grading": "U, G" },
-        { "code": "UPG2", "name": "Project presentation", "credits": 1, "grading": "U, G" },
-        { "code": "KTR1", "name": "Written test", "credits": 1, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Assignment",
+          "credits": 2,
+          "grading": "U, G"
+        },
+        {
+          "code": "PRA2",
+          "name": "Project work",
+          "credits": 2,
+          "grading": "U, G"
+        },
+        {
+          "code": "UPG2",
+          "name": "Project presentation",
+          "credits": 1,
+          "grading": "U, G"
+        },
+        {
+          "code": "KTR1",
+          "name": "Written test",
+          "credits": 1,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -100,11 +153,32 @@
       "specialisation": null,
       "examiner_name": "George Baravdish",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Individual assignments", "credits": 0, "grading": "D" },
-        { "code": "KTR2", "name": "Individual assignments", "credits": 0, "grading": "D" },
-        { "code": "UPG2", "name": "Individual assignment", "credits": 0, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Individual assignments",
+          "credits": 0,
+          "grading": "D"
+        },
+        {
+          "code": "KTR2",
+          "name": "Individual assignments",
+          "credits": 0,
+          "grading": "D"
+        },
+        {
+          "code": "UPG2",
+          "name": "Individual assignment",
+          "credits": 0,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -123,9 +197,20 @@
       "examiner_name": "Niklas Rönnberg",
       "note": "Disused after Autumn 2022, replaced by TNM115",
       "examination": [
-        { "code": "UPG1", "name": "Hand-in evaluation assignment", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB2", "name": "Laboratory work including hand-in assignments", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Hand-in evaluation assignment",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB2",
+          "name": "Laboratory work including hand-in assignments",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -143,9 +228,20 @@
       "specialisation": null,
       "examiner_name": "George Baravdish",
       "examination": [
-        { "code": "TEN1", "name": "Written exam", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Optional examinations", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written exam",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examinations",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -164,9 +260,20 @@
       "examiner_name": "Berkant Savas",
       "note": "Disused after Spring 2025, replaced by TNA011",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work / assignments", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work / assignments",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -184,9 +291,20 @@
       "specialisation": null,
       "examiner_name": "Mark E Dieckmann",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -204,9 +322,20 @@
       "specialisation": null,
       "examiner_name": "George Baravdish",
       "examination": [
-        { "code": "TEN1", "name": "Written exam", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Optional examinations", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written exam",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examinations",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 1,
@@ -225,9 +354,20 @@
       "examiner_name": "Sasan Gooran",
       "note": "Disused after Spring 2025, replaced by TNM122",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -245,9 +385,20 @@
       "specialisation": null,
       "examiner_name": "Olof Svensson",
       "examination": [
-        { "code": "TEN1", "name": "Written exam", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Optional examination", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written exam",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examination",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -265,9 +416,20 @@
       "specialisation": null,
       "examiner_name": "Ulf Sannemo",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 5, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 1, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 5,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 1,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -286,11 +448,32 @@
       "examiner_name": "Camilla Forsell",
       "note": "Spans both periods of the semester",
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "UPG3", "name": "Individual home assignment", "credits": 1, "grading": "U, G" },
-        { "code": "UPG4", "name": "Group programming assignments", "credits": 1, "grading": "U, G" },
-        { "code": "MUN1", "name": "Oral presentation", "credits": 1, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "UPG3",
+          "name": "Individual home assignment",
+          "credits": 1,
+          "grading": "U, G"
+        },
+        {
+          "code": "UPG4",
+          "name": "Group programming assignments",
+          "credits": 1,
+          "grading": "U, G"
+        },
+        {
+          "code": "MUN1",
+          "name": "Oral presentation",
+          "credits": 1,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -308,9 +491,20 @@
       "specialisation": null,
       "examiner_name": "Olof Svensson",
       "examination": [
-        { "code": "TEN1", "name": "Written exam", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Optional examination", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written exam",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examination",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -328,9 +522,20 @@
       "specialisation": null,
       "examiner_name": "Aida Nordman",
       "examination": [
-        { "code": "DAT1", "name": "Computer examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "DAT1",
+          "name": "Computer examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -348,9 +553,20 @@
       "specialisation": null,
       "examiner_name": "Lukás Malý",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" },
-        { "code": "KTR1", "name": "Optional examination", "credits": 0, "grading": "D" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "KTR1",
+          "name": "Optional examination",
+          "credits": 0,
+          "grading": "D"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -368,9 +584,20 @@
       "specialisation": null,
       "examiner_name": "Sasan Gooran",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4.5, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory course", "credits": 1.5, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4.5,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory course",
+          "credits": 1.5,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -389,9 +616,20 @@
       "examiner_name": "Martin Falk",
       "note": "Spans both periods",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -409,8 +647,14 @@
       "specialisation": null,
       "examiner_name": "Tomas Johansson",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 2,
@@ -428,10 +672,26 @@
       "specialisation": null,
       "examiner_name": "Naveen Kumar Dasanadoddi Venkategowda",
       "examination": [
-        { "code": "TEN7", "name": "Written examination part 1", "credits": 2, "grading": "U, 3, 4, 5" },
-        { "code": "TEN8", "name": "Written examination part 2", "credits": 2, "grading": "U, 3, 4, 5" },
-        { "code": "TEN9", "name": "Written examination part 3", "credits": 2, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN7",
+          "name": "Written examination part 1",
+          "credits": 2,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "TEN8",
+          "name": "Written examination part 2",
+          "credits": 2,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "TEN9",
+          "name": "Written examination part 3",
+          "credits": 2,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -449,9 +709,20 @@
       "specialisation": null,
       "examiner_name": "Per Sandström",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 5, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 1, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 5,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 1,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -469,9 +740,20 @@
       "specialisation": null,
       "examiner_name": "Anna Lombardi",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -490,9 +772,20 @@
       "examiner_name": "Kostiantyn Kucher",
       "note": "Spans both periods",
       "examination": [
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -510,9 +803,20 @@
       "specialisation": null,
       "examiner_name": "Anna Lombardi",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work / report", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work / report",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -530,9 +834,20 @@
       "specialisation": null,
       "examiner_name": "Daniel Nyström",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -551,9 +866,20 @@
       "examiner_name": "Daniel Jönsson",
       "note": "Spans the full semester across both periods",
       "examination": [
-        { "code": "PRA1", "name": "Project work and report", "credits": 12, "grading": "U, G" },
-        { "code": "PRA2", "name": "Oral presentation and opposition", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work and report",
+          "credits": 12,
+          "grading": "U, G"
+        },
+        {
+          "code": "PRA2",
+          "name": "Oral presentation and opposition",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -571,9 +897,20 @@
       "specialisation": null,
       "examiner_name": "Elmira Zohrevandi",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -591,9 +928,20 @@
       "specialisation": null,
       "examiner_name": "Aida Nordman",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -611,8 +959,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "MOM1", "name": "Active participation", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "MOM1",
+          "name": "Active participation",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 3,
@@ -630,8 +984,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Internship report and supervisor evaluation", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Internship report and supervisor evaluation",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -650,9 +1010,20 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IEI"
     },
     {
       "year": 4,
@@ -670,8 +1041,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -690,9 +1067,20 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "UPG1", "name": "Assignments", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "UPG1",
+          "name": "Assignments",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -710,9 +1098,20 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": "Mark E Dieckmann",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 4,
@@ -730,9 +1129,20 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -750,9 +1160,20 @@
       "specialisation": "Visualization",
       "examiner_name": "Ingrid Hotz",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -770,9 +1191,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": "Niklas Rönnberg",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -791,9 +1223,20 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -811,8 +1254,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "IEI"
     },
     {
       "year": 4,
@@ -830,8 +1279,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -849,9 +1304,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": "Daniel Nyström",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -869,9 +1335,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -889,9 +1366,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -909,8 +1397,14 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "LAB1", "name": "Laboratory work / project", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "LAB1",
+          "name": "Laboratory work / project",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -929,8 +1423,14 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -948,8 +1448,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 6, "grading": "U, 3, 4, 5" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 6,
+          "grading": "U, 3, 4, 5"
+        }
+      ],
+      "department": "IEI"
     },
     {
       "year": 4,
@@ -968,8 +1474,14 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "UPG1", "name": "Assignments", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Assignments",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -988,8 +1500,14 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "UPG1", "name": "Assignments and presentations", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Assignments and presentations",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1007,9 +1525,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4.5, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 1.5, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4.5,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 1.5,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1028,9 +1557,20 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "UPG1", "name": "Assignments", "credits": 3, "grading": "U, G" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Assignments",
+          "credits": 3,
+          "grading": "U, G"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1048,9 +1588,20 @@
       "specialisation": "Visualization",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "PRA1", "name": "Project work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1068,9 +1619,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 4,
@@ -1088,8 +1650,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 4,
@@ -1107,9 +1675,20 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work / project", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work / project",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1127,9 +1706,20 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1147,8 +1737,14 @@
       "specialisation": "Visualization",
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 4,
@@ -1166,8 +1762,14 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1185,9 +1787,20 @@
       "specialisation": "Visualization",
       "examiner_name": "Mark E Dieckmann",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1205,9 +1818,20 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1225,9 +1849,20 @@
       "specialisation": "Visualization",
       "examiner_name": "Ingrid Hotz",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1245,9 +1880,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1266,8 +1912,14 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1285,9 +1937,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": "Niklas Rönnberg",
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 4, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 2, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 4,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 2,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1305,8 +1968,14 @@
       "specialisation": null,
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1325,8 +1994,14 @@
       "examiner_name": "Niklas Rönnberg",
       "note": "Compulsory for Visualization; replaced by TDDD89 for Computer Graphics and Game Programming specialisation",
       "examination": [
-        { "code": "UPG1", "name": "Written assignments", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Written assignments",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1344,9 +2019,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1364,9 +2050,20 @@
       "specialisation": "Advanced Techniques for Audio and Image Media",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1384,8 +2081,14 @@
       "specialisation": "Visualization",
       "examiner_name": null,
       "examination": [
-        { "code": "LAB1", "name": "Laboratory work / project", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "LAB1",
+          "name": "Laboratory work / project",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     },
     {
       "year": 5,
@@ -1403,8 +2106,14 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1422,9 +2131,20 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1443,8 +2163,14 @@
       "examiner_name": null,
       "note": "Spans periods 1 and 2",
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1463,8 +2189,14 @@
       "examiner_name": null,
       "note": "Compulsory/Elective (C/E); replaces TNM107 for Computer Graphics specialisation students",
       "examination": [
-        { "code": "UPG1", "name": "Written assignments", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "UPG1",
+          "name": "Written assignments",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1482,8 +2214,14 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "LAB1", "name": "Laboratory project", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "LAB1",
+          "name": "Laboratory project",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1501,9 +2239,20 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "TEN1", "name": "Written examination", "credits": 3, "grading": "U, 3, 4, 5" },
-        { "code": "LAB1", "name": "Laboratory work", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "TEN1",
+          "name": "Written examination",
+          "credits": 3,
+          "grading": "U, 3, 4, 5"
+        },
+        {
+          "code": "LAB1",
+          "name": "Laboratory work",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1521,8 +2270,14 @@
       "specialisation": "Computer Graphics and Game Programming",
       "examiner_name": null,
       "examination": [
-        { "code": "PRA1", "name": "Project work", "credits": 6, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Project work",
+          "credits": 6,
+          "grading": "U, G"
+        }
+      ],
+      "department": "IDA"
     },
     {
       "year": 5,
@@ -1541,10 +2296,26 @@
       "examiner_name": "Assigned individually per thesis (see programme rules)",
       "note": "Spans both periods of the final semester. Examiner is appointed per project within the allowed main subject areas.",
       "examination": [
-        { "code": "PRA1", "name": "Written thesis report", "credits": 22.5, "grading": "U, G" },
-        { "code": "OPPO", "name": "Oral opposition", "credits": 4.5, "grading": "U, G" },
-        { "code": "AUSK", "name": "Attendance at thesis presentations (3×)", "credits": 3, "grading": "U, G" }
-      ]
+        {
+          "code": "PRA1",
+          "name": "Written thesis report",
+          "credits": 22.5,
+          "grading": "U, G"
+        },
+        {
+          "code": "OPPO",
+          "name": "Oral opposition",
+          "credits": 4.5,
+          "grading": "U, G"
+        },
+        {
+          "code": "AUSK",
+          "name": "Attendance at thesis presentations (3×)",
+          "credits": 3,
+          "grading": "U, G"
+        }
+      ],
+      "department": "ITN"
     }
   ]
 }
