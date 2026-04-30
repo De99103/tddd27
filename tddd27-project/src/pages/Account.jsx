@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Login, Course } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
-import mtData from "../assets/data/MT.json";
+import mtData from "../assets/data/MT.json"; // the old link 
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
 import mtAiData from "../assets/data/MT-AI.json";
 import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
@@ -16,7 +17,7 @@ function Account() {
         {
             id: "MT",
             name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
-            courses: mtData.courses || [],
+            courses: mtData_new.courses || [],
         },
         {
             id: "MT_AI",

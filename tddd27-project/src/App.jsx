@@ -19,6 +19,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/account" element={<Account />} />
                 </Routes>
+            
             </div>
         </BrowserRouter>
     );

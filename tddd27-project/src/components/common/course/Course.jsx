@@ -1,6 +1,10 @@
 import "./Course.css";
 import Autocomplete from "../autocomplete/Autocomplete";
-import { saveProgram } from "../../../fireBase/userData";
+import { useState } from "react";
+
+
+//should this be a page or a component ? or not here at all?? 
+import { saveCourse, savePublicCourseRating } from "../../../fireBase/userData";
 
 function Course({
     programOptions = [],
@@ -9,7 +13,55 @@ function Course({
     courses = [],
     selectedCourse = null,
     setSelectedCourse = () => { },
+
+
+
 }) {
+    const [educationName, setEducationName] = useState("");
+    const [courseGrade, setCourseGrade] = useState("");
+    const [masterCourse, setMasterCourse] = useState("");
+    const [profile, setProfile] = useState("");
+    const [notes, setNotes] = useState("");
+    const [courseRating, setCourseRating] = useState("");
+
+    async function handleSave() {
+        try {
+            if (!selectedProgram) {
+                alert("Select an education/program first!");
+                return;
+            }
+
+            if (!selectedCourse) {
+                alert("Select a course before saving!");
+                return;
+            }
+
+            const educationId = selectedProgram.code || selectedProgram.name;
+            const courseId = selectedCourse.course_code;
+
+            if (!educationId || !courseId) {
+                alert("Missing education ID or course ID");
+                return;
+            }
+
+            await saveCourse(educationId, "mandatory", courseId, {
+                grade: courseGrade,
+                notes: notes,
+                rating: courseRating,
+            });
+
+            await savePublicCourseRating(courseId, {
+                grade: courseGrade,
+                rating: courseRating,
+            });
+
+            alert("Saved!");
+        } catch (error) {
+            console.error("Error saving:", error);
+        }
+    }
+
+
     return (
         <div className="page">
             <div className="course-container">
@@ -25,9 +77,12 @@ function Course({
                         getOptionLabel={(option) => option?.name || ""}
                         onChange={(program) => {
                             onProgramChange(program);
-                            saveProgram(program?.code || program?.name || "");
+                            // saveProgram(program?.code || program?.name || "");
                         }}
                     />
+                    <button onClick={handleSave}>
+                        Save
+                    </button>
                 </div>
 
                 <div className="codeAndGrade">
@@ -48,6 +103,7 @@ function Course({
                         />
                     </div>
 
+                    {/* // should we make the department line shorter ?  */}
                     <div className="titleAndDepartment">
                         <div className="textAndInput">
                             <p>
@@ -57,18 +113,42 @@ function Course({
                                 name="input_department"
                                 type="text"
                                 value={selectedCourse?.department || ""}
-                                readOnly
+                                readOnly // we don't want users to edit this field, it's just for display 
                             />
                             <div className="textAndInput">
                                 <p>
                                     Betyg/<i>Grade:</i>
                                 </p>
-                                <input name="input_grade" type="text" />
+                                <input name="input_grade" type="text"
+                                    value={courseGrade}
+                                    onChange={(e) => setCourseGrade(e.target.value)}
+                                />
                             </div>
                         </div>
+
+                    </div>
+                    {/* just to show the rating input need to fix then! */}
+                    <div className="textAndInput">
+                        <p>
+                            Rating/<i>Rating 1-5:</i>
+                        </p>
+
+                        <select
+                            value={courseRating}
+                            onChange={(e) => setCourseRating(Number(e.target.value))}
+                        >
+                            <option value="">Select rating</option>
+                            <option value="1">1 - Very easy</option>
+                            <option value="2">2 - Easy</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - Hard</option>
+                            <option value="5">5 - Very hard</option>
+                        </select>
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 }

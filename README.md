@@ -45,6 +45,15 @@ A website that lets you keep up with your courses, HP:s and grades. Keeps track 
 
 By using Claude AI, we could create a JSON file for MT courses to start working with. We are currently waiting for a response from the helpdesk to gain access to an API for all programs at LiU.
 
+
+
+### Firebase data structure {version 30 April}
+
+User course data is stored under `users/{userId}/educations/{educationId}`. Each education has its own course collections, such as `mandatoryCourses` and `selectedCourses`, so changing or adding a new education does not overwrite previous data. Each course is saved by `courseId` and contains fields like `grade`, `notes`, and `rating`.
+
+Public course ratings are also saved under `courseStats/{courseId}/ratings`, so everyone can view course statistics without seeing private user data.
+
+
 ## Installation
 
 This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Firebase Authentication (including Google sign-in), Vite, and ESLint.
