@@ -1,15 +1,8 @@
 import Autocomplete from "../autocomplete/Autocomplete";
+import RateButton from "../rateButton";
 import "./Popup.css";
-import { useState } from "react";
-import { createRoot } from "react-dom/client";
 
 function Popup() {
-    const [courseRated, drawCircle] = useState(false);
-    const toggleCircle = () => {
-        drawCircle(!courseRated);
-        console.log("Du försökte rate:a");
-    };
-
     return (
         <div className="page_popup">
             <div className="container_popup">
@@ -26,22 +19,10 @@ function Popup() {
                     <p className="popup_grade_variable">3</p>
                 </div>
                 <p className="text_before_rating"> My rating of the course:</p>
-                <div className="popup_rate_course">
-                    {/* byt ut mot komponenter */}
-                    <p
-                        className="popup_rate_2"
-                        onClick={toggleCircle}
-                        isOpen={courseRated}
-                    >
-                        1
-                    </p>
-                    <p className="popup_rate_2">2</p>
-                    <p className="popup_rate_2">3</p>
-                    <p className="popup_rate_2">4</p>
-                    <p className="popup_rate_2">5</p>
-                </div>
 
-                <p className="rate_course_rating_selected">O</p>
+                <div className="popup_rate_course_buttons">
+                    <RateButton number={"1"} />
+                </div>
             </div>
         </div>
     );

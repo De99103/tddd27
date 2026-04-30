@@ -78,20 +78,9 @@
     padding-top: 50px;
 }
 
-.popup_rate_course {
-    font-size: 3.5rem;
+.popup_rate_course_buttons {
     display: flex;
+    font-size: 3.5rem;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.rate_course_rating_selected {
-    color: red;
-    z-index: 5;
-    font-size: 6rem;
-    visibility: hidden;
-}
-
-.rate_course_rating_selected :hover {
-    visibility: visible;
 }
