@@ -45,7 +45,18 @@ A website that lets you keep up with your courses, HP:s and grades. Keeps track 
 
 By using Claude AI, we could create a JSON file for MT courses to start working with. We are currently waiting for a response from the helpdesk to gain access to an API for all programs at LiU.
 
+### Features {what we have now! 30 April}
 
+- User login with Firebase Authentication
+- Select an engineering program from local JSON data
+- Load courses automatically based on the selected program
+- Search and select a course with autocomplete
+- Show course department automatically from the selected course data
+- Display courses grouped by year and semester
+- Show course cards with course code, name, credits, and period
+- Save selected course data to Firebase per user and per education
+- Store course grade, notes (working on it), and rating
+- Save public course ratings for shared course statistics
 
 ### Firebase data structure {version 30 April}
 
