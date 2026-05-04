@@ -61,7 +61,7 @@ header {
     align-items: baseline;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 767px) {
     .navbar-items {
         width: 100%;
         background-color: #7c809b;

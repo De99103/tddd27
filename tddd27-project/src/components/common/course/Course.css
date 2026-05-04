@@ -17,8 +17,6 @@
 .course-container {
     background-image: url("/src/assets/images/paper.jpg");
     color: black;
-    width: fit-content;
-    height: fit-content;
     text-wrap: nowrap;
     text-align: left;
     padding: 40px 40px 40px 30px;
@@ -28,13 +26,14 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 30px;
-    width: 100%;
+    align-items: center;
 }
 
-.program_name_and_save_button {
+.program_name_and_button {
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
 
 .departmentAndGrade {
@@ -43,31 +42,21 @@
 }
 
 #department_container {
-    width: 40%;
+    width: 70%;
 }
 
 #grade_container {
     width: 30%;
 }
 
-.input {
+input {
     color: gray;
     font-size: 18pt;
     border: none;
     width: 100%;
     border-bottom: 1px solid black;
-    background-color: transparent;
     font-family: "Indie Flower", cursive;
-}
-
-.input {
-    color: gray;
-    font-size: 18pt;
-    border: none;
-    width: 100%;
-    border-bottom: 1px solid black;
     background-color: transparent;
-    font-family: "Indie Flower", cursive;
 }
 
 textarea:focus,
@@ -75,8 +64,13 @@ input:focus {
     outline: none;
 }
 
-button {
+#saveProgramButton {
     border: none;
+    padding: 0px 5px 0px 5px;
+    background-color: transparent;
+    height: 50%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20pt;
 }
 
 @media screen and (max-width: 767px) {
@@ -88,6 +82,15 @@ button {
         padding: 20px;
     }
 
+    .program_name_and_button {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #saveProgramButton {
+        font-size: 14pt;
+    }
+
     .departmentAndGrade {
         display: flex;
         flex-direction: column;
@@ -97,6 +100,8 @@ button {
         display: flex;
         flex-direction: column;
         padding-bottom: 40px;
+        width: 100%;
+        align-items: baseline;
     }
 
     #department_container {

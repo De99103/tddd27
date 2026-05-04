@@ -64,12 +64,11 @@ function Course({
                     <p>
                         Programnamn/ <i>Program name:</i>
                     </p>
-
-                    <div className="program_name_and_save_button">
+                    <div className="program_name_and_button">
                         <Autocomplete
                             options={programOptions}
                             label=""
-                            className="input"
+                            className="line-autocomplete"
                             value={selectedProgram}
                             getOptionLabel={(option) => option?.name || ""}
                             onChange={(program) => {
@@ -77,7 +76,7 @@ function Course({
                                 // saveProgram(program?.code || program?.name || "");
                             }}
                         />
-                        <button onClick={handleSave}>Save</button>
+                        <button id="saveProgramButton" onClick={handleSave}>Save</button>
                     </div>
                 </div>
 
@@ -90,7 +89,7 @@ function Course({
                         <Autocomplete
                             options={courses}
                             label=""
-                            className="input"
+                            className="line-autocomplete"
                             value={selectedCourse}
                             getOptionLabel={(option) =>
                                 option
