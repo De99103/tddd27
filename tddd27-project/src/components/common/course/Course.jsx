@@ -64,18 +64,21 @@ function Course({
                     <p>
                         Programnamn/ <i>Program name:</i>
                     </p>
-                    <Autocomplete
-                        options={programOptions}
-                        label=""
-                        className="line-autocomplete"
-                        value={selectedProgram}
-                        getOptionLabel={(option) => option?.name || ""}
-                        onChange={(program) => {
-                            onProgramChange(program);
-                            // saveProgram(program?.code || program?.name || "");
-                        }}
-                    />
-                    <button onClick={handleSave}>Save</button>
+
+                    <div className="program_name_and_save_button">
+                        <Autocomplete
+                            options={programOptions}
+                            label=""
+                            className="input"
+                            value={selectedProgram}
+                            getOptionLabel={(option) => option?.name || ""}
+                            onChange={(program) => {
+                                onProgramChange(program);
+                                // saveProgram(program?.code || program?.name || "");
+                            }}
+                        />
+                        <button onClick={handleSave}>Save</button>
+                    </div>
                 </div>
 
                 <div className="codeAndGrade">
@@ -87,7 +90,7 @@ function Course({
                         <Autocomplete
                             options={courses}
                             label=""
-                            className="line-autocomplete"
+                            className="input"
                             value={selectedCourse}
                             getOptionLabel={(option) =>
                                 option
@@ -98,52 +101,29 @@ function Course({
                         />
                     </div>
 
-                    {/* // should we make the department line shorter ?  */}
-                    <div className="titleAndDepartment">
-                        <div className="textAndInput">
+                    <div className="departmentAndGrade">
+                        <div className="textAndInput" id="department_container">
                             <p>
                                 Institution/<i>Department:</i>
                             </p>
                             <input
-                                name="input_department"
+                                className="input"
                                 type="text"
                                 value={selectedCourse?.department || ""}
                                 readOnly // we don't want users to edit this field, it's just for display
                             />
-                            <div className="textAndInput">
-                                <p>
-                                    Betyg/<i>Grade:</i>
-                                </p>
-                                <input
-                                    name="input_grade"
-                                    type="text"
-                                    value={courseGrade}
-                                    onChange={(e) =>
-                                        setCourseGrade(e.target.value)
-                                    }
-                                />
-                            </div>
                         </div>
-                    </div>
-                    {/* just to show the rating input need to fix then! */}
-                    <div className="textAndInput">
-                        <p>
-                            Rating/<i>Rating 1-5:</i>
-                        </p>
-
-                        <select
-                            value={courseRating}
-                            onChange={(e) =>
-                                setCourseRating(Number(e.target.value))
-                            }
-                        >
-                            <option value="">Select rating</option>
-                            <option value="1">1 - Very easy</option>
-                            <option value="2">2 - Easy</option>
-                            <option value="3">3 - Medium</option>
-                            <option value="4">4 - Hard</option>
-                            <option value="5">5 - Very hard</option>
-                        </select>
+                        <div className="textAndInput" id="grade_container">
+                            <p>
+                                Betyg/<i>Grade:</i>
+                            </p>
+                            <input
+                                className="input"
+                                type="text"
+                                value={courseGrade}
+                                onChange={(e) => setCourseGrade(e.target.value)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

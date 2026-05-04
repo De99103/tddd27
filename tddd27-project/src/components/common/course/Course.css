@@ -28,14 +28,29 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 30px;
+    width: 100%;
 }
 
-.titleAndDepartment {
+.program_name_and_save_button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.departmentAndGrade {
     display: flex;
     flex-direction: row;
 }
 
-input {
+#department_container {
+    width: 40%;
+}
+
+#grade_container {
+    width: 30%;
+}
+
+.input {
     color: gray;
     font-size: 18pt;
     border: none;
@@ -45,13 +60,23 @@ input {
     font-family: "Indie Flower", cursive;
 }
 
-.codeAndGrade input {
+.input {
+    color: gray;
+    font-size: 18pt;
+    border: none;
     width: 100%;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    font-family: "Indie Flower", cursive;
 }
 
 textarea:focus,
 input:focus {
     outline: none;
+}
+
+button {
+    border: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -63,7 +88,7 @@ input:focus {
         padding: 20px;
     }
 
-    .codeAndGrade {
+    .departmentAndGrade {
         display: flex;
         flex-direction: column;
     }
@@ -72,6 +97,14 @@ input:focus {
         display: flex;
         flex-direction: column;
         padding-bottom: 40px;
+    }
+
+    #department_container {
+        width: 100%;
+    }
+
+    #grade_container {
+        width: 100%;
     }
 
     .page p {
