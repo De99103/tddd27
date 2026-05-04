@@ -7,7 +7,6 @@ import {
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
-import { deleteUser } from "firebase/auth";
 
 export async function saveCourse(educationId, courseType, courseId, data) {
   const user = auth.currentUser;
@@ -18,15 +17,15 @@ export async function saveCourse(educationId, courseType, courseId, data) {
 
   const collectionName =
     courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
-await setDoc(
-  doc(db, "users", user.uid),
-  {
-    displayName: user.displayName || "",
-    email: user.email || "",
-    updatedAt: serverTimestamp(),
-  },
-  { merge: true }
-);
+
+  await setDoc(
+    doc(db, "users", user.uid, "educations", educationId),
+    {
+      updatedAt: serverTimestamp(),
+    },
+    { merge: true }
+  );
+
   return await setDoc(
     doc(
       db,
@@ -59,13 +58,4 @@ export async function savePublicCourseRating(courseId, data) {
     grade: data.grade || "",
     createdAt: serverTimestamp(),
   });
-}
-
-export async function deleteAccount() {
-  const user = auth.currentUser;
-
-  if (!user) throw new Error("No user");
-
-  await deleteDoc(doc(db, "users", user.uid));
-  await deleteUser(user);
 }

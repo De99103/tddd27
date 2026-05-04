@@ -9,30 +9,8 @@ import {
 
 import loginIcon from "/src/assets/images/login.svg";
 import logoutIcon from "/src/assets/images/logut.svg";
-import deleteICon from "/src/assets/images/delete_icon_user.png";
+
 import "./Login.css";
-
-import { deleteAccount } from "../../../fireBase/userData";
-
-
-
-async function handleDeleteAccount() {
-  try {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete your account?"
-    );
-
-    if (!confirmDelete) return;
-
-    await deleteAccount();
-
-    alert("Account deleted.");
-  } catch (error) {
-    console.error("Error deleting account:", error);
-  }
-}
-
-
 
 function Login() {
   const [user, setUser] = useState(null);
@@ -66,20 +44,12 @@ function Login() {
   return (
     <div>
       {user ? (
-        <div className="logging-wrapper">
+        <div style={{ display: "flex", width: "100%" }}>
           <div className="logging">
-            <div className="user-row">
-              <p className="user-name">Inloggad som: {user.displayName}</p>
-
-              <button onClick={handleLogout} className="logut-btn">
-                <img src={logoutIcon} alt="Logga ut" className="login-icon" />
-                <span>Logga ut</span>
-              </button>
-            </div>
-
-            <button onClick={handleDeleteAccount} className="delete-btn">
-              <img src={deleteICon} alt="Delete account" className="delete-icon" />
-              Delete account
+            <p className="user-name">Inloggad som: {user.displayName}</p>
+            <button onClick={handleLogout} className="logut-btn">
+              <img src={logoutIcon} alt="Logga ut" className="login-icon" />
+              <span>Logga ut</span>
             </button>
           </div>
         </div>
@@ -90,9 +60,8 @@ function Login() {
             <span>Logga in med Google</span>
           </button>
         </div>
-      )
-      }
-    </div >
+      )}
+    </div>
   );
 }
 

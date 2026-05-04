@@ -1,33 +1,12 @@
 import { useState } from "react";
 import { Login, Course } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
-import { deleteAccount } from "../fireBase/deleteUser";
-
-//json files for the different programs
 import mtData from "../assets/data/MT.json"; // the old link 
-import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program 
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
 import mtAiData from "../assets/data/MT-AI.json";
 import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
-
-import it_data from "../assets/data/IT_courses.json"; // the new link for the IT program
-
-// async function handleDeleteAccount() {
-//   try {
-//     const confirmDelete = window.confirm(
-//       "Are you sure you want to delete your account?"
-//     );
-
-//     if (!confirmDelete) return;
-
-//     await deleteAccount();
-
-//     alert("Account deleted.");
-//   } catch (error) {
-//     console.error("Error deleting account:", error);
-//   }
-// }
-
+import itData from "../assets/data/IT.json";
 
 function Account() {
     const [courses, setCourses] = useState([]);
@@ -58,7 +37,7 @@ function Account() {
         {
             id : "IT", 
             name : "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses : it_data.courses|| []
+            courses : itData.courses|| []
         }
     ];
 
@@ -71,7 +50,6 @@ function Account() {
     return (
         <div className="account">
             <Login />
-            
             <h1>Account Page</h1>
 
             <Course
