@@ -9,7 +9,6 @@ function Home() {
             <p>
                 Work in progress <progress value="35" max="100"></progress>{" "}
             </p>
-            <Course />
             <Popup />
         </>
     );
