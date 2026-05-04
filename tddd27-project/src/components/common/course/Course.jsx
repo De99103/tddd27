@@ -2,20 +2,16 @@ import "./Course.css";
 import Autocomplete from "../autocomplete/Autocomplete";
 import { useState } from "react";
 
-
-//should this be a page or a component ? or not here at all?? 
+//should this be a page or a component ? or not here at all??
 import { saveCourse, savePublicCourseRating } from "../../../fireBase/userData";
 
 function Course({
     programOptions = [],
     selectedProgram = null,
-    onProgramChange = () => { },
+    onProgramChange = () => {},
     courses = [],
     selectedCourse = null,
-    setSelectedCourse = () => { },
-
-
-
+    setSelectedCourse = () => {},
 }) {
     const [educationName, setEducationName] = useState("");
     const [courseGrade, setCourseGrade] = useState("");
@@ -61,7 +57,6 @@ function Course({
         }
     }
 
-
     return (
         <div className="page">
             <div className="course-container">
@@ -80,9 +75,7 @@ function Course({
                             // saveProgram(program?.code || program?.name || "");
                         }}
                     />
-                    <button onClick={handleSave}>
-                        Save
-                    </button>
+                    <button onClick={handleSave}>Save</button>
                 </div>
 
                 <div className="codeAndGrade">
@@ -97,7 +90,9 @@ function Course({
                             className="line-autocomplete"
                             value={selectedCourse}
                             getOptionLabel={(option) =>
-                                option ? `${option.course_code} - ${option.course_name}` : ""
+                                option
+                                    ? `${option.course_code} - ${option.course_name}`
+                                    : ""
                             }
                             onChange={setSelectedCourse}
                         />
@@ -113,19 +108,22 @@ function Course({
                                 name="input_department"
                                 type="text"
                                 value={selectedCourse?.department || ""}
-                                readOnly // we don't want users to edit this field, it's just for display 
+                                readOnly // we don't want users to edit this field, it's just for display
                             />
                             <div className="textAndInput">
                                 <p>
                                     Betyg/<i>Grade:</i>
                                 </p>
-                                <input name="input_grade" type="text"
+                                <input
+                                    name="input_grade"
+                                    type="text"
                                     value={courseGrade}
-                                    onChange={(e) => setCourseGrade(e.target.value)}
+                                    onChange={(e) =>
+                                        setCourseGrade(e.target.value)
+                                    }
                                 />
                             </div>
                         </div>
-
                     </div>
                     {/* just to show the rating input need to fix then! */}
                     <div className="textAndInput">
@@ -135,7 +133,9 @@ function Course({
 
                         <select
                             value={courseRating}
-                            onChange={(e) => setCourseRating(Number(e.target.value))}
+                            onChange={(e) =>
+                                setCourseRating(Number(e.target.value))
+                            }
                         >
                             <option value="">Select rating</option>
                             <option value="1">1 - Very easy</option>
@@ -147,8 +147,6 @@ function Course({
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 }

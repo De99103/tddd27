@@ -12,7 +12,7 @@ function RateButton({ number }) {
     return (
         <div className="page_rate_course_buttons">
             <button
-                id="rate_course_option_button"
+                id="4"
                 onClick={toggleSelectedRating}
             >
                 {number}
