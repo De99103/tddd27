@@ -2,8 +2,10 @@ import Autocomplete from "../autocomplete/Autocomplete";
 import RateButton from "../rateButton";
 import "./Popup.css";
 import { useState } from "react";
+import Rating from "../rating/Rating";
 
 function Popup() {
+
     return (
         <div className="page_popup">
             <div className="container_popup">
@@ -20,7 +22,10 @@ function Popup() {
                     <p className="popup_grade_variable">3</p>
                 </div>
                 <p className="text_before_rating"> My rating of the course:</p>
+                <Rating />
 
+
+{/* 
                 <div className="popup_rate_course_buttons">
                     <RateButton number={"1"} />
                     <RateButton number={"2"} />
@@ -43,6 +48,8 @@ function Popup() {
                         <option value="5">5 - Very hard</option>
                     </select>
                 </div>
+                */}
+             
             </div>
         </div>
     );
