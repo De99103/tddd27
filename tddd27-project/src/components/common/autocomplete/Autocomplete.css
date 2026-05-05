@@ -17,29 +17,25 @@
     font-size: 18pt;
 }
 
-.autocomplete-wrapper
-    .MuiOutlinedInput-root:hover
-    .MuiOutlinedInput-notchedOutline {
+.autocomplete-wrapper .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border: none;
 }
 
-.autocomplete-wrapper
-    .MuiOutlinedInput-root.Mui-focused
-    .MuiOutlinedInput-notchedOutline {
+.autocomplete-wrapper .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border: none;
 }
 
 .MuiAutocomplete-option {
-    font-size: 18pt;
+    font-size: 12pt;
+    /* font-family: "Indie Flower", cursive; */
+
 }
 
 .line-autocomplete .MuiOutlinedInput-notchedOutline {
     border: none;
 }
 
-.line-autocomplete
-    .MuiOutlinedInput-root.Mui-focused
-    .MuiOutlinedInput-notchedOutline {
+.line-autocomplete .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border: none;
 }
 
@@ -61,16 +57,12 @@
     padding: 0;
 }
 
-.line-autocomplete
-    .MuiOutlinedInput-root:hover
-    .MuiOutlinedInput-notchedOutline {
+.line-autocomplete .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border: none;
 }
 
-.MuiAutocomplete-hasPopupIcon.css-1tlcqt-MuiAutocomplete-root
-    .MuiAutocomplete-inputRoot,
-.MuiAutocomplete-hasClearIcon.css-1tlcqt-MuiAutocomplete-root
-    .MuiAutocomplete-inputRoot {
+.MuiAutocomplete-hasPopupIcon.css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot,
+.MuiAutocomplete-hasClearIcon.css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot {
     padding: 0px;
 }
 
@@ -89,10 +81,12 @@
 
     .autocomplete-wrapper .MuiOutlinedInput-input {
         font-size: 14pt;
+
     }
 
     .autocomplete-wrapper .MuiInputLabel-root {
         font-size: 14pt;
+
     }
 
     .MuiAutocomplete-option {

@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.15s ease;
+}
+ 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+ 
 .page_popup {
     display: flex;
     justify-self: center;
@@ -64,12 +81,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .popup_grade_variable {
-    font-weight: bold;
-    font-size: 4rem;
+    /* font-weight: bold; */
+    font-size: 1.5rem;
     color: var(--graphite_pencil);
 }
 

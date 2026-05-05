@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Login, Course } from "../components/common";
+import { Login, Course, Popup } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
 import mtData from "../assets/data/MT.json"; // the old link 
 import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
@@ -30,9 +30,9 @@ function Account() {
             courses: dtData.courses || [],
         },
         {
-            id : "ED", 
-            name : "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses : edData.courses|| []
+            id: "ED",
+            name: "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses: edData.courses || []
         },
         {
             id : "IT", 
@@ -59,9 +59,19 @@ function Account() {
                 courses={courses}
                 selectedCourse={selectedCourse}
                 setSelectedCourse={setSelectedCourse}
+
+
             />
 
-            <CoursesTable courses={selectedCourse ? [selectedCourse] : courses} />
+            {/* <Popup
+                selectedCourse={selectedCourse}
+                educationId={selectedProgram?.code || selectedProgram?.name}
+            />             */}
+
+            <CoursesTable
+                courses={selectedCourse ? [selectedCourse] : courses}
+                educationId={selectedProgram?.name}
+            />
         </div>
     );
 }

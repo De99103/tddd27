@@ -8,10 +8,10 @@ import { saveCourse, savePublicCourseRating } from "../../../fireBase/userData";
 function Course({
     programOptions = [],
     selectedProgram = null,
-    onProgramChange = () => {},
+    onProgramChange = () => { },
     courses = [],
     selectedCourse = null,
-    setSelectedCourse = () => {},
+    setSelectedCourse = () => { },
 }) {
     const [educationName, setEducationName] = useState("");
     const [courseGrade, setCourseGrade] = useState("");
@@ -93,7 +93,8 @@ function Course({
                             value={selectedCourse}
                             getOptionLabel={(option) =>
                                 option
-                                    ? `${option.course_code} - ${option.course_name}`
+                                    ? `${option.course_code} - ${option.course_name}${option.specialisation ? ` (${option.specialisation})` : ""
+                                    }`
                                     : ""
                             }
                             onChange={setSelectedCourse}
