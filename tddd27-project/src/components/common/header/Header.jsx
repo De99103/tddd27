@@ -26,6 +26,9 @@ function Header() {
                     <a href="/account" className="navbar-link">
                         Account
                     </a>
+                    <a href="/statistics" className="navbar-link">
+                        Statistics
+                    </a>
                     <a href="/about" className="navbar-link">
                         About
                     </a>
