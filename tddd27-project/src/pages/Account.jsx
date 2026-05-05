@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Login, Course } from "../components/common";
+import { Login, Course, Popup } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
 import { deleteAccount } from "../fireBase/deleteUser";
 
@@ -51,14 +51,14 @@ function Account() {
             courses: dtData.courses || [],
         },
         {
-            id : "ED", 
-            name : "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses : edData.courses|| []
+            id: "ED",
+            name: "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses: edData.courses || []
         },
         {
-            id : "IT", 
-            name : "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses : it_data.courses|| []
+            id: "IT",
+            name: "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses: it_data.courses || []
         }
     ];
 
@@ -71,7 +71,7 @@ function Account() {
     return (
         <div className="account">
             <Login />
-            
+
             <h1>Account Page</h1>
 
             <Course
@@ -81,9 +81,19 @@ function Account() {
                 courses={courses}
                 selectedCourse={selectedCourse}
                 setSelectedCourse={setSelectedCourse}
+
+
             />
 
-            <CoursesTable courses={selectedCourse ? [selectedCourse] : courses} />
+            {/* <Popup
+                selectedCourse={selectedCourse}
+                educationId={selectedProgram?.code || selectedProgram?.name}
+            />             */}
+
+            <CoursesTable
+                courses={selectedCourse ? [selectedCourse] : courses}
+                educationId={selectedProgram?.name}
+            />
         </div>
     );
 }

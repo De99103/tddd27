@@ -4,6 +4,7 @@ import {
   collection,
   addDoc,
   serverTimestamp,
+  getDoc,
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
@@ -68,4 +69,22 @@ export async function deleteAccount() {
 
   await deleteDoc(doc(db, "users", user.uid));
   await deleteUser(user);
+
+}
+
+
+export async function getCourse(educationId, courseType, courseId) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("User is not logged in.");
+
+  const collectionName =
+    courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
+
+  const ref = doc(db, "users", user.uid, "educations", educationId, collectionName, courseId);
+  const snapshot = await getDoc(ref);
+
+  if (snapshot.exists()) {
+    return snapshot.data();
+  }
+  return null;
 }
