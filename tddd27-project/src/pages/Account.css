@@ -5,3 +5,9 @@
     font-size: 15px;
     place-items: center;
 }
+
+.account-buttons {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}

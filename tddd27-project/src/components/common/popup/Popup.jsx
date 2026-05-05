@@ -5,7 +5,6 @@ import { useState } from "react";
 import Rating from "../rating/Rating";
 
 function Popup() {
-
     return (
         <div className="page_popup">
             <div className="container_popup">
@@ -24,8 +23,7 @@ function Popup() {
                 <p className="text_before_rating"> My rating of the course:</p>
                 <Rating />
 
-
-{/* 
+                {/* 
                 <div className="popup_rate_course_buttons">
                     <RateButton number={"1"} />
                     <RateButton number={"2"} />
@@ -49,7 +47,6 @@ function Popup() {
                     </select>
                 </div>
                 */}
-             
             </div>
         </div>
     );

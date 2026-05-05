@@ -1,33 +1,16 @@
 import { useState } from "react";
-import { Login, Course } from "../components/common";
+import { Login, Course, DeleteAccountButton } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
 import { deleteAccount } from "../fireBase/deleteUser";
 
 //json files for the different programs
-import mtData from "../assets/data/MT.json"; // the old link 
-import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program 
+import mtData from "../assets/data/MT.json"; // the old link
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
 import mtAiData from "../assets/data/MT-AI.json";
 import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
 
 import it_data from "../assets/data/IT_courses.json"; // the new link for the IT program
-
-// async function handleDeleteAccount() {
-//   try {
-//     const confirmDelete = window.confirm(
-//       "Are you sure you want to delete your account?"
-//     );
-
-//     if (!confirmDelete) return;
-
-//     await deleteAccount();
-
-//     alert("Account deleted.");
-//   } catch (error) {
-//     console.error("Error deleting account:", error);
-//   }
-// }
-
 
 function Account() {
     const [courses, setCourses] = useState([]);
@@ -37,12 +20,12 @@ function Account() {
     const programOptions = [
         {
             id: "MT",
-            name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
+            name: "Civilingenjörsprogram i medieteknik (MT)", // our program ..
             courses: mtData_new.courses || [],
         },
         {
             id: "MT_AI",
-            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
+            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI
             courses: mtAiData.courses || [],
         },
         {
@@ -51,15 +34,15 @@ function Account() {
             courses: dtData.courses || [],
         },
         {
-            id : "ED", 
-            name : "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses : edData.courses|| []
+            id: "ED",
+            name: "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses: edData.courses || [],
         },
         {
-            id : "IT", 
-            name : "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses : it_data.courses|| []
-        }
+            id: "IT",
+            name: "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses: it_data.courses || [],
+        },
     ];
 
     const handleProgramChange = (program) => {
@@ -70,8 +53,11 @@ function Account() {
 
     return (
         <div className="account">
-            <Login />
-            
+            <div className="account-buttons">
+                <Login />
+                <DeleteAccountButton />
+            </div>
+
             <h1>Account Page</h1>
 
             <Course
@@ -83,7 +69,9 @@ function Account() {
                 setSelectedCourse={setSelectedCourse}
             />
 
-            <CoursesTable courses={selectedCourse ? [selectedCourse] : courses} />
+            <CoursesTable
+                courses={selectedCourse ? [selectedCourse] : courses}
+            />
         </div>
     );
 }
