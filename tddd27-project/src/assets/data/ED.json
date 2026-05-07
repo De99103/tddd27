@@ -6,12 +6,14 @@
     "language": "svenska",
     "campus": "Norrköping",
     "admission_term": "HT 2022",
-    "note": "Den här exporten bygger på programplanen för 6CIEN, antagningstillfälle HT 2022, från LiU Studieinfo. Kurser som ligger över två perioder har periodformat som exempelvis \"1+2\". För examensdetaljer används null eftersom de inte framgår i programplanstabellen."
-  },
-  "specialisations": [
+    "note": "Den här exporten bygger på programplanen för 6CIEN, antagningstillfälle HT 2022, från LiU Studieinfo. Kurser som ligger över två perioder har periodformat som exempelvis \"1+2\". För examensdetaljer används null eftersom de inte framgår i programplanstabellen.",
+    "specialisations": [
     "Trådlösa system",
     "Organisk elektronik och energisystem"
-  ],
+  ]
+
+  },
+
   "courses": [
     {
       "year": 1,
