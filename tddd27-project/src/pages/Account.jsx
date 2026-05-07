@@ -11,6 +11,14 @@ import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
 
 import it_data from "../assets/data/IT_courses.json"; // the new link for the IT program
+import { Login, Course, Popup } from "../components/common";
+import CoursesTable from "../components/common/courses_tabell/CoursesTable";
+import mtData from "../assets/data/MT.json"; // the old link 
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
+import mtAiData from "../assets/data/MT-AI.json";
+import dtData from "../assets/data/DT.json";
+import edData from "../assets/data/ED.json";
+import itData from "../assets/data/IT.json";
 
 function Account() {
     const [courses, setCourses] = useState([]);
@@ -36,13 +44,13 @@ function Account() {
         {
             id: "ED",
             name: "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses: edData.courses || [],
+            courses: edData.courses || []
         },
         {
-            id: "IT",
-            name: "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses: it_data.courses || [],
-        },
+            id : "IT", 
+            name : "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses : itData.courses|| []
+        }
     ];
 
     const handleProgramChange = (program) => {
@@ -67,10 +75,18 @@ function Account() {
                 courses={courses}
                 selectedCourse={selectedCourse}
                 setSelectedCourse={setSelectedCourse}
+
+
             />
+
+            {/* <Popup
+                selectedCourse={selectedCourse}
+                educationId={selectedProgram?.code || selectedProgram?.name}
+            />             */}
 
             <CoursesTable
                 courses={selectedCourse ? [selectedCourse] : courses}
+                educationId={selectedProgram?.name}
             />
         </div>
     );

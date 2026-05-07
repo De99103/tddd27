@@ -6,6 +6,7 @@ import Login from "./components/common/login/Login";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Statistics from "./pages/Statistics";
 import Account from "./pages/Account";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/statistics" element={<Statistics />} />
                     <Route path="/account" element={<Account />} />
                 </Routes>
             

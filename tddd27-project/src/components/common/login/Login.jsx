@@ -9,26 +9,8 @@ import {
 
 import loginIcon from "/src/assets/images/login.svg";
 import logoutIcon from "/src/assets/images/logut.svg";
-import deleteICon from "/src/assets/images/delete_icon_user.png";
+
 import "./Login.css";
-
-import { deleteAccount } from "../../../fireBase/userData";
-
-async function handleDeleteAccount() {
-    try {
-        const confirmDelete = window.confirm(
-            "Are you sure you want to delete your account?",
-        );
-
-        if (!confirmDelete) return;
-
-        await deleteAccount();
-
-        alert("Account deleted.");
-    } catch (error) {
-        console.error("Error deleting account:", error);
-    }
-}
 
 function Login() {
     const [user, setUser] = useState(null);
