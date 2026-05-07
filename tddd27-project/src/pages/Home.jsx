@@ -1,16 +1,85 @@
-import { Course, Login, Popup } from "../components/common";
+import { useState } from "react";
+import { Login, Course, Popup } from "../components/common";
+import CoursesTable from "../components/common/courses_tabell/CoursesTable";
+import mtData from "../assets/data/MT.json"; // the old link 
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
+import mtAiData from "../assets/data/MT-AI.json";
+import dtData from "../assets/data/DT.json";
+import edData from "../assets/data/ED.json";
+import itData from "../assets/data/IT.json";
 
 function Home() {
+    const [courses, setCourses] = useState([]);
+    const [selectedProgram, setSelectedProgram] = useState(null);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+
+    const programOptions = [
+        {
+            id: "MT",
+            name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
+            courses: mtData_new.courses || [],
+        },
+        {
+            id: "MT_AI",
+            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
+            courses: mtAiData.courses || [],
+        },
+        {
+            id: "DT",
+            name: "Civilingenjörsprogram i datateknik (DT)",
+            courses: dtData.courses || [],
+        },
+        {
+            id: "ED",
+            name: "Civilingenjörsprogram i elektronikdesign (ED)",
+            courses: edData.courses || []
+        },
+        {
+            id: "IT",
+            name: "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses: itData.courses || []
+        }
+    ];
+
+    const handleProgramChange = (program) => {
+        setSelectedProgram(program);
+        setSelectedCourse(null);
+        setCourses(program?.courses || []);
+    };
+
     return (
-        <>
+
+        <div className="Home">
+
+
             <Login />
 
-            <h1>Home page</h1>
+
+            <h1>Home Page</h1>
             <p>
-                Work in progress <progress value="45" max="100"></progress>{" "}
+                Work in progress <progress value="55" max="100"></progress>{" "}
             </p>
-            <Popup />
-        </>
+            <Course
+                programOptions={programOptions}
+                selectedProgram={selectedProgram}
+                onProgramChange={handleProgramChange}
+                courses={courses}
+                selectedCourse={selectedCourse}
+                setSelectedCourse={setSelectedCourse}
+
+
+            />
+
+            {/* <Popup
+                selectedCourse={selectedCourse}
+                educationId={selectedProgram?.code || selectedProgram?.name}
+            />             */}
+
+            <CoursesTable
+                courses={selectedCourse ? [selectedCourse] : courses}
+                educationId={selectedProgram?.name}
+            />
+        </div>
     );
 }
 

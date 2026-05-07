@@ -23,9 +23,7 @@ function Header() {
                     <a href="/" className="navbar-link">
                         Home
                     </a>
-                    <a href="/account" className="navbar-link">
-                        Account
-                    </a>
+                   
                     <a href="/statistics" className="navbar-link">
                         Statistics
                     </a>
