@@ -1,4 +1,8 @@
-import {  deleteUser, GoogleAuthProvider, reauthenticateWithPopup, } from "firebase/auth";
+import {
+  deleteUser,
+  GoogleAuthProvider,
+  reauthenticateWithPopup,
+} from "firebase/auth";
 
 import {
   collection,

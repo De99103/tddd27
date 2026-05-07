@@ -5,8 +5,7 @@ import Login from "./login/Login";
 import Stats_Window from "./stats_window";
 import Popup from "./popup/Popup";
 import Autocomplete from "./autocomplete/Autocomplete";
-
-
+import DeleteAccountButton from "./deleteAccountButton";
 
 export {
     Header,
@@ -16,6 +15,5 @@ export {
     Autocomplete,
     Stats_Window,
     Popup,
-    
-
-}
+    DeleteAccountButton,
+};

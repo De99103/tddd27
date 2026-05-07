@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { Login, Course, Popup } from "../components/common";
+import {
+    Login,
+    Course,
+    DeleteAccountButton,
+    Popup,
+} from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
-import mtData from "../assets/data/MT.json"; // the old link 
-import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program with AI
+import { deleteAccount } from "../fireBase/deleteUser";
+
+//json files for the different programs
+import mtData from "../assets/data/MT.json"; // the old link
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
 import mtAiData from "../assets/data/MT-AI.json";
 import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
@@ -16,12 +24,12 @@ function Account() {
     const programOptions = [
         {
             id: "MT",
-            name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
+            name: "Civilingenjörsprogram i medieteknik (MT)", // our program ..
             courses: mtData_new.courses || [],
         },
         {
             id: "MT_AI",
-            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
+            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI
             courses: mtAiData.courses || [],
         },
         {
@@ -32,13 +40,13 @@ function Account() {
         {
             id: "ED",
             name: "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses: edData.courses || []
+            courses: edData.courses || [],
         },
         {
-            id : "IT", 
-            name : "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses : itData.courses|| []
-        }
+            id: "IT",
+            name: "Civilingenjörsprogram i informationsteknologi (IT)",
+            courses: itData.courses || [],
+        },
     ];
 
     const handleProgramChange = (program) => {
@@ -50,6 +58,7 @@ function Account() {
     return (
         <div className="account">
             <Login />
+
             <h1>Account Page</h1>
 
             <Course
@@ -59,8 +68,6 @@ function Account() {
                 courses={courses}
                 selectedCourse={selectedCourse}
                 setSelectedCourse={setSelectedCourse}
-
-
             />
 
             {/* <Popup
