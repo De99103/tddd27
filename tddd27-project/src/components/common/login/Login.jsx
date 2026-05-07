@@ -11,6 +11,7 @@ import loginIcon from "/src/assets/images/login.svg";
 import logoutIcon from "/src/assets/images/logut.svg";
 
 import "./Login.css";
+import DeleteAccountButton from "../deleteAccountButton/DeleteAccountButton";
 
 function Login() {
     const [user, setUser] = useState(null);
@@ -63,6 +64,7 @@ function Login() {
                                 <span>Logga ut</span>
                             </button>
                         </div>
+                        <DeleteAccountButton />
                     </div>
                 </div>
             ) : (

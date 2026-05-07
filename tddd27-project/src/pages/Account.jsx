@@ -57,10 +57,7 @@ function Account() {
 
     return (
         <div className="account">
-            <div className="account-buttons">
-                <Login />
-                <DeleteAccountButton />
-            </div>
+            <Login />
 
             <h1>Account Page</h1>
 
