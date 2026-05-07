@@ -47,6 +47,14 @@
     background-color: transparent;
 }
 
+.MuiAutocomplete-root .MuiOutlinedInput-root {
+    padding: 0px !important;
+}
+
+.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+    padding: 2px 4px !important;
+}
+
 .line-autocomplete {
     width: 100%;
 }

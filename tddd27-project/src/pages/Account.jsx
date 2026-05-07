@@ -39,26 +39,35 @@ function Account() {
             id: "MT",
             name: "Civilingenjörsprogram i medieteknik (MT)", // our program .. 
             courses: mtData_new.courses || [],
+            specialisations: mtData_new.program?.specialisations || [],
+
         },
         {
             id: "MT_AI",
             name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI 
             courses: mtAiData.courses || [],
+            specialisations: mtAiData.program?.specialisations || [],
         },
         {
             id: "DT",
             name: "Civilingenjörsprogram i datateknik (DT)",
             courses: dtData.courses || [],
+            specialisations: dtData.program?.specialisations || [],
+
         },
         {
             id: "ED",
             name: "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses: edData.courses || []
+            courses: edData.courses || [],
+            specialisations: edData.program?.specialisations || [],
+
         },
         {
             id: "IT",
             name: "Civilingenjörsprogram i informationsteknologi (IT)",
-            courses: it_data.courses || []
+            courses: it_data.courses || [], 
+            specialisations: it_data.program?.specialisations || [],
+
         }
     ];
 
@@ -93,6 +102,8 @@ function Account() {
             <CoursesTable
                 courses={selectedCourse ? [selectedCourse] : courses}
                 educationId={selectedProgram?.name}
+                specialisations={selectedProgram?.specialisations || []}
+
             />
         </div>
     );

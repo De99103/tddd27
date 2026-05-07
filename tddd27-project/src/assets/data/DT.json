@@ -6,9 +6,8 @@
     "language": "Svenska",
     "campus": "Linköping",
     "admission_term": "HT 2025",
-    "note": "Programplanen gäller för antagningstillfälle HT 2025 (plan 6016). Termin 1–6 är gemensam obligatorisk del. Termin 7–10 innefattar masterprofil med valbara och profilspecifika kurser. Kurser märkta O/V är obligatoriska för vissa profiler och valbara för övriga. Kurser i termin 7–8 utan profilkoppling listas under specialisering ['Alla'] och är generellt valbara. Profilkurser listas under respektive profilnamn. Examensarbete (EXJOBB, 30 hp, termin 9–10) är obligatoriskt men har ingen specifik kurskod i programplanen – ingår som krav i examensreglerna. Block '-' innebär att blockinformation saknas i programplanen. Kurser som löper över flera perioder förekommer – perioder listas för varje period kursen är aktiv."
-  },
-  "specialisations": [
+    "note": "Programplanen gäller för antagningstillfälle HT 2025 (plan 6016). Termin 1–6 är gemensam obligatorisk del. Termin 7–10 innefattar masterprofil med valbara och profilspecifika kurser. Kurser märkta O/V är obligatoriska för vissa profiler och valbara för övriga. Kurser i termin 7–8 utan profilkoppling listas under specialisering ['Alla'] och är generellt valbara. Profilkurser listas under respektive profilnamn. Examensarbete (EXJOBB, 30 hp, termin 9–10) är obligatoriskt men har ingen specifik kurskod i programplanen – ingår som krav i examensreglerna. Block '-' innebär att blockinformation saknas i programplanen. Kurser som löper över flera perioder förekommer – perioder listas för varje period kursen är aktiv.",
+     "specialisations": [
     "AI och maskininlärning",
     "Autonoma system",
     "Datorseende och signalanalys",
@@ -21,7 +20,9 @@
     "Spelprogrammering",
     "Storskalig mjukvaruutveckling",
     "Säkra system"
-  ],
+  ]
+  },
+
   "courses": [
     {
       "year": 1,
