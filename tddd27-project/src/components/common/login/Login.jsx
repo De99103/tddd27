@@ -49,7 +49,7 @@ function Login() {
                     <div className="logging">
                         <div className="user-row">
                             <p className="user-name">
-                                Inloggad som: {user.displayName}
+                                Signed in as: {user.displayName}
                             </p>
 
                             <button
@@ -61,7 +61,7 @@ function Login() {
                                     alt="Logga ut"
                                     className="login-icon"
                                 />
-                                <span>Logga ut</span>
+                                <span>Sign out</span>
                             </button>
                         </div>
                         <DeleteAccountButton />
@@ -75,7 +75,7 @@ function Login() {
                             alt="Logga in"
                             className="login-icon"
                         />
-                        <span>Logga in med Google</span>
+                        <span>Sign in with Google</span>
                     </button>
                 </div>
             )}
