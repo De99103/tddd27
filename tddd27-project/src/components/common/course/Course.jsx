@@ -9,16 +9,24 @@ function Course({
     programOptions = [],
     selectedProgram = null,
     onProgramChange = () => { },
+
     courses = [],
     selectedCourse = null,
     setSelectedCourse = () => { },
+
+    selectedSpecialisation = null,
+    setSelectedSpecialisation = () => { },
+
 }) {
+    const specialisations = selectedProgram?.specialisations || [];
+
     const [educationName, setEducationName] = useState("");
     const [courseGrade, setCourseGrade] = useState("");
     const [masterCourse, setMasterCourse] = useState("");
     const [profile, setProfile] = useState("");
     const [notes, setNotes] = useState("");
     const [courseRating, setCourseRating] = useState("");
+    const [specialisation, setSpecialisation] = useState("")
 
     async function handleSave() {
         try {
@@ -122,6 +130,23 @@ function Course({
                                 type="text"
                                 value={courseGrade}
                                 onChange={(e) => setCourseGrade(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="profiles-div">
+                        <div className="textAndInput">
+
+                            <p>
+                                Masterprofil/<i> Specialization:</i>
+                            </p>
+                            <Autocomplete
+                                options={specialisations}
+                                label=""
+                                className="line-autocomplete"
+                                value={selectedSpecialisation}
+                                getOptionLabel={(option) => option || ""}
+                                onChange={setSelectedSpecialisation}
                             />
                         </div>
                     </div>

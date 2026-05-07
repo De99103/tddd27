@@ -7,12 +7,14 @@
     "campus": "Norrköping",
     "admission_term": "HT 2018",
     "note": "Den här exporten bygger på den äldre programplanen 6CMEN eftersom den nya sidan 6CMEA (Medieteknik och AI) ännu inte har alla årskurser publicerade. Kurslistan är därför för programmet 'Civilingenjörsprogram i medieteknik, 300 hp'. För vissa kurser saknas examensdetaljer i exporten och fältet 'kurs_examination' är då null."
-  },
-  "specialisations": [
+    ,
+    "specialisations": [
     "Avancerade tekniker för ljud- och bildmedier",
     "Datorgrafik och spelprogrammering",
     "Visualisering"
-  ],
+  ]
+  },
+
   "courses": [
     {
       "year": 1,
