@@ -5,6 +5,7 @@ import {
   addDoc,
   serverTimestamp,
   getDoc,
+  deleteDoc
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
