@@ -101,8 +101,8 @@ function Course({
                             value={selectedCourse}
                             getOptionLabel={(option) =>
                                 option
-                                    ? `${option.course_code} - ${option.course_name}${option.specialisation ? ` (${option.specialisation})` : ""
-                                    }`
+                                    ? `${option.course_code} - ${option.course_name}
+                                    `
                                     : ""
                             }
                             onChange={setSelectedCourse}
