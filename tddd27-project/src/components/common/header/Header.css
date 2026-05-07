@@ -58,7 +58,6 @@ header {
 .hamburger-component {
     display: flex;
     visibility: hidden;
-    align-items: baseline;
 }
 
 @media screen and (max-width: 767px) {
@@ -73,9 +72,8 @@ header {
         border-radius: 0;
     }
 
-    /* Här håller du på: */
     .navbar-items-desktop {
-        width: 70%;
+        width: 100%;
     }
 
     .logo {
@@ -94,5 +92,6 @@ header {
         visibility: visible;
         z-index: 10;
         padding: 10px;
+        position: absolute;
     }
 }
