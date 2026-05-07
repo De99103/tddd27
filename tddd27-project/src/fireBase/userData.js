@@ -1,5 +1,4 @@
-import {
-  doc,
+import {doc,
   setDoc,
   collection,
   addDoc,
