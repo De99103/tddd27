@@ -68,7 +68,7 @@ function Home() {
         <div className="account">
             <Login />
 
-            <h1>Account Page</h1>
+            <h1>Home Page</h1>
 
             <Course
                 programOptions={programOptions}
