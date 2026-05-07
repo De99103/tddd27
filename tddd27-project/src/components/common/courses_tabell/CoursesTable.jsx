@@ -31,12 +31,6 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                         className="popup-content"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <button
-                            className="popup-close-btn"
-                            onClick={() => setPopupCourse(null)}
-                        >
-                            ✕
-                        </button>
                         <Popup
                             selectedCourse={popupCourse}
                             educationId={educationId}
