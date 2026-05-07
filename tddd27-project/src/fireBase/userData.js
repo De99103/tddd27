@@ -1,4 +1,5 @@
-import {doc,
+import {
+  doc,
   setDoc,
   collection,
   addDoc,
@@ -8,6 +9,7 @@ import {doc,
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
+import { deleteUser } from "firebase/auth";
 
 export async function saveCourse(educationId, courseType, courseId, data) {
   const user = auth.currentUser;
@@ -18,15 +20,15 @@ export async function saveCourse(educationId, courseType, courseId, data) {
 
   const collectionName =
     courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
-
-  await setDoc(
-    doc(db, "users", user.uid, "educations", educationId),
-    {
-      updatedAt: serverTimestamp(),
-    },
-    { merge: true }
-  );
-
+await setDoc(
+  doc(db, "users", user.uid),
+  {
+    displayName: user.displayName || "",
+    email: user.email || "",
+    updatedAt: serverTimestamp(),
+  },
+  { merge: true }
+);
   return await setDoc(
     doc(
       db,
