@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
     Login,
     Course,
-  //  DeleteAccountButton,
+    DeleteAccountButton,
     Popup,
 } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
@@ -141,7 +141,6 @@ function Home() {
             <Login />
 
             <h1>Home Page</h1>
-
 
             <Course
                 programOptions={programOptions}

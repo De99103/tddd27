@@ -71,7 +71,7 @@ function Popup({ selectedCourse = null, educationId = null }) {
 
                 <div className="examinator_and_department">
                     <p className="popup_examinator">
-                        Examinator: {selectedCourse.examiner_name || "Unknown Examinator"}
+                        Examiner: {selectedCourse.examiner_name || "Unknown Examinator"}
                     </p>
                     <p className="popup_department">
                         Department: {selectedCourse.department || "Unknown Department"}
@@ -97,7 +97,7 @@ function Popup({ selectedCourse = null, educationId = null }) {
                         </p>
                     )}
 
-                    <button onClick={handleSaveGrade} disabled={loading}>
+                    <button id="saveProgramButton" onClick={handleSaveGrade} disabled={loading} >
                         {isEditing ? "Save Change" : "Edit Grade"}
                     </button>
                 </div>
