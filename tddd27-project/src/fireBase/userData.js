@@ -40,9 +40,10 @@ await setDoc(
       courseId
     ),
     {
-      grade: data.grade || "",
-      notes: data.notes || "",
-      rating: data.rating || "",
+       grade: data.grade || "",
+      // notes: data.notes || "",
+      // rating: data.rating || "",
+      ...data, // will save all fileds we send from course.jsx 
       updatedAt: serverTimestamp(),
     },
     { merge: true }

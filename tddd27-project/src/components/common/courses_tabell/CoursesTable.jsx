@@ -3,6 +3,11 @@ import Popup from "../popup/Popup";
 import { useState } from "react";
 
 const CoursesTable = ({ courses = [], educationId = null }) => {
+    console.log("CoursesTable courses count:", courses.length);  // ADD THIS
+    console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); // ADD THIS
+    console.log("CoursesTable ALL courses:", courses.map(c => `${c.course_code} | ${c.specialisation} | ${c.ecv}`));
+
+
     const [popupCourse, setPopupCourse] = useState(null);
 
     const groupedCourses = courses.reduce((acc, course) => {
@@ -19,6 +24,24 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
     const sortedYears = Object.keys(groupedCourses).sort(
         (a, b) => Number(a) - Number(b)
     );
+
+
+    // Find courses that appear in multiple semesters
+    const courseCodeCount = courses.reduce((acc, course) => {
+        if (!acc[course.course_code]) {
+            acc[course.course_code] = new Set();
+        }
+
+        acc[course.course_code].add(course.semester);
+
+        return acc;
+    }, {});
+
+    const multiSemesterCodes = Object.entries(courseCodeCount)
+        .reduce((acc, [code, semesters]) => {
+            acc[code] = [...semesters];
+            return acc;
+        }, {});
 
     return (
         <>
@@ -66,7 +89,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                                         <div className="course-grid">
                                             {semesters[semester].map((course) => (
                                                 <div
-                                                    key={`${course.course_code}-${course.specialisation ?? "none"}`}
+                                                    key={`${course.course_code}-${course.year}-${course.semester}-${course.specialisation ?? "none"}`}
                                                     className={`course-card ${course.elective ? "selectable" : "mandatory"}`}
                                                     onClick={() => setPopupCourse(course)} // ✅ open popup on click
                                                     style={{ cursor: "pointer" }}
@@ -84,6 +107,19 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                                                             <p>{course.credits_hp} hp</p>
                                                             <p>Period {course.period}</p>
                                                         </div>
+                                                        {(() => {
+                                                            const otherSemesters =
+                                                                multiSemesterCodes[course.course_code]
+                                                                    ?.filter(s => Number(s) !== Number(course.semester)) || [];
+
+                                                            if (otherSemesters.length === 0) return null;
+
+                                                            return (
+                                                                <p className="also-available">
+                                                                    📅 Also available in semester {otherSemesters.join(", ")}
+                                                                </p>
+                                                            );
+                                                        })()}
 
                                                         {course.elective && (
                                                             <button

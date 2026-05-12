@@ -73,6 +73,16 @@ This project uses Node.js and npm, together with JavaScript libraries and tools 
 
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
+* Users can select a master profile/specialization.
+* Users can save selected courses.
+* Later, users will optionally make profiles public.
+* Public users can:
+    * show selected courses
+    * show specialization (plan)
+    * appear in course matching
+    * allow others to see who selected the same course
+* Ratings remain optionally anonymous depending on user privacy settings.
+
 ## License
 
 ## Project status

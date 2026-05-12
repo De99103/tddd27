@@ -28,6 +28,33 @@ function Course({
     const [courseRating, setCourseRating] = useState("");
     const [specialisation, setSpecialisation] = useState("")
 
+    // const visibleCourses = courses.filter((course) => {
+    //     if (!course) return false;
+
+    //     // Compulsory courses with no specialisation = always visible (e.g. year 1-3 core)
+    //     if (course.ecv === "C" && course.specialisation === null) return true;
+
+    //     // If no specialisation selected, only show null-specialisation courses
+    //     if (!selectedSpecialisation) {
+    //         return course.specialisation === null;
+    //     }
+
+    //     // With a specialisation selected:
+    //     // Show courses belonging to that specialisation (both C and E)
+    //     if (Array.isArray(course.specialisation)) {
+    //         if (course.specialisation.includes(selectedSpecialisation)) {
+    //             return true;
+    //         }
+    //     } else if (course.specialisation === selectedSpecialisation) {
+    //         return true;
+    //     }
+    //     // Also show general electives (null specialisation)
+    //     if (course.specialisation === null) return true;
+
+    //     return false;
+    // });
+
+
     async function handleSave() {
         try {
             if (!selectedProgram) {
@@ -48,12 +75,31 @@ function Course({
                 return;
             }
 
-            await saveCourse(educationId, "mandatory", courseId, {
+            // await saveCourse(educationId, "mandatory", courseId, {
+            //     grade: courseGrade,
+            //     notes: notes,
+            //     rating: courseRating,
+            // });
+
+            await saveCourse(educationId, "selectedCourses", courseId, {
+                courseName: selectedCourse.course_name,
                 grade: courseGrade,
                 notes: notes,
                 rating: courseRating,
+
+                masterProfile: selectedSpecialisation || null,
+                courseSpecialisation: selectedCourse.specialisation || null,
+
+                year: selectedCourse.year,
+                semester: selectedCourse.semester,
+                ecv: selectedCourse.ecv,
+                updatedAt: new Date(),
+
+
             });
 
+            console.log("selectedSpecialisation:", selectedSpecialisation);
+            console.log("selectedCourse:", selectedCourse);
             await savePublicCourseRating(courseId, {
                 grade: courseGrade,
                 rating: courseRating,
@@ -146,7 +192,10 @@ function Course({
                                 className="line-autocomplete"
                                 value={selectedSpecialisation}
                                 getOptionLabel={(option) => option || ""}
-                                onChange={setSelectedSpecialisation}
+                                onChange={(value) => {
+                                    console.log("Specialisation onChange fired:", value);
+                                    setSelectedSpecialisation(value)
+                                }}
                             />
                         </div>
                     </div>
