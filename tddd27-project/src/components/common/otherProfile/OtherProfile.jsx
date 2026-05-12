@@ -1,17 +1,56 @@
 import "./OtherProfile.css";
+import { useState, useEffect } from "react";
+import Autocomplete from "../autocomplete/Autocomplete";
+
+import { getName, getDisplayNameOptions } from "../../../fireBase/userData";
 
 function OtherProfile() {
+    const [displayNameOptions, setDisplayNameOptions] = useState([]);
+    const [displayName, setDisplayname] = useState("");
+    const [selectedDisplayName, setSelectedDisplayName] = useState(null);
+
+    useEffect(() => {
+        async function loadUsers() {
+            const users = await getDisplayNameOptions();
+            setDisplayNameOptions(users);
+        }
+
+        loadUsers();
+    }, []);
+
+    useEffect(() => {
+        async function loadName() {
+            if (!selectedDisplayName?.id) return;
+
+            const name = await getName(selectedDisplayName.id);
+            setDisplayname(name || "");
+        }
+
+        loadName();
+    }, [selectedDisplayName]);
+
     return (
         <div className="other_profile_page">
             <div className="search_profile_container">
                 <p>Search for </p>
-                <input className="profile_search"></input>
+
+                <Autocomplete
+                    options={displayNameOptions}
+                    label=""
+                    className="line-autocomplete"
+                    value={selectedDisplayName}
+                    getOptionLabel={(option) => option?.name || ""}
+                    onChange={(displayName) => {
+                        setSelectedDisplayName(displayName);
+                    }}
+                />
+
                 <p>'s profile</p>
             </div>
 
             <div className="other_profile_overlay">
                 <p>You are looking at </p>
-                <h3>placeholder</h3>
+                <h3>{displayName}</h3>
                 <p>'s profile</p>
             </div>
         </div>
