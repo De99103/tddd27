@@ -1,0 +1,67 @@
+.other_profile_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+.search_profile_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-image: url("/src/assets/images/paper.jpg");
+    padding: 20pt 40pt 20pt 40pt;
+}
+
+.profile_search {
+    height: 3.5vh;
+    margin: 0px 10px 0px 10px;
+    width: 30vw;
+}
+
+.search_profile_container p {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.other_profile_overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/src/assets/images/paper.jpg");
+    position: fixed;
+    width: 100%;
+    height: 5vh;
+    bottom: 50px;
+    z-index: 20;
+}
+
+h3 {
+    padding: 0pt 5pt 3pt 5pt;
+    display: flex;
+
+}
+
+@media screen and (max-width: 767px) {
+    .search_profile_container p {
+        font-size: 1.5rem;
+    }
+
+    .search_profile_container {
+        padding: 10pt 10pt 15pt 10pt;
+    }
+
+    .profile_search {
+        height: 1.5rem;
+        margin: 0px 10px 0px 10px;
+        width: 30vw;
+    }
+
+    .other_profile_overlay {
+        height: 3vh;
+    }
+}

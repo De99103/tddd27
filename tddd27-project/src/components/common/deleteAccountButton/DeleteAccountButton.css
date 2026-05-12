@@ -8,7 +8,6 @@
     padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     width: fit-content;
     align-self: center;
 }
@@ -25,10 +24,16 @@
 
 .delete-button {
     display: inline-flex;
-    justify-content: flex-start;
     font-size: 15px;
     border-radius: 10px;
     padding: 10px;
-    gap: 6px;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.495);
+}
+
+@media screen and (max-width: 767px) {
+    .delete-button {
+        background-color: transparent;
+    }
+
 }
