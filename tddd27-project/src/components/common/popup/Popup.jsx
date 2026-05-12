@@ -97,7 +97,7 @@ function Popup({ selectedCourse = null, educationId = null }) {
                         </p>
                     )}
 
-                    <button onClick={handleSaveGrade} disabled={loading}>
+                    <button id="saveProgramButton" onClick={handleSaveGrade} disabled={loading} >
                         {isEditing ? "Save Change" : "Edit Grade"}
                     </button>
                 </div>

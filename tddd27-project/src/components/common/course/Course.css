@@ -65,6 +65,7 @@ input:focus {
 }
 
 #saveProgramButton {
+    display: flex;
     border: 1px solid grey;
     border-radius: 5pt;
     box-shadow: 2px 2px lightgray;
@@ -73,6 +74,7 @@ input:focus {
     height: 50%;
     font-family: "Times New Roman", Times, serif;
     font-size: 20pt;
+    align-items: center;
 }
 
 @media screen and (max-width: 767px) {

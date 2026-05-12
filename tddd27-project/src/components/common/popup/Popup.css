@@ -93,6 +93,10 @@
     color: var(--graphite_pencil);
 }
 
+.popup_grade_input {
+    width: 11vw;
+}
+
 .text_before_rating {
     font-size: 1.5rem;
     padding-bottom: 25px;
@@ -109,16 +113,37 @@
 
 .ToggleGroup button {
     font-size: 3.5rem;
-     border: none !important;
+    border: none !important;
 }
 
 .ToggleGroupItem {
     color: var(--graphite_pencil) !important;
     border-radius: 0px !important;
-   
 }
 
 .ToggleGroupItem[data-state="on"] {
     background-color: greenyellow !important;
     color: var(--graphite_pencil) !important;
+}
+
+@media screen and (max-width: 767px) {
+    .container_popup {
+        width: 400px;
+        height: 400px;
+        font-size: 1rem;
+    }
+
+    .popup_course_code {
+        font-size: 3rem;
+    }
+
+    .text_before_rating {
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+
+    .container_popup p {
+        margin: 10px;
+    }
 }
