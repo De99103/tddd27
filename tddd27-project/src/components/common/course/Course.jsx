@@ -163,7 +163,7 @@ function Course({
                     </div>
 
 
-                    <label className="specialisation-toggle">
+                    <div className="specialisation-toggle">
 
                         <button id="saveButton" onClick={handleSave}>
                             Save this course
@@ -179,7 +179,7 @@ function Course({
 
 
 
-                    </label>
+                    </div>
 
                     {specialisation && (
                         <div className="specialisation_div" >
