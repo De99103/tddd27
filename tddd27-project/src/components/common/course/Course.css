@@ -77,6 +77,124 @@ input:focus {
     align-items: center;
 }
 
+/* here ! */
+
+.specialisation_div {
+    margin-top: 0.75rem; 
+}
+.autocomplete-with-info {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.specialisation-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    gap: 0;
+    flex-direction: row-reverse;
+}
+
+.specialisation-toggle input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #6c63ff;
+    /* matches your purple navbar */
+    flex-shrink: 0;
+}
+
+.specialisation-hint {
+    display: block;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+
+#saveButton {
+    padding: 8px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid #7c809b;
+    border-radius: 6px;
+    background: white;
+    margin-top: 0;
+}
+
+.info-icon{
+
+    width: 14%;
+    height: 14%;
+
+}
+#saveCourseButton:hover,
+#Save_button_2:hover {
+    background: #333;
+    color: white;
+}
+
+.info-btn-wrapper {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.info-tooltip {
+   display: none;
+    position: absolute;
+    bottom: 130%;
+    left: 5%;
+    right: 0;
+    width: 220px;
+    background:  rgb(255, 255, 255);
+    color: #7c809b;
+    font-size: 0.90rem;
+    font-weight: normal;
+    font-family: sans-serif;
+    padding: 8px 10px;
+    border-radius: 6px;
+    line-height: 1.4;
+    z-index: 10;
+    text-align: left;
+    white-space: normal;
+}
+
+.info-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 8px;
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+
+.info-btn-wrapper:hover .info-tooltip {
+    display: block;
+}
+
+#saveButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.save-all-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 0.75rem;
+}
+
 @media screen and (max-width: 767px) {
     .course-container {
         display: flex;
@@ -85,6 +203,7 @@ input:focus {
         font-size: 14pt;
         padding: 20px;
     }
+
 
     .program_name_and_button {
         display: flex;
@@ -100,13 +219,6 @@ input:focus {
         flex-direction: column;
     }
 
-    .textAndInput {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 40px;
-        width: 100%;
-        align-items: baseline;
-    }
 
     #department_container {
         width: 100%;
@@ -118,5 +230,8 @@ input:focus {
 
     .page p {
         padding: 0px;
+    }
+    .specialisation-toggle{
+         flex-direction: column;
     }
 }

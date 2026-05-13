@@ -6,6 +6,7 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { saveCourse } from "../../../fireBase/userData";
 
 const CoursesTable = ({ courses = [], educationId = null }) => {
+    //dubag: 
     console.log("CoursesTable courses count:", courses.length);  // ADD THIS
     console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); // ADD THIS
     console.log("CoursesTable ALL courses:", courses.map(c => `${c.course_code} | ${c.specialisation} | ${c.ecv}`));
@@ -69,6 +70,12 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
 
     return (
         <>
+        <section key={educationId} className="titleofeducation">
+            <div>
+                <h2>{educationId}</h2>
+            </div>
+        </section>
+
             {popupCourse && (
                 <div
                     className="popup-overlay"
@@ -94,7 +101,12 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                     );
 
                     return (
+                        // adding the program name in the beggeing : 
+                        
                         <section key={year} className="year-section">
+                            <section key = {educationId} className="titleofeducation">
+                                <div></div>
+                            </section>
                             <h2 className="year-title">Year {year}</h2>
 
                             <div className="semester-grid">

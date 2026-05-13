@@ -144,6 +144,7 @@ function Home() {
                 selectedSpecialisation={selectedSpecialisation}
                 setSelectedSpecialisation={setSelectedSpecialisation} // function 
                 selectedProfileCourses={selectedProfileCourses} // data 
+                onSaveAll={handleSaveProfileCourses}
 
             />
 

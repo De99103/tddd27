@@ -5,6 +5,7 @@ import { useState } from "react";
 //should this be a page or a component ? or not here at all??
 import { saveCourse, savePublicCourseRating } from "../../../fireBase/userData";
 
+import infoIcon from "/src/assets/images/info.png";
 function Course({
     programOptions = [],
     selectedProgram = null,
@@ -17,6 +18,8 @@ function Course({
     selectedSpecialisation = null,
     setSelectedSpecialisation = () => { },
 
+    onSaveAll = () => { },
+
 }) {
     const specialisations = selectedProgram?.specialisations || [];
 
@@ -26,34 +29,15 @@ function Course({
     const [profile, setProfile] = useState("");
     const [notes, setNotes] = useState("");
     const [courseRating, setCourseRating] = useState("");
-    const [specialisation, setSpecialisation] = useState("")
+    const [specialisation, setSpecialisation] = useState(false)
 
-    // const visibleCourses = courses.filter((course) => {
-    //     if (!course) return false;
-
-    //     // Compulsory courses with no specialisation = always visible (e.g. year 1-3 core)
-    //     if (course.ecv === "C" && course.specialisation === null) return true;
-
-    //     // If no specialisation selected, only show null-specialisation courses
-    //     if (!selectedSpecialisation) {
-    //         return course.specialisation === null;
-    //     }
-
-    //     // With a specialisation selected:
-    //     // Show courses belonging to that specialisation (both C and E)
-    //     if (Array.isArray(course.specialisation)) {
-    //         if (course.specialisation.includes(selectedSpecialisation)) {
-    //             return true;
-    //         }
-    //     } else if (course.specialisation === selectedSpecialisation) {
-    //         return true;
-    //     }
-    //     // Also show general electives (null specialisation)
-    //     if (course.specialisation === null) return true;
-
-    //     return false;
-    // });
-
+    const handleSpecialisationToggle = (e) => {
+        const checked = e.target.checked;
+        setSpecialisation(checked);
+        if (!checked) {
+            setSelectedSpecialisation(null);
+        }
+    }
 
     async function handleSave() {
         try {
@@ -130,7 +114,7 @@ function Course({
                                 // saveProgram(program?.code || program?.name || "");
                             }}
                         />
-                        <button id="saveProgramButton" onClick={handleSave}>Save</button>
+                        {/* <button id="saveProgramButton" onClick={handleSave}>Save</button> */}
                     </div>
                 </div>
 
@@ -155,22 +139,19 @@ function Course({
                         />
                     </div>
 
+
                     <div className="departmentAndGrade">
                         <div className="textAndInput" id="department_container">
-                            <p>
-                                Institution/<i>Department:</i>
-                            </p>
+                            <p>Institution/<i>Department:</i></p>
                             <input
                                 className="input"
                                 type="text"
                                 value={selectedCourse?.department || ""}
-                                readOnly // we don't want users to edit this field, it's just for display
+                                readOnly
                             />
                         </div>
                         <div className="textAndInput" id="grade_container">
-                            <p>
-                                Betyg/<i>Grade:</i>
-                            </p>
+                            <p>Betyg/<i>Grade:</i></p>
                             <input
                                 className="input"
                                 type="text"
@@ -178,30 +159,77 @@ function Course({
                                 onChange={(e) => setCourseGrade(e.target.value)}
                             />
                         </div>
+
                     </div>
 
-                    <div className="profiles-div">
-                        <div className="textAndInput">
 
-                            <p>
-                                Masterprofil/<i> Specialization:</i>
-                            </p>
-                            <Autocomplete
-                                options={specialisations}
-                                label=""
-                                className="line-autocomplete"
-                                value={selectedSpecialisation}
-                                getOptionLabel={(option) => option || ""}
-                                onChange={(value) => {
-                                    console.log("Specialisation onChange fired:", value);
-                                    setSelectedSpecialisation(value)
-                                }}
+                    <label className="specialisation-toggle">
+
+                        <button id="saveButton" onClick={handleSave}>
+                            Save this course
+                        </button>
+                        <div className="checkbox_div">
+                            <input
+                                type="checkbox"
+                                checked={specialisation}
+                                onChange={handleSpecialisationToggle}
                             />
+                            <span>Adding  a specialization / <i>Masterprofil</i></span>
                         </div>
-                    </div>
+
+
+
+                    </label>
+
+                    {specialisation && (
+                        <div className="specialisation_div" >
+                            <div className="autocomplete-with-info">
+
+                                <p>Masterprofil/<i> Specialization:</i></p>
+                                <Autocomplete
+                                    options={specialisations}
+                                    label=""
+                                    className="line-autocomplete"
+                                    value={selectedSpecialisation}
+                                    getOptionLabel={(option) => option || ""}
+                                    onChange={(value) => {
+                                        setSelectedSpecialisation(value);
+                                    }}
+                                />
+                                <div className="info-btn-wrapper">
+                                    <img
+                                        src={infoIcon}
+                                        alt="info Button"
+                                        className="info-icon"
+                                    />
+
+                                    <div className="info-tooltip">
+                                        This filters the course table — save courses individually below.
+                                        Saves all courses for the selected specialization at once.
+                                        <b>OR</b> You can still add or remove individual courses afterwards.
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className="save-all-row">
+
+                                <button
+                                    id="saveButton"
+                                    onClick={onSaveAll}
+                                    disabled={!selectedSpecialisation}
+                                >
+                                    Save all courses
+                                </button>
+                            </div>
+                        </div>
+                    )}
                 </div>
+
             </div>
-        </div>
+        </div >
     );
 }
 
