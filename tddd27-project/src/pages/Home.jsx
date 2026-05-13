@@ -117,9 +117,9 @@ function Home() {
             courseName: course.course_name,
             masterProfile: selectedSpecialisation,
             courseSpecialisation: course.specialisation || null,
-            year: course.year,
-            semester: course.semester,
-            ecv: course.ecv,
+            year: course.year|| "",
+            semester: course.semester|| "",
+            ecv: course.ecv || "",
             updatedAt: new Date(),
         });
     }
