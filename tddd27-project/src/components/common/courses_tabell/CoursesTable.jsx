@@ -1,6 +1,9 @@
 import "./CoursesTable.css";
 import Popup from "../popup/Popup";
 import { useState } from "react";
+import { db } from "../../../fireBase/firebase";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { saveCourse } from "../../../fireBase/userData";
 
 const CoursesTable = ({ courses = [], educationId = null }) => {
     console.log("CoursesTable courses count:", courses.length);  // ADD THIS
@@ -26,6 +29,27 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
     );
 
 
+    const addcourse = async (e, course) => {
+        e.stopPropagation();
+
+        try {
+            await saveCourse(
+                educationId,
+                "selected",
+                course.course_code,
+                {
+                    ...course,
+                    grade: "",
+                }
+            );
+
+            console.log("Course added:", course.course_code);
+        } catch (error) {
+            console.error("Error adding course:", error);
+        }
+
+        alert("Course added:"  + course.course_name + " " +  course.course_code ) ;
+    };
     // Find courses that appear in multiple semesters
     const courseCodeCount = courses.reduce((acc, course) => {
         if (!acc[course.course_code]) {
@@ -85,7 +109,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                                                 <div
                                                     key={`${course.course_code}-${course.year}-${course.semester}-${course.specialisation ?? "none"}`}
                                                     className={`course-card ${course.elective ? "selectable" : "mandatory"}`}
-                                                    onClick={() => setPopupCourse(course)} // ✅ open popup on click
+                                                    onClick={() => setPopupCourse(course)} //  open popup on click
                                                     style={{ cursor: "pointer" }}
                                                 >
                                                     <div className="course-code-box">
@@ -118,7 +142,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
                                                         {course.elective && (
                                                             <button
                                                                 className="add-btn"
-                                                                onClick={(e) => e.stopPropagation()}
+                                                                onClick={(e) => addcourse(e, course)}
                                                             >
                                                                 Add course
                                                             </button>

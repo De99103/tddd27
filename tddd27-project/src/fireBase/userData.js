@@ -90,3 +90,4 @@ export async function getCourse(educationId, courseType, courseId) {
   }
   return null;
 }
+

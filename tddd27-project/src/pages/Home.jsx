@@ -12,11 +12,11 @@ import { saveCourse } from "../fireBase/userData";
 
 //json files for the different programs
 import mtData from "../assets/data/MT.json"; // the old link
-import mtData_new from "../assets/data/MT_courses_fixed.json"; // the new link for the MT program
+import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
 import mtAiData from "../assets/data/MT-AI.json";
-import dtData from "../assets/data/DT.json";
+import dtData from "../assets/data/DDD_courses_specialisations_fixed.json";
 import edData from "../assets/data/ED.json";
-import itData from "../assets/data/IT_courses.json";
+import itData from "../assets/data/IT_courses_specialisations_fixed.json";
 
 function Home() {
     const [courses, setCourses] = useState([]);
@@ -76,7 +76,7 @@ function Home() {
 
         const spec = course.specialisation;
 
-        // to showing the mandatory courses too 
+        // to showing the mandatory courses too  / not working any more due to changade the structure for the files!! 
         if (spec == null) return course.ecv === "C";
 
         if (Array.isArray(spec)) {
@@ -96,14 +96,6 @@ function Home() {
     const selectedProfileCourses = visibleCourses.filter((course) => {
         return course.ecv === "C" || course.ecv === "E";
     });
-
-    // // Deduplicate: keep only the first occurrence of each course_code
-    // const seenCodes = new Set();
-    // const deduplicatedCourses = visibleCourses.filter((course) => {
-    //     if (seenCodes.has(course.course_code)) return false;
-    //     seenCodes.add(course.course_code);
-    //     return true;
-    // });
 
 
     //debug 
@@ -154,15 +146,6 @@ function Home() {
                 selectedProfileCourses={selectedProfileCourses} // data 
 
             />
-
-
-
-            {/* <Popup
-                selectedCourse={selectedCourse}
-                educationId={selectedProgram?.code || selectedProgram?.name}
-            />             */}
-
-
 
             <CoursesTable
                 courses={visibleCourses}
