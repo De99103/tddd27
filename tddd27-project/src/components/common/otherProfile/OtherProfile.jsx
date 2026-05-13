@@ -10,24 +10,32 @@ function OtherProfile() {
     const [selectedDisplayName, setSelectedDisplayName] = useState(null);
 
     useEffect(() => {
-        async function loadUsers() {
-            const users = await getDisplayNameOptions();
-            setDisplayNameOptions(users);
-        }
-
-        loadUsers();
-    }, []);
-
-    useEffect(() => {
         async function loadName() {
-            if (!selectedDisplayName?.id) return;
+            try {
+                if (!selectedDisplayName?.id) return;
 
-            const name = await getName(selectedDisplayName.id);
-            setDisplayname(name || "");
+                const name = await getName(selectedDisplayName.id);
+                setDisplayname(name || "");
+            } catch (error) {
+                console.error("Error loading name:", error);
+            }
         }
 
         loadName();
     }, [selectedDisplayName]);
+
+    useEffect(() => {
+        async function loadUsers() {
+            try {
+                const users = await getDisplayNameOptions();
+                setDisplayNameOptions(users);
+            } catch (error) {
+                console.error("Error loading users:", error);
+            }
+        }
+
+        loadUsers();
+    }, []);
 
     return (
         <div className="other_profile_page">
