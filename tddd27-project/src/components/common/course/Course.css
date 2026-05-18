@@ -18,7 +18,6 @@
     background-image: url("/src/assets/images/paper.jpg");
     color: black;
     text-wrap: nowrap;
-    text-align: left;
     padding: 40px 40px 40px 30px;
 }
 
@@ -80,7 +79,7 @@ input:focus {
 /* here ! */
 
 .specialisation_div {
-    margin-top: 0.75rem; 
+    margin-top: 1rem;
 }
 .autocomplete-with-info {
     display: flex;
@@ -94,14 +93,13 @@ input:focus {
     justify-content: space-between;
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 1rem;
     gap: 0;
     flex-direction: row-reverse;
 }
 
 .specialisation-toggle input[type="checkbox"] {
     width: 16px;
-    height: 16px;
+    height: 20px;
     cursor: pointer;
     accent-color: #6c63ff;
     /* matches your purple navbar */
@@ -117,6 +115,10 @@ input:focus {
     font-style: italic;
 }
 
+.checkbox_div {
+    display: flex;
+    justify-content: center;
+}
 
 #saveButton {
     padding: 8px 24px;
@@ -129,11 +131,9 @@ input:focus {
     margin-top: 0;
 }
 
-.info-icon{
-
+.info-icon {
     width: 14%;
     height: 14%;
-
 }
 #saveCourseButton:hover,
 #Save_button_2:hover {
@@ -149,15 +149,15 @@ input:focus {
 }
 
 .info-tooltip {
-   display: none;
+    display: none;
     position: absolute;
     bottom: 130%;
     left: 5%;
     right: 0;
     width: 220px;
-    background:  rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     color: #7c809b;
-    font-size: 0.90rem;
+    font-size: 0.9rem;
     font-weight: normal;
     font-family: sans-serif;
     padding: 8px 10px;
@@ -177,7 +177,6 @@ input:focus {
     border-top-color: #333;
 }
 
-
 .info-btn-wrapper:hover .info-tooltip {
     display: block;
 }
@@ -192,7 +191,7 @@ input:focus {
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
-    margin-top: 0.75rem;
+    margin-top: -2rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -203,7 +202,6 @@ input:focus {
         font-size: 14pt;
         padding: 20px;
     }
-
 
     .program_name_and_button {
         display: flex;
@@ -219,7 +217,6 @@ input:focus {
         flex-direction: column;
     }
 
-
     #department_container {
         width: 100%;
     }
@@ -231,7 +228,17 @@ input:focus {
     .page p {
         padding: 0px;
     }
-    .specialisation-toggle{
-         flex-direction: column;
+    .specialisation-toggle {
+        flex-direction: column;
+    }
+
+    .textAndInput {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .save-all-row {
+        justify-content: center;
+        margin-top: 1rem;
     }
 }
