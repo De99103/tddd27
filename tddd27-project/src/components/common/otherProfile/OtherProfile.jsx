@@ -63,7 +63,7 @@ function OtherProfile() {
             <div className="other_profile_overlay">
                 <p>You are looking at </p>
                 <h3>{displayName}</h3>
-                <p>'s profile</p>
+                <p id="s_after_name_search">'s profile</p>
             </div>
 
             <style>{`

@@ -22,6 +22,10 @@
     width: 35vw;
 }
 
+#s_after_name_search {
+    margin-left: -4pt;
+}
+
 .css-1tlcqt-MuiAutocomplete-root
     .MuiAutocomplete-inputRoot
     .MuiAutocomplete-input
