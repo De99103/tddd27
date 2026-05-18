@@ -9,17 +9,16 @@ import infoIcon from "/src/assets/images/info.png";
 function Course({
     programOptions = [],
     selectedProgram = null,
-    onProgramChange = () => { },
+    onProgramChange = () => {},
 
     courses = [],
     selectedCourse = null,
-    setSelectedCourse = () => { },
+    setSelectedCourse = () => {},
 
     selectedSpecialisation = null,
-    setSelectedSpecialisation = () => { },
+    setSelectedSpecialisation = () => {},
 
-    onSaveAll = () => { },
-
+    onSaveAll = () => {},
 }) {
     const specialisations = selectedProgram?.specialisations || [];
 
@@ -29,7 +28,7 @@ function Course({
     const [profile, setProfile] = useState("");
     const [notes, setNotes] = useState("");
     const [courseRating, setCourseRating] = useState("");
-    const [specialisation, setSpecialisation] = useState(false)
+    const [specialisation, setSpecialisation] = useState(false);
 
     const handleSpecialisationToggle = (e) => {
         const checked = e.target.checked;
@@ -37,7 +36,7 @@ function Course({
         if (!checked) {
             setSelectedSpecialisation(null);
         }
-    }
+    };
 
     async function handleSave() {
         try {
@@ -78,8 +77,6 @@ function Course({
                 semester: selectedCourse.semester,
                 ecv: selectedCourse.ecv,
                 updatedAt: new Date(),
-
-
             });
 
             console.log("selectedSpecialisation:", selectedSpecialisation);
@@ -139,10 +136,11 @@ function Course({
                         />
                     </div>
 
-
                     <div className="departmentAndGrade">
                         <div className="textAndInput" id="department_container">
-                            <p>Institution/<i>Department:</i></p>
+                            <p>
+                                Institution/<i>Department:</i>
+                            </p>
                             <input
                                 className="input"
                                 type="text"
@@ -151,7 +149,9 @@ function Course({
                             />
                         </div>
                         <div className="textAndInput" id="grade_container">
-                            <p>Betyg/<i>Grade:</i></p>
+                            <p>
+                                Betyg/<i>Grade:</i>
+                            </p>
                             <input
                                 className="input"
                                 type="text"
@@ -159,12 +159,9 @@ function Course({
                                 onChange={(e) => setCourseGrade(e.target.value)}
                             />
                         </div>
-
                     </div>
 
-
                     <div className="specialisation-toggle">
-
                         <button id="saveButton" onClick={handleSave}>
                             Save this course
                         </button>
@@ -174,18 +171,18 @@ function Course({
                                 checked={specialisation}
                                 onChange={handleSpecialisationToggle}
                             />
-                            <span>Adding  a specialization / <i>Masterprofil</i></span>
+                            <p>
+                                Lägger till Masterprofil/<i>specialization</i>
+                            </p>
                         </div>
-
-
-
                     </div>
 
                     {specialisation && (
-                        <div className="specialisation_div" >
+                        <div className="specialisation_div">
                             <div className="autocomplete-with-info">
-
-                                <p>Masterprofil/<i> Specialization:</i></p>
+                                <p>
+                                    Masterprofil/<i> Specialization:</i>
+                                </p>
                                 <Autocomplete
                                     options={specialisations}
                                     label=""
@@ -204,18 +201,17 @@ function Course({
                                     />
 
                                     <div className="info-tooltip">
-                                        This filters the course table — save courses individually below.
-                                        Saves all courses for the selected specialization at once.
-                                        <b>OR</b> You can still add or remove individual courses afterwards.
+                                        This filters the course table — save
+                                        courses individually below. Saves all
+                                        courses for the selected specialization
+                                        at once.
+                                        <b>OR</b> You can still add or remove
+                                        individual courses afterwards.
                                     </div>
                                 </div>
                             </div>
 
-
-
-
                             <div className="save-all-row">
-
                                 <button
                                     id="saveButton"
                                     onClick={onSaveAll}
@@ -227,9 +223,8 @@ function Course({
                         </div>
                     )}
                 </div>
-
             </div>
-        </div >
+        </div>
     );
 }
 

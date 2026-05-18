@@ -146,7 +146,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
 
                                                             return (
                                                                 <p className="also-available">
-                                                                    📅 Also available in semester {otherSemesters.join(", ")}
+                                                                    Also available in semester {otherSemesters.join(", ")}
                                                                 </p>
                                                             );
                                                         })()}
