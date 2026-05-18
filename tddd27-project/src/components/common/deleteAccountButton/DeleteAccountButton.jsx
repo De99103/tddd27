@@ -42,7 +42,7 @@ function DeleteAccountButton() {
                             alt="Delete account"
                             className="delete-icon"
                         />
-                        Delete account
+                        <p>Delete account</p>
                     </button>
                 </div>
             </div>
