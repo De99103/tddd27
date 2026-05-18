@@ -98,4 +98,10 @@
         padding: 5pt;
         background-color: transparent;
     }
+
+    .user-name {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 25vw;
+    }
 }
