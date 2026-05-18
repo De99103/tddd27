@@ -8,6 +8,7 @@ function OtherProfile() {
     const [displayNameOptions, setDisplayNameOptions] = useState([]);
     const [displayName, setDisplayname] = useState("");
     const [selectedDisplayName, setSelectedDisplayName] = useState(null);
+    const [profileSelected, setProfileSelected] = useState(false);
 
     useEffect(() => {
         async function loadName() {
@@ -16,6 +17,8 @@ function OtherProfile() {
 
                 const name = await getName(selectedDisplayName.id);
                 setDisplayname(name || "");
+
+                setProfileSelected(profileSelected);
             } catch (error) {
                 console.error("Error loading name:", error);
             }
@@ -45,11 +48,12 @@ function OtherProfile() {
                 <Autocomplete
                     options={displayNameOptions}
                     label=""
-                    className="line-autocomplete"
+                    className="line-autocomplete profile_search"
                     value={selectedDisplayName}
                     getOptionLabel={(option) => option?.name || ""}
                     onChange={(displayName) => {
                         setSelectedDisplayName(displayName);
+                        setProfileSelected(displayName);
                     }}
                 />
 
@@ -61,6 +65,15 @@ function OtherProfile() {
                 <h3>{displayName}</h3>
                 <p>'s profile</p>
             </div>
+
+            <style>{`
+            
+                .other_profile_overlay {
+                    display: ${profileSelected ? "flex" : "none"};
+                }
+                
+
+            `}</style>
         </div>
     );
 }
