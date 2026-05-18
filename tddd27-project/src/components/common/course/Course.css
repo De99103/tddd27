@@ -186,13 +186,6 @@ input:focus {
     cursor: not-allowed;
 }
 
-.save-all-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: -2rem;
-}
 
 @media screen and (max-width: 767px) {
     .course-container {
@@ -242,5 +235,38 @@ input:focus {
     .save-all-row {
         justify-content: center;
         margin-top: 1rem;
+        margin-top: 0rem;
+    }
+
+    .specialisation-toggle input[type="checkbox"] {
+        width: 15px;
+    }
+
+    .checkbox_div {
+        padding-left: 4px;
+        gap: 1px;
+    }
+
+    #saveButton {
+        margin: 0rem;
+    }
+
+    .info-btn-wrapper {
+        justify-content: center;
+        padding-top: 1rem;
+    }
+
+    .info-icon {
+        width: 10%;
+    }
+
+    .specialisation-toggle #saveButton {
+        margin: 0rem 0rem 2rem 0rem;
+    }
+
+    .autocomplete-with-info {
+        flex-direction: column;
+        align-items: start;
+        padding: 0pt 0pt 10pt 0pt;
     }
 }
