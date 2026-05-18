@@ -42,9 +42,8 @@ export async function saveCourse(educationId, courseType, courseId, data) {
         ),
         {
             grade: data.grade || "",
-            // notes: data.notes || "",
-            // rating: data.rating || "",
-            ...data, // will save all fileds we send from course.jsx
+            notes: data.notes || "",
+            rating: data.rating || "",
             updatedAt: serverTimestamp(),
         },
         { merge: true },
@@ -116,15 +115,7 @@ export async function getName(userId) {
     const ref = doc(db, "users", userId);
     const snapshot = await getDoc(ref);
 
-    if (snapshot.exists()) {
-        return snapshot.data();
-    } else {
-        snapshot.data().displayName || "";
-    }
-    return null;
+    if (!snapshot.exists()) return null;
+
+    return snapshot.data().displayName || "";
 }
-
-//   if (!snapshot.exists()) { return null;
-
-//   return snapshot.data().displayName || "";
-// }
