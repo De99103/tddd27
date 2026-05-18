@@ -2,8 +2,10 @@ import "./Course.css";
 import Autocomplete from "../autocomplete/Autocomplete";
 import { useState } from "react";
 
-//should this be a page or a component ? or not here at all??
 import { saveCourse, savePublicCourseRating } from "../../../fireBase/userData";
+import { writeBatch, doc, serverTimestamp } from "firebase/firestore";
+import { auth, db } from "../../../fireBase/firebase";
+
 
 import infoIcon from "/src/assets/images/info.png";
 function Course({
@@ -36,59 +38,74 @@ function Course({
         if (!checked) {
             setSelectedSpecialisation(null);
         }
+<<<<<<< Updated upstream
     };
 
+=======
+    }
+>>>>>>> Stashed changes
     async function handleSave() {
         try {
-            if (!selectedProgram) {
-                alert("Select an education/program first!");
-                return;
-            }
+            if (!selectedProgram) { alert("Select a program first!"); return; }
+            if (!selectedCourse) { alert("Select a course first!"); return; }
 
-            if (!selectedCourse) {
-                alert("Select a course before saving!");
-                return;
-            }
-
-            const educationId = selectedProgram.code || selectedProgram.name;
+            const educationId = selectedProgram.id || selectedProgram.name;
             const courseId = selectedCourse.course_code;
+            const courseType = selectedCourse.mandatory === true ? "mandatory" : "selectedCourses";
 
-            if (!educationId || !courseId) {
-                alert("Missing education ID or course ID");
-                return;
-            }
-
-            // await saveCourse(educationId, "mandatory", courseId, {
-            //     grade: courseGrade,
-            //     notes: notes,
-            //     rating: courseRating,
-            // });
-
-            await saveCourse(educationId, "selectedCourses", courseId, {
+            await saveCourse(educationId, courseType, courseId, {
                 courseName: selectedCourse.course_name,
                 grade: courseGrade,
                 notes: notes,
                 rating: courseRating,
-
                 masterProfile: selectedSpecialisation || null,
                 courseSpecialisation: selectedCourse.specialisation || null,
-
                 year: selectedCourse.year,
                 semester: selectedCourse.semester,
                 ecv: selectedCourse.ecv,
                 updatedAt: new Date(),
             });
 
-            console.log("selectedSpecialisation:", selectedSpecialisation);
-            console.log("selectedCourse:", selectedCourse);
+            // ✅ batch write for all mandatory courses
+            if (selectedCourse.mandatory === true) {
+                const mandatoryCourses = courses.filter(
+                    (c) => c.mandatory === true && c.course_code !== courseId
+                );
+
+                const batch = writeBatch(db);
+
+                for (const course of mandatoryCourses) {
+                    const ref = doc(
+                        db,
+                        "users", auth.currentUser.uid,
+                        "educations", educationId,
+                        "mandatoryCourses", course.course_code
+                    );
+                    batch.set(ref, {
+                        courseName: course.course_name,
+                        grade: "",
+                        masterProfile: null,
+                        courseSpecialisation: course.specialisation || null,
+                        year: course.year ?? "",
+                        semester: course.semester ?? "",
+                        ecv: course.ecv ?? "",
+                        updatedAt: serverTimestamp(),
+                    }, { merge: true });
+                }
+
+                await batch.commit();
+            }
+
             await savePublicCourseRating(courseId, {
                 grade: courseGrade,
                 rating: courseRating,
             });
 
             alert("Saved!");
+
         } catch (error) {
             console.error("Error saving:", error);
+            alert("Error: " + error.message);
         }
     }
 
