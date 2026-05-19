@@ -2,6 +2,7 @@ import "./Popup.css";
 import { useState, useEffect } from "react";
 
 import Rating from "../rating/Rating";
+
 import { getCourse, saveCourse } from "../../../fireBase/userData";
 
 function Popup({ selectedCourse = null, educationId = null }) {
