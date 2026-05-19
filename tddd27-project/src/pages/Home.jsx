@@ -98,28 +98,28 @@ function Home() {
 
 
     async function handleSaveProfileCourses() {
-    if (!selectedProgram || !selectedSpecialisation) {
-        alert("Choose program and specialisation first");
-        return;
+        if (!selectedProgram || !selectedSpecialisation) {
+            alert("Choose program and specialisation first");
+            return;
+        }
+
+        const educationId = selectedProgram.id || selectedProgram.code || selectedProgram.name;
+
+        for (const course of visibleCourses) {
+            const courseType = course.mandatory === true ? "mandatory" : "selectedCourses";
+            await saveCourse(educationId, courseType, course.course_code, {
+                courseName: course.course_name,
+                masterProfile: selectedSpecialisation,
+                courseSpecialisation: course.specialisation || null,
+                year: course.year || "",
+                semester: course.semester || "",
+                ecv: course.ecv || "",
+                updatedAt: new Date(),
+            });
+        }
+
+        alert("All specialisation courses saved!");
     }
-
-    const educationId = selectedProgram.id || selectedProgram.code || selectedProgram.name;
-
-    for (const course of visibleCourses) {
-        const courseType = course.mandatory === true ? "mandatory" : "selectedCourses";
-        await saveCourse(educationId, courseType , course.course_code, {
-            courseName: course.course_name,
-            masterProfile: selectedSpecialisation,
-            courseSpecialisation: course.specialisation || null,
-            year: course.year|| "",
-            semester: course.semester|| "",
-            ecv: course.ecv || "",
-            updatedAt: new Date(),
-        });
-    }
-
-    alert("All specialisation courses saved!");
-}
 
     return (
 
@@ -144,7 +144,8 @@ function Home() {
 
             <CoursesTable
                 courses={visibleCourses}
-                educationId={selectedProgram?.name}
+                educationId={selectedProgram?.id}        //  for Firebase
+                educationName={selectedProgram?.name}    //  for display                
                 setSelectedCourse={setSelectedCourse}
             />
 

@@ -116,9 +116,11 @@
 }
 
 .course-grade {
-    color: #7C809B;
-    min-width: 80px;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;  
+    min-width: 120px;
+    justify-content: flex-end;
 }
 
 .course-year {

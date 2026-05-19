@@ -1,9 +1,11 @@
 import "./Popup.css";
 import { useState, useEffect } from "react";
+import { db, auth } from "../../../fireBase/firebase";
+import { doc, onSnapshot } from "firebase/firestore";
 
 import Rating from "../rating/Rating";
 
-import { getCourse, saveCourse } from "../../../fireBase/userData";
+import { saveCourse } from "../../../fireBase/userData";
 
 function Popup({ selectedCourse = null, educationId = null }) {
 
@@ -13,10 +15,6 @@ function Popup({ selectedCourse = null, educationId = null }) {
 
     // Load saved grade from Firebase whenever the selected course changes
     useEffect(() => {
-        console.log("Popup received:", { educationId, courseCode: selectedCourse?.course_code });
-        console.log("educationId:", educationId);
-        console.log("course_code:", selectedCourse?.course_code);
-
         if (!selectedCourse?.course_code || !educationId) {
             setGrade("");
             setLoading(false);
@@ -26,24 +24,42 @@ function Popup({ selectedCourse = null, educationId = null }) {
         setLoading(true);
         setIsEditing(false);
 
-        getCourse(educationId, "mandatory", selectedCourse.course_code)
-            .then((data) => {
-                setGrade(data?.grade || "");
-            })
-            .catch((err) => {
-                console.error("Failed to load grade:", err);
-                setGrade("");
-            })
-            .finally(() => setLoading(false));
+        const user = auth.currentUser;
+        if (!user) { setLoading(false); return; }
+
+        let found = false; // ✅ track if either snapshot finds the doc
+
+        const mandatoryRef = doc(db, "users", user.uid, "educations", educationId, "mandatoryCourses", selectedCourse.course_code);
+        const selectedRef = doc(db, "users", user.uid, "educations", educationId, "selectedCourses", selectedCourse.course_code);
+
+        const unsubscribeMandatory = onSnapshot(mandatoryRef, (snap) => {
+            if (snap.exists()) {
+                found = true;
+                setGrade(snap.data().grade || "");
+                setLoading(false);
+            }
+        });
+
+        const unsubscribeSelected = onSnapshot(selectedRef, (snap) => {
+            if (snap.exists()) {
+                found = true;
+                setGrade(snap.data().grade || "");
+                setLoading(false);
+            }
+        });
+
+        // ✅ stop loading after 2 seconds if nothing found
+        const timeout = setTimeout(() => {
+            if (!found) setLoading(false);
+        }, 2000);
+
+        return () => {
+            unsubscribeMandatory();
+            unsubscribeSelected();
+            clearTimeout(timeout);
+        };
+
     }, [selectedCourse?.course_code, educationId]);
-
-
-    // to change later to make it popup when user clicks on a course in the table 
-    if (!selectedCourse) {
-        console.warn("Popup rendered without a selected course!");
-        return null;
-    }
-
 
 
     const handleSaveGrade = async () => {
