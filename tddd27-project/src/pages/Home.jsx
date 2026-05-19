@@ -14,7 +14,7 @@ import { saveCourse } from "../fireBase/userData";
 import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
 import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
-import itData from "../assets/data/IT_courses_specialisations_fixed.json";
+import itData from "../assets/data/IT_courses_fixed.json";
 
 function Home() {
     const [courses, setCourses] = useState([]);

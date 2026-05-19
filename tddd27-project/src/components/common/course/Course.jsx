@@ -38,12 +38,8 @@ function Course({
         if (!checked) {
             setSelectedSpecialisation(null);
         }
-<<<<<<< Updated upstream
     };
 
-=======
-    }
->>>>>>> Stashed changes
     async function handleSave() {
         try {
             if (!selectedProgram) { alert("Select a program first!"); return; }

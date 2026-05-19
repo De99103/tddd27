@@ -24,15 +24,18 @@ function Login() {
         return () => unsubscribe();
     }, []);
 
-    const handleLogin = async () => {
-        try {
-            const provider = new GoogleAuthProvider();
-            const result = await signInWithPopup(auth, provider);
-            console.log(result.user);
-        } catch (error) {
-            console.error("Login error:", error);
-        }
-    };
+   const handleLogin = async () => {
+    try {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+            prompt: "select_account" //  always shows account picker
+        });
+        const result = await signInWithPopup(auth, provider);
+        console.log(result.user);
+    } catch (error) {
+        console.error("Login error:", error);
+    }
+};
 
     const handleLogout = async () => {
         try {

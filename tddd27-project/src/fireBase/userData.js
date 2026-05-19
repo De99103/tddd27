@@ -7,6 +7,7 @@ import {
   getDoc,
   getDocs,
   deleteDoc,
+  updateDoc, arrayUnion,arrayRemove
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
@@ -21,7 +22,9 @@ export async function saveCourse(educationId, courseType, courseId, data) {
   // ✅ ADD THIS — creates the education document
   await setDoc(
     doc(db, "users", user.uid, "educations", educationId),
-    { programName: educationId, createdAt: serverTimestamp() },
+    { programName: educationId,
+      isPublic: false,  
+      createdAt: serverTimestamp() },
     { merge: true }
   );
 
@@ -44,6 +47,15 @@ export async function saveCourse(educationId, courseType, courseId, data) {
     },
     { merge: true }
   );
+}
+
+export async function updateProfileVisibility(isPublic) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not logged in");
+
+  await updateDoc(doc(db, "users", user.uid), {
+    isPublic: isPublic,
+  });
 }
 
 export async function savePublicCourseRating(courseId, data) {
@@ -106,4 +118,30 @@ export async function getName(userId) {
   if (!snapshot.exists()) return null;
 
   return snapshot.data().displayName || "";
+}
+
+export async function addCollaborator(targetUserId) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not logged in");
+
+  await updateDoc(doc(db, "users", targetUserId), {
+    sharedWith: arrayUnion(user.uid), // ✅ adds without duplicates
+  });
+}
+
+export async function removeCollaborator(targetUserId, collaboratorUid) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not logged in");
+
+  await updateDoc(doc(db, "users", targetUserId), {
+    sharedWith: arrayRemove(collaboratorUid),
+  });
+}
+
+export async function sendNotification(toUid, message) {
+  await addDoc(collection(db, "users", toUid, "notifications"), {
+    message: message,
+    read: false,
+    createdAt: serverTimestamp(),
+  });
 }
