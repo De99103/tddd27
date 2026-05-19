@@ -148,8 +148,16 @@ function Account() {
     }, []);
 
     if (loading) return <p>Loading...</p>;
-    if (!user) return <p>Please log in</p>;
 
+    if (loading) return <p>Loading...</p>;
+    if (!user) return (
+        <div>
+            <Login />
+            <p style={{ textAlign: "center", marginTop: "2rem" }}>
+                Please log in to view your account.
+            </p>
+        </div>
+    );
     async function handleToggleVisibility() {
         try {
             const newValue = !isPublic;
