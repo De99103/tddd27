@@ -222,16 +222,15 @@ function Course({
                                         individual courses afterwards.
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className="save-all-row">
-                                <button
-                                    id="saveButton"
-                                    onClick={onSaveAll}
-                                    disabled={!selectedSpecialisation}
-                                >
-                                    Save all courses
-                                </button>
+                                <div className="save-all-row">
+                                    <button
+                                        id="saveButton"
+                                        onClick={onSaveAll}
+                                        disabled={!selectedSpecialisation}
+                                    >
+                                        Save all courses
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}

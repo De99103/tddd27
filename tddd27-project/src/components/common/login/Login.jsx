@@ -7,8 +7,8 @@ import {
     onAuthStateChanged,
 } from "firebase/auth";
 
-import loginIcon from "/src/assets/images/login.svg";
-import logoutIcon from "/src/assets/images/logut.svg";
+import loginIcon from "/src/assets/images/login.png";
+import logoutIcon from "/src/assets/images/logout.png";
 
 import "./Login.css";
 import DeleteAccountButton from "../deleteAccountButton/DeleteAccountButton";
