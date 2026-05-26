@@ -5,11 +5,6 @@
     padding: 20px;
 }
 
-.account-section {
-    width: 75%;
-    margin:  auto
-}
-
 /* notifications */
 .notification-row {
     background-color: rgba(124, 128, 155, 0.1);
@@ -47,14 +42,7 @@
     background-color: rgba(124, 128, 155, 0.12);
 }
 
-/* visibility toggle */
-.visibility-toggle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    color: #7C809B;
-}
+
 
 /* educations */
 .educations-section {
@@ -126,4 +114,10 @@
 .course-year {
     color: #7C809B;
     min-width: 60px;
+}
+
+.settings_and_loginout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

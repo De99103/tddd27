@@ -67,7 +67,7 @@ function Login() {
                                 <span>Sign out</span>
                             </button>
                         </div>
-                        <DeleteAccountButton />
+                        {/* <DeleteAccountButton /> */}
                     </div>
                 </div>
             ) : (

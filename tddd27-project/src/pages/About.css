@@ -89,6 +89,11 @@ about-section h2 {
     padding: 10px 0 40px;
 }
 
+.logging-wrapper {
+    display: flex;
+    justify-self: end;
+}
+
 @media (max-width: 767px) {
     .about-content h1 {
         font-size: 1.7rem;

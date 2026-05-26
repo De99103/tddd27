@@ -30,6 +30,10 @@
     height: 20px;
 }
 
+.logging-wrapper {
+    width: fit-content;
+}
+
 /* .logging-wrapper {
     display: flex;
     justify-content: flex-end;

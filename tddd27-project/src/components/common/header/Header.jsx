@@ -31,13 +31,6 @@ function Header() {
                         About
                     </a>
                 </div>
-                {/* <div className="navbar-items-mobile">
-                    <img
-                        src={burgerIconWhite}
-                        className="burger-icon"
-                        alt="Logo"
-                    />
-                </div> */}
                 <div className="hamburger-component" onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>

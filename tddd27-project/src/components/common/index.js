@@ -7,6 +7,7 @@ import Popup from "./popup/Popup";
 import Autocomplete from "./autocomplete/Autocomplete";
 import DeleteAccountButton from "./deleteAccountButton";
 import OtherProfile from "./otherProfile";
+import Settings from "./settings";
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     Popup,
     DeleteAccountButton,
     OtherProfile,
+    Settings,
 };

@@ -1,9 +1,20 @@
-import { Login, OtherProfile } from "../components/common";
+import { Login, OtherProfile, Settings } from "../components/common";
 import { useState, useEffect } from "react";
 import { auth, db } from "../fireBase/firebase";
-import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
+import {
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    onSnapshot,
+} from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse } from "../fireBase/userData";
+import {
+    updateProfileVisibility,
+    addCollaborator,
+    sendNotification,
+    saveCourse,
+} from "../fireBase/userData";
 import "./account.css";
 
 // ✅ outside Account function
@@ -23,7 +34,7 @@ const CourseRow = ({ course }) => {
                     semester: course.semester ?? "",
                     courseName: course.course_name,
                     credits_hp: course.credits_hp ?? "",
-                }
+                },
             );
             setIsEditing(false);
         } catch (error) {
@@ -35,8 +46,12 @@ const CourseRow = ({ course }) => {
         <div className="course-row">
             <span className="course-code">{course.course_code}</span>
             <span className="course-name">{course.course_name}</span>
-            <span className="course-hp">{course.credits_hp ? `${course.credits_hp}hp` : ""}</span>
-            <span className="course-year">{course.year ? `Year ${course.year}` : ""}</span>
+            <span className="course-hp">
+                {course.credits_hp ? `${course.credits_hp}hp` : ""}
+            </span>
+            <span className="course-year">
+                {course.year ? `Year ${course.year}` : ""}
+            </span>
             <div className="course-grade">
                 {isEditing ? (
                     <>
@@ -47,12 +62,19 @@ const CourseRow = ({ course }) => {
                             onChange={(e) => setGrade(e.target.value)}
                             autoFocus
                         />
-                        <button className="grade-btn" onClick={handleSaveGrade}>Save</button>
+                        <button className="grade-btn" onClick={handleSaveGrade}>
+                            Save
+                        </button>
                     </>
                 ) : (
                     <>
                         <span>{grade || "—"}</span>
-                        <button className="grade-btn" onClick={() => setIsEditing(true)}>Edit</button>
+                        <button
+                            className="grade-btn"
+                            onClick={() => setIsEditing(true)}
+                        >
+                            Edit
+                        </button>
                     </>
                 )}
             </div>
@@ -75,7 +97,9 @@ function Account() {
                 setUser(loggedInUser);
 
                 // fetch isPublic
-                const userDoc = await getDoc(doc(db, "users", loggedInUser.uid));
+                const userDoc = await getDoc(
+                    doc(db, "users", loggedInUser.uid),
+                );
                 if (userDoc.exists()) {
                     setIsPublic(userDoc.data().isPublic || false);
                 }
@@ -84,8 +108,13 @@ function Account() {
                 onSnapshot(
                     collection(db, "users", loggedInUser.uid, "notifications"),
                     (snapshot) => {
-                        setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
-                    }
+                        setNotifications(
+                            snapshot.docs.map((d) => ({
+                                id: d.id,
+                                ...d.data(),
+                            })),
+                        );
+                    },
                 );
 
                 // real-time educations
@@ -97,20 +126,38 @@ function Account() {
                                 const eduId = eduDoc.id;
 
                                 // real-time mandatory courses
-                                const mandatorySnapshot = await new Promise((resolve) => {
-                                    onSnapshot(
-                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses"),
-                                        (snap) => resolve(snap)
-                                    );
-                                });
+                                const mandatorySnapshot = await new Promise(
+                                    (resolve) => {
+                                        onSnapshot(
+                                            collection(
+                                                db,
+                                                "users",
+                                                loggedInUser.uid,
+                                                "educations",
+                                                eduId,
+                                                "mandatoryCourses",
+                                            ),
+                                            (snap) => resolve(snap),
+                                        );
+                                    },
+                                );
 
                                 // real-time selected courses
-                                const selectedSnapshot = await new Promise((resolve) => {
-                                    onSnapshot(
-                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses"),
-                                        (snap) => resolve(snap)
-                                    );
-                                });
+                                const selectedSnapshot = await new Promise(
+                                    (resolve) => {
+                                        onSnapshot(
+                                            collection(
+                                                db,
+                                                "users",
+                                                loggedInUser.uid,
+                                                "educations",
+                                                eduId,
+                                                "selectedCourses",
+                                            ),
+                                            (snap) => resolve(snap),
+                                        );
+                                    },
+                                );
 
                                 const mapCourse = (d, isMandatory) => ({
                                     course_code: d.id,
@@ -128,17 +175,21 @@ function Account() {
                                 return {
                                     id: eduId,
                                     ...eduDoc.data(),
-                                    mandatoryCourses: mandatorySnapshot.docs.map(d => mapCourse(d, true)),
-                                    selectedCourses: selectedSnapshot.docs.map(d => mapCourse(d, false)),
+                                    mandatoryCourses:
+                                        mandatorySnapshot.docs.map((d) =>
+                                            mapCourse(d, true),
+                                        ),
+                                    selectedCourses: selectedSnapshot.docs.map(
+                                        (d) => mapCourse(d, false),
+                                    ),
                                 };
-                            })
+                            }),
                         );
 
                         setEducations(educationsList);
                         setLoading(false);
-                    }
+                    },
                 );
-
             } else {
                 setLoading(false);
             }
@@ -150,14 +201,15 @@ function Account() {
     if (loading) return <p>Loading...</p>;
 
     if (loading) return <p>Loading...</p>;
-    if (!user) return (
-        <div>
-            <Login />
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>
-                Please log in to view your account.
-            </p>
-        </div>
-    );
+    if (!user)
+        return (
+            <div>
+                <Login />
+                <p style={{ textAlign: "center", marginTop: "2rem" }}>
+                    Please log in to view your account.
+                </p>
+            </div>
+        );
     async function handleToggleVisibility() {
         try {
             const newValue = !isPublic;
@@ -170,19 +222,28 @@ function Account() {
 
     async function handleAddCollaborator() {
         try {
-            if (!shareEmail) { alert("Enter an email first!"); return; }
+            if (!shareEmail) {
+                alert("Enter an email first!");
+                return;
+            }
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
-                (d) => d.data().email?.toLowerCase() === shareEmail.trim().toLowerCase()
+                (d) =>
+                    d.data().email?.toLowerCase() ===
+                    shareEmail.trim().toLowerCase(),
             );
 
-            if (!match) { alert("No user found with that email!"); return; }
+            if (!match) {
+                alert("No user found with that email!");
+                return;
+            }
 
             const collaboratorUid = match.id;
             await addCollaborator(user.uid, collaboratorUid);
-            await sendNotification(collaboratorUid,
-                `${user.displayName} has given you access to their profile!`
+            await sendNotification(
+                collaboratorUid,
+                `${user.displayName} has given you access to their profile!`,
             );
             alert(`Access given to ${shareEmail}!`);
             setShareEmail("");
@@ -193,10 +254,14 @@ function Account() {
 
     return (
         <div>
-            <Login />
+            <div className="settings_and_loginout">
+                <Settings />
+                <Login />
+            </div>
+
             <OtherProfile />
 
-            {/* Profile Visibility */}
+            {/* Profile Visibility
             <div className="account-section">
                 <h2>Profile Visibility</h2>
                 <label className="visibility-toggle">
@@ -205,9 +270,11 @@ function Account() {
                         checked={isPublic}
                         onChange={handleToggleVisibility}
                     />
-                    {isPublic ? "Public — anyone can see your profile" : "Private — only you can see your profile"}
+                    {isPublic
+                        ? "Public — anyone can see your profile"
+                        : "Private — only you can see your profile"}
                 </label>
-            </div>
+            </div> */}
 
             {/* Notifications */}
             {notifications.length > 0 && (
@@ -234,7 +301,12 @@ function Account() {
                         value={shareEmail}
                         onChange={(e) => setShareEmail(e.target.value)}
                     />
-                    <button className="share-btn" onClick={handleAddCollaborator}>Give Access</button>
+                    <button
+                        className="share-btn"
+                        onClick={handleAddCollaborator}
+                    >
+                        Give Access
+                    </button>
                 </div>
             </div>
 
@@ -249,12 +321,18 @@ function Account() {
                             {/* clickable header */}
                             <h3
                                 className="education-header"
-                                onClick={() => setOpenEducationId(
-                                    openEducationId === edu.id ? null : edu.id
-                                )}
+                                onClick={() =>
+                                    setOpenEducationId(
+                                        openEducationId === edu.id
+                                            ? null
+                                            : edu.id,
+                                    )
+                                }
                             >
                                 {edu.id}
-                                <span>{openEducationId === edu.id ? "▲" : "▼"}</span>
+                                <span>
+                                    {openEducationId === edu.id ? "▲" : "▼"}
+                                </span>
                             </h3>
 
                             {openEducationId === edu.id && (
@@ -263,9 +341,14 @@ function Account() {
                                     {edu.mandatoryCourses.length > 0 && (
                                         <div>
                                             <h4>Mandatory Courses</h4>
-                                            {edu.mandatoryCourses.map((course) => (
-                                                <CourseRow key={course.course_code} course={course} />
-                                            ))}
+                                            {edu.mandatoryCourses.map(
+                                                (course) => (
+                                                    <CourseRow
+                                                        key={course.course_code}
+                                                        course={course}
+                                                    />
+                                                ),
+                                            )}
                                         </div>
                                     )}
 
@@ -273,9 +356,14 @@ function Account() {
                                     {edu.selectedCourses.length > 0 && (
                                         <div>
                                             <h4>Selected Courses</h4>
-                                            {edu.selectedCourses.map((course) => (
-                                                <CourseRow key={course.course_code} course={course} />
-                                            ))}
+                                            {edu.selectedCourses.map(
+                                                (course) => (
+                                                    <CourseRow
+                                                        key={course.course_code}
+                                                        course={course}
+                                                    />
+                                                ),
+                                            )}
                                         </div>
                                     )}
                                 </div>
