@@ -118,20 +118,14 @@ function Account() {
                                 const eduId = eduDoc.id;
 
                                 // real-time mandatory courses
-                                const mandatorySnapshot = await new Promise((resolve) => {
-                                    onSnapshot(
-                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses"),
-                                        (snap) => resolve(snap)
-                                    );
-                                });
+                                // one-time fetch for courses (education onSnapshot handles re-renders)
+                                const mandatorySnapshot = await getDocs(
+                                    collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses")
+                                );
 
-                                // real-time selected courses
-                                const selectedSnapshot = await new Promise((resolve) => {
-                                    onSnapshot(
-                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses"),
-                                        (snap) => resolve(snap)
-                                    );
-                                });
+                                const selectedSnapshot = await getDocs(
+                                    collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses")
+                                );
 
                                 const mapCourse = (d, isMandatory) => ({
                                     course_code: d.id,
@@ -269,7 +263,11 @@ function Account() {
                                 {req.action === "add" ? <>add <b>{req.courseName}</b></> : <>remove <b>{req.courseName}</b></>}
                                 {" "}from your selected courses in <b>{req.educationId}</b>
                             </p>
-                            <button onClick={() => respondToChangeRequest(user.uid, req.id, true, req)}>
+                            <button onClick={() => {
+                                console.log("requestData:", req);
+
+                                respondToChangeRequest(user.uid, req.id, true, req)
+                            }}>
                                 ✅ Accept
                             </button>
                             <button onClick={() => respondToChangeRequest(user.uid, req.id, false, req)}>

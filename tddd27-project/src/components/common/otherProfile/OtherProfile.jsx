@@ -13,6 +13,32 @@ import { auth } from "../../../fireBase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 
+
+function ProposeRemoveCourse({ course, educationId, onPropose }) {
+    const [sent, setSent] = useState(false);
+
+    async function handlePropose() {
+        await onPropose(educationId, "remove", course);
+        setSent(true);
+    }
+
+    if (sent) return (
+        <div>
+            <p>{course.name || course.id}</p>
+            <p>✅ Removal proposed</p>
+        </div>
+    );
+
+    return (
+        <div>
+            <p>{course.name || course.id}</p>
+            <button onClick={handlePropose}>− Propose removal</button>
+        </div>
+    );
+}
+
+
+
 function OtherProfile() {
     const [displayNameOptions, setDisplayNameOptions] = useState([]);
     const [displayName, setDisplayName] = useState("");
@@ -215,11 +241,14 @@ function OtherProfile() {
                                     <h5>Selected courses</h5>
                                     {education.selectedCourses?.map((course) => (
                                         <div key={course.id}>
-                                            <p>{course.name || course.id}</p>
-                                            {hasAccess && (
-                                                <button onClick={() => proposeCourseChange(education.id, "remove", course)}>
-                                                    − Propose removal
-                                                </button>
+                                            {hasAccess ? (
+                                                <ProposeRemoveCourse
+                                                    course={course}
+                                                    educationId={education.id}
+                                                    onPropose={proposeCourseChange}
+                                                />
+                                            ) : (
+                                                <p>{course.name || course.id}</p>
                                             )}
                                         </div>
                                     ))}

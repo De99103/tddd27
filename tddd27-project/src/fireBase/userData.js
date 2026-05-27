@@ -14,6 +14,22 @@ import {
 import { auth, db } from "./firebase";
 import { deleteUser } from "firebase/auth";
 
+import mtData from "../assets/data/MT_courses.json";
+import dtData from "../assets/data/DT.json";
+import edData from "../assets/data/ED.json";
+import itData from "../assets/data/IT_courses_fixed.json";
+
+// helper to find course info across all programs
+function findCourseInfo(courseCode) {
+    const allCourses = [
+        ...mtData.courses,
+        ...dtData.courses,
+        ...edData.courses,
+        ...itData.courses,
+    ];
+    return allCourses.find(c => c.course_code.toLowerCase() === courseCode.toLowerCase());
+}
+
 export async function saveCourse(educationId, courseType, courseId, data) {
   const user = auth.currentUser;
   if (!user) throw new Error("User is not logged in.");
@@ -234,31 +250,34 @@ export async function respondToChangeRequest(ownerId, requestId, accept, request
   const requestRef = doc(db, "users", ownerId, "changeRequests", requestId);
 
   if (accept) {
+    console.log("Attempting to", requestData.action, "course:");
+    console.log("path: users/", ownerId, "/educations/", requestData.educationId, "/selectedCourses/", requestData.courseId);
+
     const courseRef = doc(
       db, "users", ownerId, "educations",
       requestData.educationId, "selectedCourses", requestData.courseId
     );
 
     if (requestData.action === "add") {
+      const courseInfo = findCourseInfo(requestData.courseId);
+
       await setDoc(courseRef, {
-        courseName: requestData.courseName,
+        courseName: courseInfo?.course_name || requestData.courseName,
+        credits_hp: courseInfo?.credits_hp || "",
+        year: courseInfo?.year || "",
+        semester: courseInfo?.semester || "",
+        period: courseInfo?.period || "",
         grade: "",
-        year: "",
-        semester: "",
-        credits_hp: "",
-        period: "",
         updatedAt: serverTimestamp(),
       });
     } else if (requestData.action === "remove") {
       await deleteDoc(courseRef);
     }
 
-    // notify the visitor that their request was accepted
     await sendNotification(requestData.requestedBy,
       `Your request to ${requestData.action} "${requestData.courseName}" was accepted!`
     );
   } else {
-    // notify the visitor that their request was rejected
     await sendNotification(requestData.requestedBy,
       `Your request to ${requestData.action} "${requestData.courseName}" was rejected.`
     );

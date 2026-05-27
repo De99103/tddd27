@@ -13,7 +13,7 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
       requestedByName: requestedBy.displayName,
       educationId,
       action: "add",
-      courseId: courseId.trim(),
+      courseId: courseId.trim().toUpperCase(), // ← always uppercase
       courseName: courseId.trim(),
     });
     await sendNotification(ownerId,
