@@ -6,21 +6,25 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
   const [courseId, setCourseId] = useState("");
   const [sent, setSent] = useState(false);
 
-  async function handlePropose() {
+ async function handlePropose() {
     if (!courseId.trim()) return;
     await requestCourseChange(ownerId, {
-      requestedBy: requestedBy.uid,
-      requestedByName: requestedBy.displayName,
-      educationId,
-      action: "add",
-      courseId: courseId.trim().toUpperCase(), // ← always uppercase
-      courseName: courseId.trim(),
+        requestedBy: requestedBy.uid,
+        requestedByName: requestedBy.displayName,
+        educationId,
+        action: "add",
+        courseId: courseId.trim().toUpperCase(),
+        courseName: courseId.trim().toUpperCase(),
     });
     await sendNotification(ownerId,
-      `${requestedBy.displayName} wants to add "${courseId}" to your selected courses`
+        `${requestedBy.displayName} wants to add "${courseId.toUpperCase()}" to your selected courses`
     );
     setSent(true);
-  }
+    setCourseId(""); // clear input
+
+    // reset after 3 seconds so they can propose another
+    setTimeout(() => setSent(false), 3000);
+}
 
   if (sent) return <p>✅ Proposal sent</p>;
 

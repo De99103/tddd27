@@ -112,45 +112,53 @@ function Account() {
                 // real-time educations
                 onSnapshot(
                     collection(db, "users", loggedInUser.uid, "educations"),
-                    async (educationSnapshot) => {
-                        const educationsList = await Promise.all(
-                            educationSnapshot.docs.map(async (eduDoc) => {
-                                const eduId = eduDoc.id;
+                    (educationSnapshot) => {
+                        educationSnapshot.docs.forEach((eduDoc) => {
+                            const eduId = eduDoc.id;
 
-                                // real-time mandatory courses
-                                // one-time fetch for courses (education onSnapshot handles re-renders)
-                                const mandatorySnapshot = await getDocs(
-                                    collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses")
-                                );
+                            // real-time mandatory courses
+                            onSnapshot(
+                                collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses"),
+                                (mandatorySnapshot) => {
+                                    onSnapshot(
+                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses"),
+                                        (selectedSnapshot) => {
+                                            const mapCourse = (d, isMandatory) => ({
+                                                course_code: d.id,
+                                                educationId: eduId,
+                                                course_name: d.data().courseName || "",
+                                                year: d.data().year || "",
+                                                semester: d.data().semester || "",
+                                                credits_hp: d.data().credits_hp || "",
+                                                period: d.data().period || "",
+                                                grade: d.data().grade || "",
+                                                mandatory: isMandatory,
+                                                elective: !isMandatory,
+                                            });
 
-                                const selectedSnapshot = await getDocs(
-                                    collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses")
-                                );
+                                            setEducations(prev => {
+                                                const updated = [...prev];
+                                                const index = updated.findIndex(e => e.id === eduId);
+                                                const newEdu = {
+                                                    id: eduId,
+                                                    ...eduDoc.data(),
+                                                    mandatoryCourses: mandatorySnapshot.docs.map(d => mapCourse(d, true)),
+                                                    selectedCourses: selectedSnapshot.docs.map(d => mapCourse(d, false)),
+                                                };
+                                                if (index >= 0) {
+                                                    updated[index] = newEdu;
+                                                } else {
+                                                    updated.push(newEdu);
+                                                }
+                                                return updated;
+                                            });
 
-                                const mapCourse = (d, isMandatory) => ({
-                                    course_code: d.id,
-                                    educationId: eduId,
-                                    course_name: d.data().courseName || "",
-                                    year: d.data().year || "",
-                                    semester: d.data().semester || "",
-                                    credits_hp: d.data().credits_hp || "",
-                                    period: d.data().period || "",
-                                    grade: d.data().grade || "",
-                                    mandatory: isMandatory,
-                                    elective: !isMandatory,
-                                });
-
-                                return {
-                                    id: eduId,
-                                    ...eduDoc.data(),
-                                    mandatoryCourses: mandatorySnapshot.docs.map(d => mapCourse(d, true)),
-                                    selectedCourses: selectedSnapshot.docs.map(d => mapCourse(d, false)),
-                                };
-                            })
-                        );
-
-                        setEducations(educationsList);
-                        setLoading(false);
+                                            setLoading(false);
+                                        }
+                                    );
+                                }
+                            );
+                        });
                     }
                 );
 
