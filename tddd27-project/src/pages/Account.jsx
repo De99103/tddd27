@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../fireBase/firebase";
 import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse , respondToChangeRequest} from "../fireBase/userData";
+import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse, respondToChangeRequest } from "../fireBase/userData";
 import Settings from "../components/common/settings/Settings";
 
 import "./account.css";
@@ -197,7 +197,7 @@ function Account() {
                 (d) =>
                     d.data().email?.toLowerCase() === shareEmail.trim().toLowerCase() ||
                     d.data().displayName?.toLowerCase() === shareEmail.trim().toLowerCase()
-            );           
+            );
 
             if (!match) { alert("No user found with that email!"); return; }
 
@@ -241,11 +241,21 @@ function Account() {
             {notifications.length > 0 && (
                 <div className="account-section">
                     <h2>🔔 Notifications</h2>
-                    {notifications.map((notif) => (
-                        <div key={notif.id} className="notification-row">
-                            <p>{notif.message}</p>
-                        </div>
-                    ))}
+                    <div className="notifications-scroll">
+                        {[...new Map(notifications.map(n => [n.message + n.createdAt?.seconds, n])).values()]
+                            .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0))
+                            .map((notif) => (
+                                <div key={notif.id} className="notification-row">
+                                    <p>{notif.message}</p>
+                                    <span className="notification-time">
+                                        {notif.createdAt?.seconds
+                                            ? new Date(notif.createdAt.seconds * 1000).toLocaleString()
+                                            : ""}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             )}
 

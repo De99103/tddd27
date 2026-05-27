@@ -13,6 +13,20 @@
     margin-bottom: 8px;
 }
 
+.notification-time {
+    font-size: 0.75rem;
+    color: gray;
+}
+
+.notifications-scroll {
+    max-height: 240px; /* shows last 4 notifications */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
 /* share */
 .share-row {
     display: flex;
