@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../fireBase/firebase";
 import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse, respondToChangeRequest } from "../fireBase/userData";
+import {
+    updateProfileVisibility, addCollaborator,
+    sendNotification, saveCourse,
+    respondToChangeRequest, deleteCourse
+} from "../fireBase/userData";
 import Settings from "../components/common/settings/Settings";
 
 import "./account.css";
@@ -32,7 +36,15 @@ const CourseRow = ({ course }) => {
             console.error("Error saving grade:", error);
         }
     }
-
+    async function handleDeleteCourse() {
+        if (!confirm(`Remove ${course.course_code} from selected courses?`)) return;
+        try {
+            await deleteCourse(course.educationId, course.course_code);
+        } catch (error) {
+            console.error("Error deleting course:", error);
+        }
+    }
+    console.log("course:", course.course_code, "mandatory:", course.mandatory);
     return (
         <div className="course-row">
             <span className="course-code">{course.course_code}</span>
@@ -66,8 +78,14 @@ const CourseRow = ({ course }) => {
                         >
                             Edit
                         </button>
+                        {!course.mandatory &&  (
+                            <button className="grade-btn" onClick={handleDeleteCourse}>
+                                Remove
+                            </button>
+                        )}
                     </>
                 )}
+                
             </div>
         </div>
     );

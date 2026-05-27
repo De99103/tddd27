@@ -13,7 +13,6 @@ import { saveCourse } from "../fireBase/userData";
 //json files for the different programs
 import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
 import dtData from "../assets/data/DT.json";
-import edData from "../assets/data/ED.json";
 import itData from "../assets/data/IT_courses_fixed.json";
 
 function Home() {
@@ -39,13 +38,7 @@ function Home() {
             specialisations: dtData.program?.specialisations || [],
 
         },
-        {
-            id: "ED",
-            name: "Civilingenjörsprogram i elektronikdesign (ED)",
-            courses: edData.courses || [],
-            specialisations: edData.program?.specialisations || [],
-
-        },
+        
         {
             id: "IT",
             name: "Civilingenjörsprogram i informationsteknologi (IT)",

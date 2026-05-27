@@ -25,7 +25,7 @@ function ProposeRemoveCourse({ course, educationId, onPropose }) {
     if (sent) return (
         <div>
             <p>{course.name || course.id}</p>
-            <p>✅ Removal proposed</p>
+            <p>Removal proposed</p>
         </div>
     );
 

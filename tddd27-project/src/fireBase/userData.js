@@ -7,7 +7,7 @@ import {
   getDoc,
   getDocs,
   deleteDoc,
-  updateDoc, arrayUnion, arrayRemove, 
+  updateDoc, arrayUnion, arrayRemove,
   query, where
 } from "firebase/firestore";
 
@@ -16,18 +16,16 @@ import { deleteUser } from "firebase/auth";
 
 import mtData from "../assets/data/MT_courses.json";
 import dtData from "../assets/data/DT.json";
-import edData from "../assets/data/ED.json";
 import itData from "../assets/data/IT_courses_fixed.json";
 
 // helper to find course info across all programs
 function findCourseInfo(courseCode) {
-    const allCourses = [
-        ...mtData.courses,
-        ...dtData.courses,
-        ...edData.courses,
-        ...itData.courses,
-    ];
-    return allCourses.find(c => c.course_code.toLowerCase() === courseCode.toLowerCase());
+  const allCourses = [
+    ...mtData.courses,
+    ...dtData.courses,
+    ...itData.courses,
+  ];
+  return allCourses.find(c => c.course_code.toLowerCase() === courseCode.toLowerCase());
 }
 
 export async function saveCourse(educationId, courseType, courseId, data) {
@@ -59,13 +57,14 @@ export async function saveCourse(educationId, courseType, courseId, data) {
     doc(db, "users", user.uid, "educations", educationId, collectionName, courseId),
     {
       ...data,
-      ecv: data.ecv ?? "",
+      courseName: data.courseName || data.course_name || "",
+      credits_hp: data.credits_hp ?? "",
       year: data.year ?? "",
       semester: data.semester ?? "",
+      period: data.period ?? "",
+      ecv: data.ecv ?? "",
       updatedAt: serverTimestamp(),
-    },
-    { merge: true }
-  );
+    }, { merge: true });
 }
 
 export async function updateProfileVisibility(isPublic) {
@@ -118,8 +117,8 @@ export async function getCourse(educationId, courseType, courseId) {
 
 // to get all name's options:
 export async function getDisplayNameOptions() {
-    const snapshot = await getDocs(collection(db, "users"));
-    return snapshot.docs.map(d => ({ id: d.id, name: d.data().displayName }));
+  const snapshot = await getDocs(collection(db, "users"));
+  return snapshot.docs.map(d => ({ id: d.id, name: d.data().displayName }));
 }
 
 // our goal : user.displayName
@@ -284,4 +283,13 @@ export async function respondToChangeRequest(ownerId, requestId, accept, request
   }
 
   await deleteDoc(requestRef);
+}
+
+export async function deleteCourse(educationId, courseId) {
+    const user = auth.currentUser;
+    if (!user) throw new Error("Not logged in");
+
+    await deleteDoc(
+        doc(db, "users", user.uid, "educations", educationId, "selectedCourses", courseId)
+    );
 }
