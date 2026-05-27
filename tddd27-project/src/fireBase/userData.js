@@ -118,7 +118,7 @@ export async function getCourse(educationId, courseType, courseId) {
 // to get all name's options:
 export async function getDisplayNameOptions() {
   const snapshot = await getDocs(collection(db, "users"));
-  return snapshot.docs.map(d => ({ id: d.id, name: d.data().displayName }));
+  return snapshot.docs.filter(d => d.id !== auth.currentUser?.uid).map(d => ({ id: d.id, name: d.data().displayName }));
 }
 
 // our goal : user.displayName
