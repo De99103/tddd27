@@ -18,13 +18,6 @@ export async function saveCourse(educationId, courseType, courseId, data) {
     throw new Error("User is not logged in.");
   }
 
-<<<<<<< Updated upstream
-  const collectionName =
-    courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
-await setDoc(
-  doc(db, "users", user.uid),
-  {
-=======
   // creates the education document
   await setDoc(
     doc(db, "users", user.uid, "educations", educationId),
@@ -36,7 +29,6 @@ await setDoc(
 
   // existing user doc update
   await setDoc(doc(db, "users", user.uid), {
->>>>>>> Stashed changes
     displayName: user.displayName || "",
     email: user.email || "",
     updatedAt: serverTimestamp(),
@@ -105,8 +97,6 @@ export async function getCourse(educationId, courseType, courseId) {
   return null;
 }
 
-<<<<<<< Updated upstream
-=======
 // to get all name's options:
 export async function getDisplayNameOptions() {
   const snapshot = await getDocs(collection(db, "users"));
@@ -228,4 +218,3 @@ export async function getPublicEducations(userId) {
 
   return educations;
 }
->>>>>>> Stashed changes
