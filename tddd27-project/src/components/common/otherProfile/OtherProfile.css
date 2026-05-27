@@ -1,0 +1,124 @@
+.other_profile_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+.search_profile_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-image: url("/src/assets/images/paper.jpg");
+    width: fit-content;
+    padding: 20pt 40pt 20pt 40pt;
+}
+
+.profile_search {
+    height: fit-content;
+    margin: 0px 10px 0px 10px;
+    width: 35vw;
+}
+
+#s_after_name_search {
+    margin-left: -4pt;
+}
+
+.css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input .search_profile_container {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.search_profile_container p {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+
+.d {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/src/assets/images/paper.jpg");
+    position: fixed;
+    width: 100%;
+    height: 5vh;
+    bottom: 50px;
+    /* z-index: 20; */
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.educations_container {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    background-image: url(/src/assets/images/paper.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    padding: 24px 32px;
+    margin: 24px auto 0;
+    border-radius: 12px;
+    grid-auto-flow: column;
+}
+
+.education_card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.education_card h4 {
+  grid-column: 1 / -1;
+  margin: 0 0 8px;
+}
+
+.education_card h5 {
+  margin: 0 0 6px;
+}
+
+
+
+
+h3 {
+    padding: 0pt 5pt 3pt 5pt;
+    display: flex;
+}
+
+.autocomplete-wrapper line-autocomplete {
+    padding: 0pt 10pt 0pt 10pt;
+}
+
+@media screen and (max-width: 767px) {
+    .search_profile_container p {
+        font-size: 1.5rem;
+    }
+
+    .search_profile_container {
+        padding: 10pt 10pt 15pt 10pt;
+    }
+
+    .profile_search {
+        height: 100%;
+        margin: 0px 10px 0px 10px;
+        width: 30vw;
+    }
+
+    .css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+        font-size: 1.25rem;
+    }
+}
