@@ -7,7 +7,8 @@ import {
   getDoc,
   getDocs,
   deleteDoc,
-  updateDoc, arrayUnion,arrayRemove
+  updateDoc, arrayUnion, arrayRemove, 
+  query, where
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
@@ -22,9 +23,11 @@ export async function saveCourse(educationId, courseType, courseId, data) {
   // creates the education document
   await setDoc(
     doc(db, "users", user.uid, "educations", educationId),
-    { programName: educationId,
-      isPublic: false,  
-      createdAt: serverTimestamp() },
+    {
+      programName: educationId,
+      isPublic: false,
+      createdAt: serverTimestamp()
+    },
     { merge: true }
   );
 
@@ -99,12 +102,8 @@ export async function getCourse(educationId, courseType, courseId) {
 
 // to get all name's options:
 export async function getDisplayNameOptions() {
-  const snapshot = await getDocs(collection(db, "users"));
-
-  return snapshot.docs.map((userDoc) => ({
-    id: userDoc.id,
-    name: userDoc.data().displayName || "Unnamed user",
-  }));
+    const snapshot = await getDocs(collection(db, "users"));
+    return snapshot.docs.map(d => ({ id: d.id, name: d.data().displayName }));
 }
 
 // our goal : user.displayName
@@ -120,20 +119,20 @@ export async function getName(userId) {
   return snapshot.data().displayName || "";
 }
 
-export async function addCollaborator(targetUserId) {
+export async function addCollaborator(ownerId, collaboratorUid) {
   const user = auth.currentUser;
   if (!user) throw new Error("Not logged in");
 
-  await updateDoc(doc(db, "users", targetUserId), {
-    sharedWith: arrayUnion(user.uid), //  adds without duplicates
+  await updateDoc(doc(db, "users", ownerId), {
+    sharedWith: arrayUnion(collaboratorUid), //  adds without duplicates
   });
 }
 
-export async function removeCollaborator(targetUserId, collaboratorUid) {
+export async function removeCollaborator(ownerId, collaboratorUid) {
   const user = auth.currentUser;
   if (!user) throw new Error("Not logged in");
 
-  await updateDoc(doc(db, "users", targetUserId), {
+  await updateDoc(doc(db, "users", ownerId), {
     sharedWith: arrayRemove(collaboratorUid),
   });
 }
@@ -167,7 +166,7 @@ export async function getPublicProfile(userId) {
 }
 
 
-  
+
 
 // to get the educations of the user, and for each education get the mandatory and selected courses
 export async function getPublicEducations(userId) {
@@ -217,4 +216,53 @@ export async function getPublicEducations(userId) {
   );
 
   return educations;
+}
+
+
+// Visitor proposes a change
+export async function requestCourseChange(ownerId, requestData) {
+  const ref = collection(db, "users", ownerId, "changeRequests");
+  await addDoc(ref, {
+    ...requestData,
+    status: "pending",
+    createdAt: serverTimestamp(),
+  });
+}
+
+// Owner responds
+export async function respondToChangeRequest(ownerId, requestId, accept, requestData) {
+  const requestRef = doc(db, "users", ownerId, "changeRequests", requestId);
+
+  if (accept) {
+    const courseRef = doc(
+      db, "users", ownerId, "educations",
+      requestData.educationId, "selectedCourses", requestData.courseId
+    );
+
+    if (requestData.action === "add") {
+      await setDoc(courseRef, {
+        courseName: requestData.courseName,
+        grade: "",
+        year: "",
+        semester: "",
+        credits_hp: "",
+        period: "",
+        updatedAt: serverTimestamp(),
+      });
+    } else if (requestData.action === "remove") {
+      await deleteDoc(courseRef);
+    }
+
+    // notify the visitor that their request was accepted
+    await sendNotification(requestData.requestedBy,
+      `Your request to ${requestData.action} "${requestData.courseName}" was accepted!`
+    );
+  } else {
+    // notify the visitor that their request was rejected
+    await sendNotification(requestData.requestedBy,
+      `Your request to ${requestData.action} "${requestData.courseName}" was rejected.`
+    );
+  }
+
+  await deleteDoc(requestRef);
 }

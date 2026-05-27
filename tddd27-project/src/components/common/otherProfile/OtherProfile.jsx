@@ -2,24 +2,43 @@ import "./OtherProfile.css";
 import { useState, useEffect } from "react";
 import Autocomplete from "../autocomplete/Autocomplete";
 import { useNavigate, useParams } from "react-router-dom";
+import ProposeAddCourse from "../ProposeAddCourse/ProposeAddCourse";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../fireBase/firebase";
+import {
+    getName, getDisplayNameOptions,
+    getPublicEducations, requestCourseChange, sendNotification
+} from "../../../fireBase/userData";
+import { auth } from "../../../fireBase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
-
-import { getName, getDisplayNameOptions, getPublicProfile, getPublicEducations } from "../../../fireBase/userData";
 
 function OtherProfile() {
     const [displayNameOptions, setDisplayNameOptions] = useState([]);
     const [displayName, setDisplayName] = useState("");
     const [selectedDisplayName, setSelectedDisplayName] = useState(null);
 
-    const profileSelected = Boolean(selectedDisplayName);
-
     const [profile, setProfile] = useState(null); // State to hold the profile data
-    const [educations, setEducations] = useState([]);
 
     const navigate = useNavigate();
     const { userId } = useParams();
 
     const [profileMessage, setProfileMessage] = useState("");
+    const [currentUser, setCurrentUser] = useState(null);
+    const [hasAccess, setHasAccess] = useState(false);
+    useEffect(() => {
+        return onAuthStateChanged(auth, (u) => setCurrentUser(u));
+    }, []);
+
+    // check if visitor is in sharedWith
+    useEffect(() => {
+        if (!profile || !currentUser) {
+            setHasAccess(false);
+            return;
+        }
+        const sharedWith = profile.sharedWith || [];
+        setHasAccess(sharedWith.includes(currentUser.uid));
+    }, [profile, currentUser]);
 
     useEffect(() => {
         async function loadName() {
@@ -38,28 +57,33 @@ function OtherProfile() {
     }, [selectedDisplayName]);
 
     useEffect(() => {
-        async function loadProfile() {
-            if (!selectedDisplayName?.id) {
+        if (!selectedDisplayName?.id) {
+            setProfile(null);
+            return;
+        }
+
+        const unsubscribe = onSnapshot(doc(db, "users", selectedDisplayName.id), async (userDoc) => {
+            if (!userDoc.exists()) {
                 setProfile(null);
                 return;
             }
 
-            try {
-                console.log("selected user id:", selectedDisplayName.id);
+            const data = userDoc.data();
+            const sharedWith = data?.sharedWith || [];
 
-                const publicProfile = await getPublicProfile(selectedDisplayName.id);
+            // show profile if public OR if current user is a collaborator
+            if (data.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
+                const educations = await getPublicEducations(selectedDisplayName.id);
+                setProfile({ ...data, educations });
 
-                console.log("public profile:", publicProfile);
-
-                setProfile(publicProfile);
-            } catch (error) {
-                console.error("Error loading public profile:", error);
+            } else {
                 setProfile(null);
             }
-        }
+        });
 
-        loadProfile();
-    }, [selectedDisplayName]);
+        return () => unsubscribe(); // cleanup on unmount
+
+    }, [selectedDisplayName, currentUser]);
 
     useEffect(() => {
         async function loadUsers() {
@@ -74,16 +98,58 @@ function OtherProfile() {
         loadUsers();
     }, []);
 
+    //load profile from URL 
     useEffect(() => {
-        async function loadProfileFromUrl() {
-            if (!userId) return;
+        if (!userId) return;
 
-            const publicProfile = await getPublicProfile(userId);
-            setProfile(publicProfile);
+        const unsubscribe = onSnapshot(doc(db, "users", userId), async (userDoc) => {
+            if (!userDoc.exists()) {
+                setProfile(null);
+                return;
+            }
+
+            const data = userDoc.data();
+            const sharedWith = data?.sharedWith || [];
+
+            if (data.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
+                const educations = await getPublicEducations(userId);
+                setProfile({ ...data, educations });
+            } else {
+                setProfile(null);
+            }
+        });
+
+        return () => unsubscribe();
+
+    }, [userId, currentUser]);
+
+
+    // check if visitor is in sharedWith
+    useEffect(() => {
+        if (!profile || !currentUser) {
+            setHasAccess(false);
+            return;
         }
+        const sharedWith = profile.sharedWith || [];
+        setHasAccess(sharedWith.includes(currentUser.uid));
+    }, [profile, currentUser]);
 
-        loadProfileFromUrl();
-    }, [userId]);
+
+
+    async function proposeCourseChange(educationId, action, course) {
+        const ownerId = userId || selectedDisplayName?.id;
+        await requestCourseChange(ownerId, {
+            requestedBy: currentUser.uid,
+            requestedByName: currentUser.displayName,
+            educationId,
+            action,
+            courseId: course.id,
+            courseName: course.name || course.id,
+        });
+        await sendNotification(ownerId,
+            `${currentUser.displayName} wants to ${action} "${course.name || course.id}" from your selected courses`
+        );
+    }
 
     return (
         <div className="other_profile_page">
@@ -104,22 +170,23 @@ function OtherProfile() {
                         if (!displayName?.id) return;
 
                         try {
-                            const publicProfile = await getPublicProfile(displayName.id);
+                            const userDoc = await getDoc(doc(db, "users", displayName.id));
+                            const data = userDoc.data();
+                            const sharedWith = data?.sharedWith || [];
 
-                            if (!publicProfile) {
-                                setProfileMessage("This profile is private");
-                                return;
+                            console.log("currentUser:", currentUser);
+                            console.log("sharedWith:", sharedWith);
+                            console.log("isPublic:", data?.isPublic);
+
+                            // allow if public OR if current user is in sharedWith
+                            if (data?.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
+                                navigate(`/profile/${displayName.id}`);
+                            } else {
+                                setProfileMessage("This profile is private, connect with the user to see their profile.");
                             }
-
-                            navigate(`/profile/${displayName.id}`);
                         } catch (error) {
                             console.error("Error checking profile:", error);
-
-                            if (error.code === "permission-denied") {
-                                setProfileMessage("This profile is private,  connect with the user to see their profile.");
-                            } else {
-                                setProfileMessage("Could not open this profile.");
-                            }
+                            setProfileMessage("Could not open this profile.");
                         }
                     }}
                 />
@@ -147,18 +214,37 @@ function OtherProfile() {
                                 <div>
                                     <h5>Selected courses</h5>
                                     {education.selectedCourses?.map((course) => (
-                                        <p key={course.id}>{course.name || course.id}</p>
+                                        <div key={course.id}>
+                                            <p>{course.name || course.id}</p>
+                                            {hasAccess && (
+                                                <button onClick={() => proposeCourseChange(education.id, "remove", course)}>
+                                                    − Propose removal
+                                                </button>
+                                            )}
+                                        </div>
                                     ))}
+
+                                    {/* Propose adding a new course */}
+                                    {hasAccess && (
+                                        <ProposeAddCourse
+                                            educationId={education.id}
+                                            ownerId={userId || selectedDisplayName?.id}
+                                            requestedBy={currentUser}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            )}
+            )
+            }
 
-            {profileMessage && (
-                <p className="profile_message">{profileMessage}</p>
-            )}
+            {
+                profileMessage && (
+                    <p className="profile_message">{profileMessage}</p>
+                )
+            }
 
             {/* <div className="other_profile_overlay">
                 <p>You are looking at </p>

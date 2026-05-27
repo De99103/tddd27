@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../fireBase/firebase";
 import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse } from "../fireBase/userData";
+import { updateProfileVisibility, addCollaborator, sendNotification, saveCourse , respondToChangeRequest} from "../fireBase/userData";
+import Settings from "../components/common/settings/Settings";
+
 import "./account.css";
 
-// ✅ outside Account function
+// outside Account function
 const CourseRow = ({ course }) => {
     const [grade, setGrade] = useState(course.grade || "");
     const [isEditing, setIsEditing] = useState(false);
@@ -79,6 +81,7 @@ function Account() {
     const [shareEmail, setShareEmail] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [openEducationId, setOpenEducationId] = useState(null);
+    const [changeRequests, setChangeRequests] = useState([]);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (loggedInUser) => {
@@ -100,7 +103,12 @@ function Account() {
                         setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
                     }
                 );
-
+                onSnapshot(
+                    collection(db, "users", loggedInUser.uid, "changeRequests"),
+                    (snapshot) => {
+                        setChangeRequests(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
+                    }
+                );
                 // real-time educations
                 onSnapshot(
                     collection(db, "users", loggedInUser.uid, "educations"),
@@ -186,8 +194,10 @@ function Account() {
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
-                (d) => d.data().email?.toLowerCase() === shareEmail.trim().toLowerCase()
-            );
+                (d) =>
+                    d.data().email?.toLowerCase() === shareEmail.trim().toLowerCase() ||
+                    d.data().displayName?.toLowerCase() === shareEmail.trim().toLowerCase()
+            );           
 
             if (!match) { alert("No user found with that email!"); return; }
 
@@ -239,6 +249,27 @@ function Account() {
                 </div>
             )}
 
+            {changeRequests.length > 0 && (
+                <div className="account-section">
+                    <h2>📬 Pending Course Changes</h2>
+                    {changeRequests.map((req) => (
+                        <div key={req.id} className="notification-row">
+                            <p>
+                                <b>{req.requestedByName}</b> wants to{" "}
+                                {req.action === "add" ? <>add <b>{req.courseName}</b></> : <>remove <b>{req.courseName}</b></>}
+                                {" "}from your selected courses in <b>{req.educationId}</b>
+                            </p>
+                            <button onClick={() => respondToChangeRequest(user.uid, req.id, true, req)}>
+                                ✅ Accept
+                            </button>
+                            <button onClick={() => respondToChangeRequest(user.uid, req.id, false, req)}>
+                                ❌ Reject
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+
             {/* Share with someone */}
             {/* User types email → look up their uid in Firestore
             → add uid to sharedWith array → they can now edit */}
@@ -248,7 +279,7 @@ function Account() {
                     <input
                         className="share-input"
                         type="text"
-                        placeholder="Enter their email"
+                        placeholder="Enter their email or username!"
                         value={shareEmail}
                         onChange={(e) => setShareEmail(e.target.value)}
                     />
