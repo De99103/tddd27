@@ -1,0 +1,123 @@
+.account-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* notifications */
+.notification-row {
+    background-color: rgba(124, 128, 155, 0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+/* share */
+.share-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.share-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #7C809B;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.share-btn {
+    padding: 8px 16px;
+    border: 1px solid #7C809B;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #7C809B;
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+}
+
+.share-btn:hover {
+    background-color: rgba(124, 128, 155, 0.12);
+}
+
+
+
+/* educations */
+.educations-section {
+    width: 75%;
+    margin: auto;
+}
+
+.education-block {
+    margin-bottom: 12px;
+}
+
+.education-header {
+    cursor: pointer;
+    color: #7C809B;
+    border-bottom: 1px solid #7C809B;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.education-header:hover {
+    color: #5f637c;
+}
+
+.courses-section {
+    padding: 8px 0;
+}
+
+.courses-section h4 {
+    color: #7C809B;
+    margin: 16px 0 8px 0;
+}
+
+/* course rows */
+.course-row {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.course-code {
+    color: #7C809B;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.course-name {
+    flex: 1;
+    color: #5f637c;
+}
+
+.course-hp {
+    color: #7C809B;
+    min-width: 40px;
+}
+
+.course-grade {
+    display: flex;
+    align-items: center;
+    gap: 8px;  
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
+.course-year {
+    color: #7C809B;
+    min-width: 60px;
+}
+
+.settings_and_loginout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

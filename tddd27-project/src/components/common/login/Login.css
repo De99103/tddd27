@@ -24,8 +24,6 @@
     cursor: pointer;
 }
 
-
-
 .logout-icon,
 .login-icon {
     width: 20px;
@@ -33,11 +31,15 @@
 }
 
 .logging-wrapper {
-    display: flex;
-    justify-content: flex-end;
+    width: fit-content;
 }
 
-.logging {
+/* .logging-wrapper {
+    display: flex;
+    justify-content: flex-end;
+} */
+
+/* .logging {
     display: inline-flex;
     justify-content: flex-end;
     font-size: 15px;
@@ -47,12 +49,28 @@
     gap: 6px;
     flex-direction: column;
     margin-left: auto;
+} */
+
+.logging {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
-.user-row {
+/* .user-row {
     display: flex;
     align-items: center;
     gap: 12px;
+} */
+
+.user-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.495);
 }
 
 /* Remove the white background from user-name since the container handles it */
@@ -68,4 +86,27 @@
 
 .login-div {
     align-items: flex-end;
+}
+
+@media screen and (max-width: 767px) {
+    .logging {
+        background-color: rgba(255, 255, 255, 0.495);
+        height: 7vh;
+    }
+
+    .logging p {
+        font-size: 0.75rem;
+    }
+
+    .user-row {
+        padding: 5pt;
+        background-color: transparent;
+    }
+
+    .user-name {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 25vw;
+        line-height: 1.5em;
+    }
 }

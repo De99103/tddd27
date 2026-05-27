@@ -1,0 +1,93 @@
+.settings_page {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.settings_container {
+    display: inline-flex;
+    position: relative;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.495);
+}
+
+.settings_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #7c809b;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.settings_icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* .settings_popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.15s ease;
+} */
+
+.settings_popup {
+    display: flex;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    background-image: url("/src/assets/images/rutat_papper.png");
+    width: 40vw;
+    height: 35vh;
+    margin: 20pt;
+    filter: drop-shadow(#5c5c5c 10px 5px 2px);
+}
+
+.account-section {
+    width: fit-content;
+    margin: auto;
+}
+
+.title_in_settings {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #7c809b;
+    padding: 0pt 0pt 0pt 0pt !important;
+}
+
+.visibility_checkbox {
+    width: 20pt;
+    height: 20pt;
+}
+
+.visibility-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.popup_settings_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.15s ;
+}
+

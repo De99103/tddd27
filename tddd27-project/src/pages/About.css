@@ -1,0 +1,101 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.about-content {
+    width: min(750px, 88%);
+    margin: 55px auto;
+}
+
+.about-content h1 {
+    color: #7C809B;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+     border-bottom: 2px solid rgba(124, 128, 155, 0.3); 
+    padding-bottom: 12px;
+}
+
+.about-intro {
+    color: #6f738c;
+    font-size: 1.05rem;
+    margin-bottom: 50px;
+}
+
+.about-section {
+    margin-bottom: 45px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(124, 128, 155, 0.2);
+}
+
+about-section h2 {
+    color: #7C809B;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    border-left: 3px solid #7C809B; 
+    padding-left: 10px;
+}
+
+.about-section p,
+.about-section li {
+    color: #5f637c;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.about-section ol {
+    padding-left: 20px;
+}
+
+.about-section li {
+    margin-bottom: 8px;
+}
+
+.about-section strong {
+    color: #555972;
+}
+
+.team-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.team-member {
+    padding: 16px 20px;
+    border: 1px solid rgba(124, 128, 155, 0.25);
+    border-radius: 10px;
+    min-width: 180px;
+    border-top: 3px solid #7C809B;
+}
+
+.team-member h3 {
+    color: #5f637c;
+    margin: 0 0 6px;
+    font-size: 1rem;
+}
+
+.team-member a {
+    color: #7C809B;
+    font-size: 0.9rem;
+}
+
+.about-footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85rem;
+    padding: 10px 0 40px;
+}
+
+.logging-wrapper {
+    display: flex;
+    justify-self: end;
+}
+
+@media (max-width: 767px) {
+    .about-content h1 {
+        font-size: 1.7rem;
+    }
+}

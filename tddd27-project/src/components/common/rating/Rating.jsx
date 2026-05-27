@@ -1,7 +1,7 @@
 import "./rating.css";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import { db } from "../../../firebase/firebase";
-import { auth } from "../../../firebase/firebase";
+import { db } from "../../../fireBase/firebase";
+import { auth } from "../../../fireBase/firebase";
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 

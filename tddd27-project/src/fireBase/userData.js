@@ -5,7 +5,9 @@ import {
   addDoc,
   serverTimestamp,
   getDoc,
-  deleteDoc
+  getDocs,
+  deleteDoc,
+  updateDoc, arrayUnion,arrayRemove
 } from "firebase/firestore";
 
 import { auth, db } from "./firebase";
@@ -13,10 +15,9 @@ import { deleteUser } from "firebase/auth";
 
 export async function saveCourse(educationId, courseType, courseId, data) {
   const user = auth.currentUser;
+  if (!user) throw new Error("User is not logged in.");
 
-  if (!user) {
-    throw new Error("User is not logged in.");
-  }
+  const collectionName = courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
 
   // creates the education document
   await setDoc(
@@ -32,28 +33,29 @@ export async function saveCourse(educationId, courseType, courseId, data) {
     displayName: user.displayName || "",
     email: user.email || "",
     updatedAt: serverTimestamp(),
-  },
-  { merge: true }
-);
+  }, { merge: true });
+
+  // existing course save
   return await setDoc(
-    doc(
-      db,
-      "users",
-      user.uid,
-      "educations",
-      educationId,
-      collectionName,
-      courseId
-    ),
+    doc(db, "users", user.uid, "educations", educationId, collectionName, courseId),
     {
-       grade: data.grade || "",
-      // notes: data.notes || "",
-      // rating: data.rating || "",
-      ...data, // will save all fileds we send from course.jsx 
+      ...data,
+      ecv: data.ecv ?? "",
+      year: data.year ?? "",
+      semester: data.semester ?? "",
       updatedAt: serverTimestamp(),
     },
     { merge: true }
   );
+}
+
+export async function updateProfileVisibility(isPublic) {
+  const user = auth.currentUser;
+  if (!user) throw new Error("Not logged in");
+
+  await updateDoc(doc(db, "users", user.uid), {
+    isPublic: isPublic,
+  });
 }
 
 export async function savePublicCourseRating(courseId, data) {
@@ -70,16 +72,6 @@ export async function savePublicCourseRating(courseId, data) {
   });
 }
 
-export async function deleteAccount() {
-  const user = auth.currentUser;
-
-  if (!user) throw new Error("No user");
-
-  await deleteDoc(doc(db, "users", user.uid));
-  await deleteUser(user);
-
-}
-
 
 export async function getCourse(educationId, courseType, courseId) {
   const user = auth.currentUser;
@@ -88,7 +80,15 @@ export async function getCourse(educationId, courseType, courseId) {
   const collectionName =
     courseType === "mandatory" ? "mandatoryCourses" : "selectedCourses";
 
-  const ref = doc(db, "users", user.uid, "educations", educationId, collectionName, courseId);
+  const ref = doc(
+    db,
+    "users",
+    user.uid,
+    "educations",
+    educationId,
+    collectionName,
+    courseId,
+  );
   const snapshot = await getDoc(ref);
 
   if (snapshot.exists()) {

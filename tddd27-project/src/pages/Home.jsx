@@ -11,12 +11,10 @@ import { saveCourse } from "../fireBase/userData";
 
 
 //json files for the different programs
-import mtData from "../assets/data/MT.json"; // the old link
 import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
-import mtAiData from "../assets/data/MT-AI.json";
-import dtData from "../assets/data/DDD_courses_specialisations_fixed.json";
+import dtData from "../assets/data/DT.json";
 import edData from "../assets/data/ED.json";
-import itData from "../assets/data/IT_courses_specialisations_fixed.json";
+import itData from "../assets/data/IT_courses_fixed.json";
 
 function Home() {
     const [courses, setCourses] = useState([]);
@@ -24,6 +22,7 @@ function Home() {
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [selectedSpecialisation, setSelectedSpecialisation] = useState(null);
     const [filterBySpecialisation, setFilterBySpecialisation] = useState(false);
+    const [user, setUser] = useState(null);
 
     const programOptions = [
         {
@@ -32,12 +31,6 @@ function Home() {
             courses: mtData_new.courses || [],
             specialisations: mtData_new.program?.specialisations || [],
 
-        },
-        {
-            id: "MT_AI",
-            name: "Civilingenjörsprogram i medieteknik och AI (MT_AI)", // the new MT program with AI
-            courses: mtAiData.courses || [],
-            specialisations: mtAiData.program?.specialisations || [],
         },
         {
             id: "DT",
@@ -105,34 +98,35 @@ function Home() {
 
 
     async function handleSaveProfileCourses() {
-    if (!selectedProgram || !selectedSpecialisation) {
-        alert("Choose program and specialisation first");
-        return;
+        if (!selectedProgram || !selectedSpecialisation) {
+            alert("Choose program and specialisation first");
+            return;
+        }
+
+        const educationId = selectedProgram.id || selectedProgram.code || selectedProgram.name;
+
+        for (const course of visibleCourses) {
+            const courseType = course.mandatory === true ? "mandatory" : "selectedCourses";
+            await saveCourse(educationId, courseType, course.course_code, {
+                courseName: course.course_name,
+                masterProfile: selectedSpecialisation,
+                courseSpecialisation: course.specialisation || null,
+                year: course.year || "",
+                semester: course.semester || "",
+                ecv: course.ecv || "",
+                updatedAt: new Date(),
+            });
+        }
+
+        alert("All specialisation courses saved!");
     }
-
-    const educationId = selectedProgram.id || selectedProgram.code || selectedProgram.name;
-
-    for (const course of visibleCourses) {
-        await saveCourse(educationId, "selectedCourses", course.course_code, {
-            courseName: course.course_name,
-            masterProfile: selectedSpecialisation,
-            courseSpecialisation: course.specialisation || null,
-            year: course.year|| "",
-            semester: course.semester|| "",
-            ecv: course.ecv || "",
-            updatedAt: new Date(),
-        });
-    }
-
-    alert("All specialisation courses saved!");
-}
 
     return (
 
         <div className="account">
             <Login />
 
-            <h1>Home Page</h1>
+            {/* <h1>Welcome, {user.displayName} !</h1> */} {/* to fix!  */}
 
             <Course
                 programOptions={programOptions}
@@ -150,7 +144,8 @@ function Home() {
 
             <CoursesTable
                 courses={visibleCourses}
-                educationId={selectedProgram?.name}
+                educationId={selectedProgram?.id}        //  for Firebase
+                educationName={selectedProgram?.name}    //  for display                
                 setSelectedCourse={setSelectedCourse}
             />
 

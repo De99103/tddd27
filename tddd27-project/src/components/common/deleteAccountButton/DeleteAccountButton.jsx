@@ -10,7 +10,7 @@ import {
 
 import deleteICon from "/src/assets/images/delete_icon_user.png";
 
-import { deleteAccount } from "../../../fireBase/userData";
+import { deleteAccount } from "../../../fireBase/deleteUser";
 
 async function handleDeleteAccount() {
     try {
@@ -42,7 +42,7 @@ function DeleteAccountButton() {
                             alt="Delete account"
                             className="delete-icon"
                         />
-                        Delete account
+                        <p>Delete account</p>
                     </button>
                 </div>
             </div>

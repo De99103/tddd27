@@ -23,7 +23,7 @@ const CourseRow = ({ course }) => {
                     semester: course.semester ?? "",
                     courseName: course.course_name,
                     credits_hp: course.credits_hp ?? "",
-                }
+                },
             );
             setIsEditing(false);
         } catch (error) {
@@ -35,8 +35,12 @@ const CourseRow = ({ course }) => {
         <div className="course-row">
             <span className="course-code">{course.course_code}</span>
             <span className="course-name">{course.course_name}</span>
-            <span className="course-hp">{course.credits_hp ? `${course.credits_hp}hp` : ""}</span>
-            <span className="course-year">{course.year ? `Year ${course.year}` : ""}</span>
+            <span className="course-hp">
+                {course.credits_hp ? `${course.credits_hp}hp` : ""}
+            </span>
+            <span className="course-year">
+                {course.year ? `Year ${course.year}` : ""}
+            </span>
             <div className="course-grade">
                 {isEditing ? (
                     <>
@@ -47,12 +51,19 @@ const CourseRow = ({ course }) => {
                             onChange={(e) => setGrade(e.target.value)}
                             autoFocus
                         />
-                        <button className="grade-btn" onClick={handleSaveGrade}>Save</button>
+                        <button className="grade-btn" onClick={handleSaveGrade}>
+                            Save
+                        </button>
                     </>
                 ) : (
                     <>
                         <span>{grade || "—"}</span>
-                        <button className="grade-btn" onClick={() => setIsEditing(true)}>Edit</button>
+                        <button
+                            className="grade-btn"
+                            onClick={() => setIsEditing(true)}
+                        >
+                            Edit
+                        </button>
                     </>
                 )}
             </div>
@@ -75,7 +86,9 @@ function Account() {
                 setUser(loggedInUser);
 
                 // fetch isPublic
-                const userDoc = await getDoc(doc(db, "users", loggedInUser.uid));
+                const userDoc = await getDoc(
+                    doc(db, "users", loggedInUser.uid),
+                );
                 if (userDoc.exists()) {
                     setIsPublic(userDoc.data().isPublic || false);
                 }
@@ -192,10 +205,14 @@ function Account() {
 
     return (
         <div>
-            <Login />
+            <div className="settings_and_loginout">
+                <Settings />
+                <Login />
+            </div>
+
             <OtherProfile />
 
-            {/* Profile Visibility */}
+            {/* Profile Visibility
             <div className="account-section">
                 <h2>Profile Visibility</h2>
                 <label className="visibility-toggle">
@@ -204,9 +221,11 @@ function Account() {
                         checked={isPublic}
                         onChange={handleToggleVisibility}
                     />
-                    {isPublic ? "Public — anyone can see your profile" : "Private — only you can see your profile"}
+                    {isPublic
+                        ? "Public — anyone can see your profile"
+                        : "Private — only you can see your profile"}
                 </label>
-            </div>
+            </div> */}
 
             {/* Notifications */}
             {notifications.length > 0 && (

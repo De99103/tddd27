@@ -7,8 +7,8 @@ import {
     onAuthStateChanged,
 } from "firebase/auth";
 
-import loginIcon from "/src/assets/images/login.svg";
-import logoutIcon from "/src/assets/images/logut.svg";
+import loginIcon from "/src/assets/images/login.png";
+import logoutIcon from "/src/assets/images/logout.png";
 
 import "./Login.css";
 import DeleteAccountButton from "../deleteAccountButton/DeleteAccountButton";
@@ -24,15 +24,18 @@ function Login() {
         return () => unsubscribe();
     }, []);
 
-    const handleLogin = async () => {
-        try {
-            const provider = new GoogleAuthProvider();
-            const result = await signInWithPopup(auth, provider);
-            console.log(result.user);
-        } catch (error) {
-            console.error("Login error:", error);
-        }
-    };
+   const handleLogin = async () => {
+    try {
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+            prompt: "select_account" //  always shows account picker
+        });
+        const result = await signInWithPopup(auth, provider);
+        console.log(result.user);
+    } catch (error) {
+        console.error("Login error:", error);
+    }
+};
 
     const handleLogout = async () => {
         try {
@@ -64,7 +67,7 @@ function Login() {
                                 <span>Sign out</span>
                             </button>
                         </div>
-                        <DeleteAccountButton />
+                        {/* <DeleteAccountButton /> */}
                     </div>
                 </div>
             ) : (

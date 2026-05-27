@@ -5,7 +5,7 @@ import { Header } from "./components/common";
 import Login from "./components/common/login/Login";
 
 import About from "./pages/About";
-import Statistics from "./pages/Statistics";
+import Account from "./pages/Account";
 import Home from "./pages/Home";
 import OtherProfile from "./components/common/otherProfile/OtherProfile";
 
@@ -18,7 +18,7 @@ function App() {
 
                 <Routes>
                     <Route path="/about" element={<About />} />
-                    <Route path="/statistics" element={<Statistics />} />
+                    <Route path="/account" element={<Account />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/profile/:userId" element={<OtherProfile />} />
 

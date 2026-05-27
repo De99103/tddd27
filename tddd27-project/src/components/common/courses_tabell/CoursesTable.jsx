@@ -5,8 +5,7 @@ import { db } from "../../../fireBase/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { saveCourse } from "../../../fireBase/userData";
 
-const CoursesTable = ({ courses = [], educationId = null }) => {
-    //dubag: 
+const CoursesTable = ({ courses = [], educationId = null, educationName = null }) => {    //dubag: 
     console.log("CoursesTable courses count:", courses.length);  // ADD THIS
     console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); // ADD THIS
     console.log("CoursesTable ALL courses:", courses.map(c => `${c.course_code} | ${c.specialisation} | ${c.ecv}`));
@@ -49,7 +48,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
             console.error("Error adding course:", error);
         }
 
-        alert("Course added:"  + course.course_name + " " +  course.course_code ) ;
+        alert("Course added:" + course.course_name + " " + course.course_code);
     };
     // Find courses that appear in multiple semesters
     const courseCodeCount = courses.reduce((acc, course) => {
@@ -70,11 +69,11 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
 
     return (
         <>
-        <section key={educationId} className="titleofeducation">
-            <div>
-                <h2>{educationId}</h2>
-            </div>
-        </section>
+            <section key={educationId} className="titleofeducation">
+                <div>
+                    <h2>{educationName || educationId}</h2>
+                </div>
+            </section>
 
             {popupCourse && (
                 <div
@@ -102,9 +101,9 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
 
                     return (
                         // adding the program name in the beggeing : 
-                        
+
                         <section key={year} className="year-section">
-                            <section key = {educationId} className="titleofeducation">
+                            <section key={educationId} className="titleofeducation">
                                 <div></div>
                             </section>
                             <h2 className="year-title">Year {year}</h2>
@@ -146,7 +145,7 @@ const CoursesTable = ({ courses = [], educationId = null }) => {
 
                                                             return (
                                                                 <p className="also-available">
-                                                                    📅 Also available in semester {otherSemesters.join(", ")}
+                                                                    Also available in semester {otherSemesters.join(", ")}
                                                                 </p>
                                                             );
                                                         })()}

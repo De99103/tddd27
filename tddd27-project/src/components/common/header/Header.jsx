@@ -24,20 +24,13 @@ function Header() {
                         Home
                     </a>
                    
-                    <a href="/statistics" className="navbar-link">
-                        Statistics
+                    <a href="/account" className="navbar-link">
+                        Account
                     </a>
                     <a href="/about" className="navbar-link">
                         About
                     </a>
                 </div>
-                {/* <div className="navbar-items-mobile">
-                    <img
-                        src={burgerIconWhite}
-                        className="burger-icon"
-                        alt="Logo"
-                    />
-                </div> */}
                 <div className="hamburger-component" onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>
