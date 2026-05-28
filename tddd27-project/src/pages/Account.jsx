@@ -270,10 +270,7 @@ function Account() {
 
     async function handleAddCollaborator() {
         try {
-            if (!shareEmail) {
-                alert("Enter an email first!");
-                return;
-            } // toDO:  make it find people with username too..
+            if (!shareEmail) { alert("Enter an email first!"); return; } 
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
@@ -311,20 +308,7 @@ function Account() {
 
             <OtherProfile />
 
-            {/* Profile Visibility
-            <div className="account-section">
-                <h2>Profile Visibility</h2>
-                <label className="visibility-toggle">
-                    <input
-                        type="checkbox"
-                        checked={isPublic}
-                        onChange={handleToggleVisibility}
-                    />
-                    {isPublic
-                        ? "Public — anyone can see your profile"
-                        : "Private — only you can see your profile"}
-                </label>
-            </div> */}
+           
 
             {/* Notifications */}
             {notifications.length > 0 && (
