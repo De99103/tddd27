@@ -6,13 +6,14 @@ import ProposeAddCourse from "../ProposeAddCourse/ProposeAddCourse";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../fireBase/firebase";
 import {
-    getName, getDisplayNameOptions,
-    getPublicEducations, requestCourseChange, sendNotification
+    getName,
+    getDisplayNameOptions,
+    getPublicEducations,
+    requestCourseChange,
+    sendNotification,
 } from "../../../fireBase/userData";
 import { auth } from "../../../fireBase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-
-
 
 function ProposeRemoveCourse({ course, educationId, onPropose }) {
     const [sent, setSent] = useState(false);
@@ -22,22 +23,21 @@ function ProposeRemoveCourse({ course, educationId, onPropose }) {
         setSent(true);
     }
 
-    if (sent) return (
-        <div>
-            <p>{course.name || course.id}</p>
-            <p>Removal proposed</p>
-        </div>
-    );
+    if (sent)
+        return (
+            <div>
+                <p>{course.name || course.id}</p>
+                <p className = "Removal_proposed_sent">Removal proposed has been sent! </p>
+            </div>
+        );
 
     return (
         <div>
             <p>{course.name || course.id}</p>
-            <button onClick={handlePropose}>− Propose removal</button>
+            <button  className = "Removal_proposed" onClick={handlePropose}>− Propose removal</button>
         </div>
     );
 }
-
-
 
 function OtherProfile() {
     const [displayNameOptions, setDisplayNameOptions] = useState([]);
@@ -73,7 +73,6 @@ function OtherProfile() {
 
                 const name = await getName(selectedDisplayName.id);
                 setDisplayName(name || "");
-
             } catch (error) {
                 console.error("Error loading name:", error);
             }
@@ -88,27 +87,33 @@ function OtherProfile() {
             return;
         }
 
-        const unsubscribe = onSnapshot(doc(db, "users", selectedDisplayName.id), async (userDoc) => {
-            if (!userDoc.exists()) {
-                setProfile(null);
-                return;
-            }
+        const unsubscribe = onSnapshot(
+            doc(db, "users", selectedDisplayName.id),
+            async (userDoc) => {
+                if (!userDoc.exists()) {
+                    setProfile(null);
+                    return;
+                }
 
-            const data = userDoc.data();
-            const sharedWith = data?.sharedWith || [];
+                const data = userDoc.data();
+                const sharedWith = data?.sharedWith || [];
 
-            // show profile if public OR if current user is a collaborator
-            if (data.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
-                const educations = await getPublicEducations(selectedDisplayName.id);
-                setProfile({ ...data, educations });
-
-            } else {
-                setProfile(null);
-            }
-        });
+                // show profile if public OR if current user is a collaborator
+                if (
+                    data.isPublic ||
+                    (currentUser && sharedWith.includes(currentUser.uid))
+                ) {
+                    const educations = await getPublicEducations(
+                        selectedDisplayName.id,
+                    );
+                    setProfile({ ...data, educations });
+                } else {
+                    setProfile(null);
+                }
+            },
+        );
 
         return () => unsubscribe(); // cleanup on unmount
-
     }, [selectedDisplayName, currentUser]);
 
     useEffect(() => {
@@ -124,31 +129,35 @@ function OtherProfile() {
         loadUsers();
     }, []);
 
-    //load profile from URL 
+    //load profile from URL
     useEffect(() => {
         if (!userId) return;
 
-        const unsubscribe = onSnapshot(doc(db, "users", userId), async (userDoc) => {
-            if (!userDoc.exists()) {
-                setProfile(null);
-                return;
-            }
+        const unsubscribe = onSnapshot(
+            doc(db, "users", userId),
+            async (userDoc) => {
+                if (!userDoc.exists()) {
+                    setProfile(null);
+                    return;
+                }
 
-            const data = userDoc.data();
-            const sharedWith = data?.sharedWith || [];
+                const data = userDoc.data();
+                const sharedWith = data?.sharedWith || [];
 
-            if (data.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
-                const educations = await getPublicEducations(userId);
-                setProfile({ ...data, educations });
-            } else {
-                setProfile(null);
-            }
-        });
+                if (
+                    data.isPublic ||
+                    (currentUser && sharedWith.includes(currentUser.uid))
+                ) {
+                    const educations = await getPublicEducations(userId);
+                    setProfile({ ...data, educations });
+                } else {
+                    setProfile(null);
+                }
+            },
+        );
 
         return () => unsubscribe();
-
     }, [userId, currentUser]);
-
 
     // check if visitor is in sharedWith
     useEffect(() => {
@@ -160,8 +169,6 @@ function OtherProfile() {
         setHasAccess(sharedWith.includes(currentUser.uid));
     }, [profile, currentUser]);
 
-
-
     async function proposeCourseChange(educationId, action, course) {
         const ownerId = userId || selectedDisplayName?.id;
         await requestCourseChange(ownerId, {
@@ -172,8 +179,9 @@ function OtherProfile() {
             courseId: course.id,
             courseName: course.name || course.id,
         });
-        await sendNotification(ownerId,
-            `${currentUser.displayName} wants to ${action} "${course.name || course.id}" from your selected courses`
+        await sendNotification(
+            ownerId,
+            `${currentUser.displayName} wants to ${action} "${course.name || course.id}" from your selected courses`,
         );
     }
 
@@ -196,7 +204,9 @@ function OtherProfile() {
                         if (!displayName?.id) return;
 
                         try {
-                            const userDoc = await getDoc(doc(db, "users", displayName.id));
+                            const userDoc = await getDoc(
+                                doc(db, "users", displayName.id),
+                            );
                             const data = userDoc.data();
                             const sharedWith = data?.sharedWith || [];
 
@@ -205,10 +215,16 @@ function OtherProfile() {
                             console.log("isPublic:", data?.isPublic);
 
                             // allow if public OR if current user is in sharedWith
-                            if (data?.isPublic || (currentUser && sharedWith.includes(currentUser.uid))) {
+                            if (
+                                data?.isPublic ||
+                                (currentUser &&
+                                    sharedWith.includes(currentUser.uid))
+                            ) {
                                 navigate(`/profile/${displayName.id}`);
                             } else {
-                                setProfileMessage("This profile is private, connect with the user to see their profile.");
+                                setProfileMessage(
+                                    "This profile is private, connect with the user to see their profile.",
+                                );
                             }
                         } catch (error) {
                             console.error("Error checking profile:", error);
@@ -221,9 +237,10 @@ function OtherProfile() {
             </div>
             {profile && (
                 <div className="other_profile_overlay">
-                    <p>You are looking at</p>
-                    <h3>{profile.displayName}</h3>
-                    <p>{profile.bio}</p>
+                    <div className="visited_profile">
+                        <p>You are looking at</p>
+                        <strong>{profile.displayName}</strong>
+                    </div>
 
                     <div className="educations_container">
                         {profile.educations?.map((education) => (
@@ -232,32 +249,48 @@ function OtherProfile() {
 
                                 <div>
                                     <h5>Mandatory courses</h5>
-                                    {education.mandatoryCourses?.map((course) => (
-                                        <p key={course.id}>{course.name || course.id}</p>
-                                    ))}
+                                    {education.mandatoryCourses?.map(
+                                        (course) => (
+                                            <p className="courses_in_profile_search" key={course.id}>
+                                                {course.name || course.id}
+                                            </p>
+                                        ),
+                                    )}
                                 </div>
 
                                 <div>
                                     <h5>Selected courses</h5>
-                                    {education.selectedCourses?.map((course) => (
-                                        <div key={course.id}>
-                                            {hasAccess ? (
-                                                <ProposeRemoveCourse
-                                                    course={course}
-                                                    educationId={education.id}
-                                                    onPropose={proposeCourseChange}
-                                                />
-                                            ) : (
-                                                <p>{course.name || course.id}</p>
-                                            )}
-                                        </div>
-                                    ))}
+                                    {education.selectedCourses?.map(
+                                        (course) => (
+                                            <div className="courses_in_profile_search"key={course.id}>
+                                                {hasAccess ? (
+                                                    <ProposeRemoveCourse
+                                                        course={course}
+                                                        educationId={
+                                                            education.id
+                                                        }
+                                                        onPropose={
+                                                            proposeCourseChange
+                                                        }
+                                                    />
+                                                ) : (
+                                                    <p>
+                                                        {course.name ||
+                                                            course.id}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        ),
+                                    )}
 
                                     {/* Propose adding a new course */}
                                     {hasAccess && (
                                         <ProposeAddCourse
                                             educationId={education.id}
-                                            ownerId={userId || selectedDisplayName?.id}
+                                            ownerId={
+                                                userId ||
+                                                selectedDisplayName?.id
+                                            }
                                             requestedBy={currentUser}
                                         />
                                     )}
@@ -266,14 +299,11 @@ function OtherProfile() {
                         ))}
                     </div>
                 </div>
-            )
-            }
+            )}
 
-            {
-                profileMessage && (
-                    <p className="profile_message">{profileMessage}</p>
-                )
-            }
+            {profileMessage && (
+                <p className="profile_message">{profileMessage}</p>
+            )}
 
             {/* <div className="other_profile_overlay">
                 <p>You are looking at </p>
@@ -289,7 +319,7 @@ function OtherProfile() {
                 
 
             `}</style> */}
-        </div >
+        </div>
     );
 }
 

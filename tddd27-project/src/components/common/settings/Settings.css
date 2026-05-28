@@ -48,6 +48,7 @@
     position: absolute;
     justify-self: center;
     align-self: center;
+    flex-direction: column;
     background-image: url("/src/assets/images/rutat_papper.png");
     width: 40vw;
     height: 35vh;
@@ -88,6 +89,13 @@
     justify-content: center;
     z-index: 1000;
     backdrop-filter: blur(3px);
-    animation: fadeIn 0.15s ;
+    animation: fadeIn 0.15s;
 }
 
+@media screen and (max-width: 767px) {
+    .settings_popup {
+        width: 90vw;
+        height: 35vh;
+        margin: 20pt;
+    }
+}

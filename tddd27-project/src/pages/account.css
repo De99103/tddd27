@@ -26,7 +26,6 @@
     gap: 8px;
 }
 
-
 /* share */
 .share-row {
     display: flex;
@@ -37,17 +36,17 @@
 .share-input {
     flex: 1;
     padding: 8px 12px;
-    border: 1px solid #7C809B;
+    border: 1px solid #7c809b;
     border-radius: 8px;
     font-size: 1rem;
 }
 
 .share-btn {
     padding: 8px 16px;
-    border: 1px solid #7C809B;
+    border: 1px solid #7c809b;
     border-radius: 8px;
     background-color: transparent;
-    color: #7C809B;
+    color: #7c809b;
     cursor: pointer;
     transition: background-color 0.18s ease;
 }
@@ -55,8 +54,6 @@
 .share-btn:hover {
     background-color: rgba(124, 128, 155, 0.12);
 }
-
-
 
 /* educations */
 .educations-section {
@@ -70,8 +67,8 @@
 
 .education-header {
     cursor: pointer;
-    color: #7C809B;
-    border-bottom: 1px solid #7C809B;
+    color: #7c809b;
+    border-bottom: 1px solid #7c809b;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
@@ -88,21 +85,21 @@
 }
 
 .courses-section h4 {
-    color: #7C809B;
+    color: #7c809b;
     margin: 16px 0 8px 0;
 }
 
 /* course rows */
 .course-row {
     display: flex;
-    gap: 12px;
+    /* gap: 12px; */
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     align-items: center;
 }
 
 .course-code {
-    color: #7C809B;
+    color: #7c809b;
     font-weight: bold;
     min-width: 80px;
 }
@@ -113,20 +110,20 @@
 }
 
 .course-hp {
-    color: #7C809B;
+    color: #7c809b;
     min-width: 40px;
 }
 
 .course-grade {
     display: flex;
     align-items: center;
-    gap: 8px;  
+    gap: 8px;
     min-width: 120px;
     justify-content: flex-end;
 }
 
 .course-year {
-    color: #7C809B;
+    color: #7c809b;
     min-width: 60px;
 }
 
@@ -134,4 +131,33 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.grade-input {
+    font-size: 16px;
+    text-align: center;
+}
+
+.bell-icon,
+.mailbox-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.accept {
+    background-color: rgba(28, 122, 4, 0.584);
+}
+
+.reject {
+    background-color: rgba(222, 3, 3, 0.47);
+}
+
+.accept,
+.reject {
+    padding: 5pt;
+    border: 1px solid white;
+    color: white;
+    border-radius: 0.5em;
+    margin: 5px;
+    cursor: pointer;
 }

@@ -1,14 +1,26 @@
 import { Login, OtherProfile } from "../components/common";
 import { useState, useEffect } from "react";
 import { auth, db } from "../fireBase/firebase";
-import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
+import {
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    onSnapshot,
+} from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import {
-    updateProfileVisibility, addCollaborator,
-    sendNotification, saveCourse,
-    respondToChangeRequest, deleteCourse
+    updateProfileVisibility,
+    addCollaborator,
+    sendNotification,
+    saveCourse,
+    respondToChangeRequest,
+    deleteCourse,
 } from "../fireBase/userData";
 import Settings from "../components/common/settings/Settings";
+
+import BellIcon from "/src/assets/images/bell icon.png";
+import MailboxIcon from "/src/assets/images/mailbox icon.png";
 
 import "./account.css";
 
@@ -37,7 +49,8 @@ const CourseRow = ({ course }) => {
         }
     }
     async function handleDeleteCourse() {
-        if (!confirm(`Remove ${course.course_code} from selected courses?`)) return;
+        if (!confirm(`Remove ${course.course_code} from selected courses?`))
+            return;
         try {
             await deleteCourse(course.educationId, course.course_code);
         } catch (error) {
@@ -78,14 +91,16 @@ const CourseRow = ({ course }) => {
                         >
                             Edit
                         </button>
-                        {!course.mandatory &&  (
-                            <button className="grade-btn" onClick={handleDeleteCourse}>
+                        {!course.mandatory && (
+                            <button
+                                className="grade-btn"
+                                onClick={handleDeleteCourse}
+                            >
                                 Remove
                             </button>
                         )}
                     </>
                 )}
-                
             </div>
         </div>
     );
@@ -118,14 +133,24 @@ function Account() {
                 onSnapshot(
                     collection(db, "users", loggedInUser.uid, "notifications"),
                     (snapshot) => {
-                        setNotifications(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
-                    }
+                        setNotifications(
+                            snapshot.docs.map((d) => ({
+                                id: d.id,
+                                ...d.data(),
+                            })),
+                        );
+                    },
                 );
                 onSnapshot(
                     collection(db, "users", loggedInUser.uid, "changeRequests"),
                     (snapshot) => {
-                        setChangeRequests(snapshot.docs.map(d => ({ id: d.id, ...d.data() })));
-                    }
+                        setChangeRequests(
+                            snapshot.docs.map((d) => ({
+                                id: d.id,
+                                ...d.data(),
+                            })),
+                        );
+                    },
                 );
                 // real-time educations
                 onSnapshot(
@@ -136,32 +161,68 @@ function Account() {
 
                             // real-time mandatory courses
                             onSnapshot(
-                                collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses"),
+                                collection(
+                                    db,
+                                    "users",
+                                    loggedInUser.uid,
+                                    "educations",
+                                    eduId,
+                                    "mandatoryCourses",
+                                ),
                                 (mandatorySnapshot) => {
                                     onSnapshot(
-                                        collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses"),
+                                        collection(
+                                            db,
+                                            "users",
+                                            loggedInUser.uid,
+                                            "educations",
+                                            eduId,
+                                            "selectedCourses",
+                                        ),
                                         (selectedSnapshot) => {
-                                            const mapCourse = (d, isMandatory) => ({
+                                            const mapCourse = (
+                                                d,
+                                                isMandatory,
+                                            ) => ({
                                                 course_code: d.id,
                                                 educationId: eduId,
-                                                course_name: d.data().courseName || "",
+                                                course_name:
+                                                    d.data().courseName || "",
                                                 year: d.data().year || "",
-                                                semester: d.data().semester || "",
-                                                credits_hp: d.data().credits_hp || "",
+                                                semester:
+                                                    d.data().semester || "",
+                                                credits_hp:
+                                                    d.data().credits_hp || "",
                                                 period: d.data().period || "",
                                                 grade: d.data().grade || "",
                                                 mandatory: isMandatory,
                                                 elective: !isMandatory,
                                             });
 
-                                            setEducations(prev => {
+                                            setEducations((prev) => {
                                                 const updated = [...prev];
-                                                const index = updated.findIndex(e => e.id === eduId);
+                                                const index = updated.findIndex(
+                                                    (e) => e.id === eduId,
+                                                );
                                                 const newEdu = {
                                                     id: eduId,
                                                     ...eduDoc.data(),
-                                                    mandatoryCourses: mandatorySnapshot.docs.map(d => mapCourse(d, true)),
-                                                    selectedCourses: selectedSnapshot.docs.map(d => mapCourse(d, false)),
+                                                    mandatoryCourses:
+                                                        mandatorySnapshot.docs.map(
+                                                            (d) =>
+                                                                mapCourse(
+                                                                    d,
+                                                                    true,
+                                                                ),
+                                                        ),
+                                                    selectedCourses:
+                                                        selectedSnapshot.docs.map(
+                                                            (d) =>
+                                                                mapCourse(
+                                                                    d,
+                                                                    false,
+                                                                ),
+                                                        ),
                                                 };
                                                 if (index >= 0) {
                                                     updated[index] = newEdu;
@@ -172,14 +233,13 @@ function Account() {
                                             });
 
                                             setLoading(false);
-                                        }
+                                        },
                                     );
-                                }
+                                },
                             );
                         });
-                    }
+                    },
                 );
-
             } else {
                 setLoading(false);
             }
@@ -188,16 +248,16 @@ function Account() {
         return unsubscribe;
     }, []);
 
-
     if (loading) return <p>Loading...</p>;
-    if (!user) return (
-        <div>
-            <Login />
-            <p style={{ textAlign: "center", marginTop: "2rem" }}>
-                Please log in to view your account.
-            </p>
-        </div>
-    );
+    if (!user)
+        return (
+            <div>
+                <Login />
+                <p style={{ textAlign: "center", marginTop: "2rem" }}>
+                    Please log in to view your account.
+                </p>
+            </div>
+        );
     async function handleToggleVisibility() {
         try {
             const newValue = !isPublic;
@@ -210,21 +270,30 @@ function Account() {
 
     async function handleAddCollaborator() {
         try {
-            if (!shareEmail) { alert("Enter an email first!"); return; } // toDO:  make it find people with username too.. 
+            if (!shareEmail) {
+                alert("Enter an email first!");
+                return;
+            } // toDO:  make it find people with username too..
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
                 (d) =>
-                    d.data().email?.toLowerCase() === shareEmail.trim().toLowerCase() ||
-                    d.data().displayName?.toLowerCase() === shareEmail.trim().toLowerCase()
+                    d.data().email?.toLowerCase() ===
+                        shareEmail.trim().toLowerCase() ||
+                    d.data().displayName?.toLowerCase() ===
+                        shareEmail.trim().toLowerCase(),
             );
 
-            if (!match) { alert("No user found with that email!"); return; }
+            if (!match) {
+                alert("No user found with that email!");
+                return;
+            }
 
             const collaboratorUid = match.id;
             await addCollaborator(user.uid, collaboratorUid);
-            await sendNotification(collaboratorUid,
-                `${user.displayName} has given you access to their profile!`
+            await sendNotification(
+                collaboratorUid,
+                `${user.displayName} has given you access to their profile!`,
             );
             alert(`Access given to ${shareEmail}!`);
             setShareEmail("");
@@ -260,44 +329,100 @@ function Account() {
             {/* Notifications */}
             {notifications.length > 0 && (
                 <div className="account-section">
-                    <h2>🔔 Notifications</h2>
+                    <h2>
+                        {" "}
+                        <img
+                            src={BellIcon}
+                            alt="Bell icon"
+                            className="bell-icon"
+                        />{" "}
+                        Notifications
+                    </h2>
                     <div className="notifications-scroll">
-                        {[...new Map(notifications.map(n => [n.message + n.createdAt?.seconds, n])).values()]
-                            .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0))
+                        {[
+                            ...new Map(
+                                notifications.map((n) => [
+                                    n.message + n.createdAt?.seconds,
+                                    n,
+                                ]),
+                            ).values(),
+                        ]
+                            .sort(
+                                (a, b) =>
+                                    (b.createdAt?.seconds || 0) -
+                                    (a.createdAt?.seconds || 0),
+                            )
                             .map((notif) => (
-                                <div key={notif.id} className="notification-row">
+                                <div
+                                    key={notif.id}
+                                    className="notification-row"
+                                >
                                     <p>{notif.message}</p>
                                     <span className="notification-time">
                                         {notif.createdAt?.seconds
-                                            ? new Date(notif.createdAt.seconds * 1000).toLocaleString()
+                                            ? new Date(
+                                                  notif.createdAt.seconds *
+                                                      1000,
+                                              ).toLocaleString()
                                             : ""}
                                     </span>
                                 </div>
-                            ))
-                        }
+                            ))}
                     </div>
                 </div>
             )}
 
             {changeRequests.length > 0 && (
                 <div className="account-section">
-                    <h2>📬 Pending Course Changes</h2>
+                    <h2>
+                        <img
+                            src={MailboxIcon}
+                            alt="mailbox icon"
+                            className="mailbox-icon"
+                        />{" "}
+                        Pending Course Changes
+                    </h2>
                     {changeRequests.map((req) => (
                         <div key={req.id} className="notification-row">
                             <p>
                                 <b>{req.requestedByName}</b> wants to{" "}
-                                {req.action === "add" ? <>add <b>{req.courseName}</b></> : <>remove <b>{req.courseName}</b></>}
-                                {" "}from your selected courses in <b>{req.educationId}</b>
+                                {req.action === "add" ? (
+                                    <>
+                                        add <b>{req.courseName}</b>
+                                    </>
+                                ) : (
+                                    <>
+                                        remove <b>{req.courseName}</b>
+                                    </>
+                                )}{" "}
+                                from your selected courses in{" "}
+                                <b>{req.educationId}</b>
                             </p>
-                            <button onClick={() => {
-                                console.log("requestData:", req);
+                            <button
+                                onClick={() => {
+                                    console.log("requestData:", req);
 
-                                respondToChangeRequest(user.uid, req.id, true, req)
-                            }}>
-                                ✅ Accept
+                                    respondToChangeRequest(
+                                        user.uid,
+                                        req.id,
+                                        true,
+                                        req,
+                                    );
+                                }}
+                            >
+                                <p className="accept">Accept</p>
                             </button>
-                            <button onClick={() => respondToChangeRequest(user.uid, req.id, false, req)}>
-                                ❌ Reject
+                            <button
+                                onClick={() =>
+                                    respondToChangeRequest(
+                                        user.uid,
+                                        req.id,
+                                        false,
+                                        req,
+                                    )
+                                }
+                            >
+                                <p className="reject">Reject</p>
                             </button>
                         </div>
                     ))}
@@ -317,7 +442,12 @@ function Account() {
                         value={shareEmail}
                         onChange={(e) => setShareEmail(e.target.value)}
                     />
-                    <button className="share-btn" onClick={handleAddCollaborator}>Give Access</button>
+                    <button
+                        className="share-btn"
+                        onClick={handleAddCollaborator}
+                    >
+                        Give Access
+                    </button>
                 </div>
             </div>
 
@@ -332,12 +462,18 @@ function Account() {
                             {/* clickable header */}
                             <h3
                                 className="education-header"
-                                onClick={() => setOpenEducationId(
-                                    openEducationId === edu.id ? null : edu.id
-                                )}
+                                onClick={() =>
+                                    setOpenEducationId(
+                                        openEducationId === edu.id
+                                            ? null
+                                            : edu.id,
+                                    )
+                                }
                             >
                                 {edu.id}
-                                <span>{openEducationId === edu.id ? "▲" : "▼"}</span>
+                                <span>
+                                    {openEducationId === edu.id ? "▲" : "▼"}
+                                </span>
                             </h3>
 
                             {openEducationId === edu.id && (
@@ -346,9 +482,14 @@ function Account() {
                                     {edu.mandatoryCourses.length > 0 && (
                                         <div>
                                             <h4>Mandatory Courses</h4>
-                                            {edu.mandatoryCourses.map((course) => (
-                                                <CourseRow key={course.course_code} course={course} />
-                                            ))}
+                                            {edu.mandatoryCourses.map(
+                                                (course) => (
+                                                    <CourseRow
+                                                        key={course.course_code}
+                                                        course={course}
+                                                    />
+                                                ),
+                                            )}
                                         </div>
                                     )}
 
@@ -356,9 +497,14 @@ function Account() {
                                     {edu.selectedCourses.length > 0 && (
                                         <div>
                                             <h4>Selected Courses</h4>
-                                            {edu.selectedCourses.map((course) => (
-                                                <CourseRow key={course.course_code} course={course} />
-                                            ))}
+                                            {edu.selectedCourses.map(
+                                                (course) => (
+                                                    <CourseRow
+                                                        key={course.course_code}
+                                                        course={course}
+                                                    />
+                                                ),
+                                            )}
                                         </div>
                                     )}
                                 </div>

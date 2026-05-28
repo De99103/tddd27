@@ -26,7 +26,10 @@
     margin-left: -4pt;
 }
 
-.css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input .search_profile_container {
+.css-1tlcqt-MuiAutocomplete-root
+    .MuiAutocomplete-inputRoot
+    .MuiAutocomplete-input
+    .search_profile_container {
     font-size: 1.5rem;
     font-weight: bold;
 }
@@ -34,12 +37,10 @@
 .search_profile_container p {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
-
 .d {
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,7 +57,6 @@
 }
 
 .educations_container {
-    width: 100%;
     max-width: 900px;
     display: grid;
     grid-template-columns: 1fr;
@@ -64,7 +64,9 @@
     background-image: url(/src/assets/images/paper.jpg);
     background-size: cover;
     background-position: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 6px 20px rgba(0, 0, 0, 0.19);
     padding: 24px 32px;
     margin: 24px auto 0;
     border-radius: 12px;
@@ -72,27 +74,36 @@
 }
 
 .education_card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
 
-  padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.45);
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.45);
 }
 
 .education_card h4 {
-  grid-column: 1 / -1;
-  margin: 0 0 8px;
+    grid-column: 1 / -1;
+    margin: 0 0 8px;
 }
 
 .education_card h5 {
-  margin: 0 0 6px;
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+    padding: 10pt;
 }
 
-
-
+.visited_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5pt;
+    font-size: 1.3rem;
+    margin: 20pt;
+}
 
 h3 {
     padding: 0pt 5pt 3pt 5pt;
@@ -101,6 +112,31 @@ h3 {
 
 .autocomplete-wrapper line-autocomplete {
     padding: 0pt 10pt 0pt 10pt;
+}
+
+.courses_in_profile_search {
+    border-bottom: solid white;
+    color: #7c809b;
+    font-weight: bold;
+    padding: 5pt;
+}
+
+.Removal_proposed,
+.Removal_proposed_sent,
+.adding_proposal_sent,
+.adding_proposal {
+    display: flex;
+    justify-self: center;
+    cursor: pointer;
+    font-size: 1.2 rem;
+    font-weight: normal;
+    box-sizing: content-box;
+    border: solid #7c809b 1px;
+    width: fit-content;
+    padding: 5pt;
+    border-radius: 10px;
+    background-color: #7c809b;
+    color: white;
 }
 
 @media screen and (max-width: 767px) {
@@ -118,7 +154,9 @@ h3 {
         width: 30vw;
     }
 
-    .css-1tlcqt-MuiAutocomplete-root .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+    .css-1tlcqt-MuiAutocomplete-root
+        .MuiAutocomplete-inputRoot
+        .MuiAutocomplete-input {
         font-size: 1.25rem;
     }
 }
