@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import {getFirestore} from "firebase/firestore";
+import {getFirestore, initializeFirestore} from "firebase/firestore";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,4 +24,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);
-export const db = getFirestore(app); // // Initialize Cloud Firestore and get a reference to the service
+
+export const db = initializeFirestore(app, { // to fix error in the safari so its work fine in all browsers. 
+  experimentalAutoDetectLongPolling: true,
+  useFetchStreams: false,
+});
+console.log("DB settings:", db._settings);
+
