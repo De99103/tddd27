@@ -48,10 +48,12 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
 
     return (
         <div>
+            <h5>Propose a course to add:</h5>
             <input
                 value={courseId}
                 onChange={(e) => setCourseId(e.target.value)}
-                placeholder="Course ID to add"
+                className="input_to_propose_course"
+                placeholder="input a Course Code"
             />
             <button className="adding_proposal" onClick={handlePropose}>
                 + Propose add

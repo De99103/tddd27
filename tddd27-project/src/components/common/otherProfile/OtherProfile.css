@@ -57,7 +57,7 @@
 }
 
 .educations_container {
-    max-width: 900px;
+    /* max-width: 900px; */
     display: flex;
     flex-direction: row;
     background-image: url(/src/assets/images/paper.jpg);
@@ -73,10 +73,15 @@
 
 .education_card {
     gap: 12px 24px;
-    padding: 16px;
+    padding: 1em;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.45);
+    margin: 1em;
+}
+
+.education_card button {
+    margin: 0.5em 0em 0.5em 0em;
 }
 
 .education_card h4 {
@@ -93,6 +98,7 @@
 .multiple_programs {
     display: flex;
     flex-direction: row;
+    margin: 1em;
 }
 
 .visited_profile {
@@ -115,11 +121,13 @@ h3 {
 }
 
 .courses_in_profile_search {
-    border-bottom: solid white;
+    border-bottom: solid rgb(231, 231, 231);
     color: #7c809b;
     font-weight: bold;
-    padding: 5pt;
+    padding: 10pt;
 }
+
+
 
 .Removal_proposed,
 .Removal_proposed_sent,

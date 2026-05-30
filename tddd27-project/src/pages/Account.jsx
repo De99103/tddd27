@@ -270,15 +270,18 @@ function Account() {
 
     async function handleAddCollaborator() {
         try {
-            if (!shareEmail) { alert("Enter an email first!"); return; }
+            if (!shareEmail) {
+                alert("Enter an email first!");
+                return;
+            }
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
                 (d) =>
                     d.data().email?.toLowerCase() ===
-                    shareEmail.trim().toLowerCase() ||
+                        shareEmail.trim().toLowerCase() ||
                     d.data().displayName?.toLowerCase() ===
-                    shareEmail.trim().toLowerCase(),
+                        shareEmail.trim().toLowerCase(),
             );
 
             if (!match) {
@@ -306,11 +309,8 @@ function Account() {
                 <Login />
             </div>
 
-
-
             <div className="notifi_search-section">
                 <div className="notifi_search-top">
-
                     {changeRequests.length > 0 && (
                         <div className="account-section">
                             <h2>
@@ -330,16 +330,22 @@ function Account() {
                                     )
 
                                     .map((req) => (
-                                        <div key={req.id} className="notification-row">
+                                        <div
+                                            key={req.id}
+                                            className="notification-row"
+                                        >
                                             <p>
-                                                <b>{req.requestedByName}</b> wants to{" "}
+                                                <b>{req.requestedByName}</b>{" "}
+                                                wants to{" "}
                                                 {req.action === "add" ? (
                                                     <>
-                                                        add <b>{req.courseName}</b>
+                                                        add{" "}
+                                                        <b>{req.courseName}</b>
                                                     </>
                                                 ) : (
                                                     <>
-                                                        remove <b>{req.courseName}</b>
+                                                        remove{" "}
+                                                        <b>{req.courseName}</b>
                                                     </>
                                                 )}{" "}
                                                 from your selected courses in{" "}
@@ -348,16 +354,19 @@ function Account() {
                                             <span className="notification-time">
                                                 {req.createdAt?.seconds
                                                     ? new Date(
-                                                        req.createdAt.seconds *
-                                                        1000,
-                                                    ).toLocaleString()
+                                                          req.createdAt
+                                                              .seconds * 1000,
+                                                      ).toLocaleString()
                                                     : ""}
                                             </span>
                                             <br />
 
                                             <button
                                                 onClick={() => {
-                                                    console.log("requestData:", req);
+                                                    console.log(
+                                                        "requestData:",
+                                                        req,
+                                                    );
 
                                                     respondToChangeRequest(
                                                         user.uid,
@@ -381,8 +390,6 @@ function Account() {
                                             >
                                                 <p className="reject">Reject</p>
                                             </button>
-
-
                                         </div>
                                     ))}
                             </div>
@@ -423,9 +430,9 @@ function Account() {
                                             <span className="notification-time">
                                                 {notif.createdAt?.seconds
                                                     ? new Date(
-                                                        notif.createdAt.seconds *
-                                                        1000,
-                                                    ).toLocaleString()
+                                                          notif.createdAt
+                                                              .seconds * 1000,
+                                                      ).toLocaleString()
                                                     : ""}
                                             </span>
                                         </div>
@@ -436,9 +443,7 @@ function Account() {
                 </div>
 
                 <div className="notifi_search-down">
-
                     <OtherProfile />
-
 
                     {/* Share with someone */}
                     {/* User types email → look up their uid in Firestore
@@ -461,8 +466,6 @@ function Account() {
                             </button>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             {/* Educations */}
