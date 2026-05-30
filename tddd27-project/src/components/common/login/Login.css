@@ -35,22 +35,6 @@
     margin-left: auto;
 }
 
-/* .logging-wrapper {
-    display: flex;
-    justify-content: flex-end;
-} */
-
-/* .logging {
-    display: inline-flex;
-    justify-content: flex-end;
-    font-size: 15px;
-    background-color: rgba(255, 255, 255, 0.495);
-    border-radius: 10px;
-    padding: 10px;
-    gap: 6px;
-    flex-direction: column;
-    margin-left: auto;
-} */
 
 .logging {
     display: flex;
@@ -58,11 +42,7 @@
     justify-content: space-between;
 }
 
-/* .user-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-} */
+
 
 .user-row {
     display: flex;

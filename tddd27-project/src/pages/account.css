@@ -1,10 +1,3 @@
-.account-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
 /* notifications */
 .notification-row {
     background-color: rgba(124, 128, 155, 0.1);
@@ -33,16 +26,97 @@
     justify-content: space-between;
     width: 80%;
     justify-self: center;
+    gap: 1.5rem;
+
 }
 
-.notifi_search-top,
-.notifi_search-down {
+.notifi_search-top {
     display: flex;
     gap: 8px;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+
 }
 
-h2 {
+.notifi_search-down {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    gap: 1rem;
+}
+
+.search-share-half {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    gap: 8px;
+    overflow: hidden;
+    min-width: 0;
+}
+
+
+
+.notifi_search-down .other_profile_page {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+}
+
+.search-share-label {
+    color: #7c809b;
+    font-size: 1rem;
+    white-space: nowrap;
+
+}
+
+.search-share-divider {
+    width: 2px;
+    height: 24px;
+    background: #7c809b55;
+    margin: 0 30px;
+    flex-shrink: 0;
+}
+
+.search-share-input {
+    font-size: 1rem;
+    border: 1px solid #7c809b;
+    border-radius: 8px;
+    flex: 1;
+    padding: 8px 12px;
+    min-width: 0;
+
+}
+
+
+/* search_profile_container from pther profile page.*/
+.notifi_search-down .search_profile_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.notifi_search-down .search_profile_container p {
+    display: none;
+}
+
+.account-section {
+    align-self: flex-start;
+    margin: 0px;
+}
+
+.notifi_search-section h2,
+.account-section h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,14 +130,6 @@ h2 {
     display: flex;
     gap: 12px;
     align-items: center;
-}
-
-.share-input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #7c809b;
-    border-radius: 8px;
-    font-size: 1rem;
 }
 
 .share-btn {

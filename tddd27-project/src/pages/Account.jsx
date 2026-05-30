@@ -110,7 +110,6 @@ function Account() {
     const [user, setUser] = useState(null);
     const [educations, setEducations] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [isPublic, setIsPublic] = useState(false);
     const [shareEmail, setShareEmail] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [openEducationId, setOpenEducationId] = useState(null);
@@ -258,15 +257,6 @@ function Account() {
                 </p>
             </div>
         );
-    async function handleToggleVisibility() {
-        try {
-            const newValue = !isPublic;
-            await updateProfileVisibility(newValue);
-            setIsPublic(newValue);
-        } catch (error) {
-            console.error("Error updating visibility:", error);
-        }
-    }
 
     async function handleAddCollaborator() {
         try {
@@ -279,9 +269,9 @@ function Account() {
             const match = usersSnapshot.docs.find(
                 (d) =>
                     d.data().email?.toLowerCase() ===
-                        shareEmail.trim().toLowerCase() ||
+                    shareEmail.trim().toLowerCase() ||
                     d.data().displayName?.toLowerCase() ===
-                        shareEmail.trim().toLowerCase(),
+                    shareEmail.trim().toLowerCase(),
             );
 
             if (!match) {
@@ -330,6 +320,7 @@ function Account() {
                                     )
 
                                     .map((req) => (
+
                                         <div
                                             key={req.id}
                                             className="notification-row"
@@ -354,9 +345,9 @@ function Account() {
                                             <span className="notification-time">
                                                 {req.createdAt?.seconds
                                                     ? new Date(
-                                                          req.createdAt
-                                                              .seconds * 1000,
-                                                      ).toLocaleString()
+                                                        req.createdAt
+                                                            .seconds * 1000,
+                                                    ).toLocaleString()
                                                     : ""}
                                             </span>
                                             <br />
@@ -430,9 +421,9 @@ function Account() {
                                             <span className="notification-time">
                                                 {notif.createdAt?.seconds
                                                     ? new Date(
-                                                          notif.createdAt
-                                                              .seconds * 1000,
-                                                      ).toLocaleString()
+                                                        notif.createdAt
+                                                            .seconds * 1000,
+                                                    ).toLocaleString()
                                                     : ""}
                                             </span>
                                         </div>
@@ -443,25 +434,26 @@ function Account() {
                 </div>
 
                 <div className="notifi_search-down">
-                    <OtherProfile />
+                    <div className="search-share-half">
+                        <span className="search-share-label">Search for a profile...</span>
+                        <OtherProfile />
+                    </div>
+                    <div className="search-share-divider" />
 
                     {/* Share with someone */}
                     {/* User types email → look up their uid in Firestore
             → add uid to sharedWith array → they can now edit */}
-                    <div className="account-section">
-                        <h2>Share with someone</h2>
+                    <div className="share-half">
+
                         <div className="share-row">
                             <input
-                                className="share-input"
+                                className="search-share-input"
                                 type="text"
-                                placeholder="Enter their email or username!"
+                                placeholder="Enter their email or username..."
                                 value={shareEmail}
                                 onChange={(e) => setShareEmail(e.target.value)}
                             />
-                            <button
-                                className="share-btn"
-                                onClick={handleAddCollaborator}
-                            >
+                            <button className="share-btn" onClick={handleAddCollaborator}>
                                 Give Access
                             </button>
                         </div>
