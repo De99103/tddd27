@@ -270,15 +270,15 @@ function Account() {
 
     async function handleAddCollaborator() {
         try {
-            if (!shareEmail) { alert("Enter an email first!"); return; } 
+            if (!shareEmail) { alert("Enter an email first!"); return; }
 
             const usersSnapshot = await getDocs(collection(db, "users"));
             const match = usersSnapshot.docs.find(
                 (d) =>
                     d.data().email?.toLowerCase() ===
-                        shareEmail.trim().toLowerCase() ||
+                    shareEmail.trim().toLowerCase() ||
                     d.data().displayName?.toLowerCase() ===
-                        shareEmail.trim().toLowerCase(),
+                    shareEmail.trim().toLowerCase(),
             );
 
             if (!match) {
@@ -308,7 +308,7 @@ function Account() {
 
             <OtherProfile />
 
-           
+
 
             {/* Notifications */}
             {notifications.length > 0 && (
@@ -345,9 +345,9 @@ function Account() {
                                     <span className="notification-time">
                                         {notif.createdAt?.seconds
                                             ? new Date(
-                                                  notif.createdAt.seconds *
-                                                      1000,
-                                              ).toLocaleString()
+                                                notif.createdAt.seconds *
+                                                1000,
+                                            ).toLocaleString()
                                             : ""}
                                     </span>
                                 </div>
@@ -367,68 +367,70 @@ function Account() {
                         Pending Course Changes
                     </h2>
                     <div className="notifications-scroll">
-                    {changeRequests
-                    .sort(
+                        {changeRequests
+                            .sort(
                                 (a, b) =>
                                     (b.createdAt?.seconds || 0) -
                                     (a.createdAt?.seconds || 0),
                             )
-                    
-                    .map((req) => (
-                        <div key={req.id} className="notification-row">
-                            <p>
-                                <b>{req.requestedByName}</b> wants to{" "}
-                                {req.action === "add" ? (
-                                    <>
-                                        add <b>{req.courseName}</b>
-                                    </>
-                                ) : (
-                                    <>
-                                        remove <b>{req.courseName}</b>
-                                    </>
-                                )}{" "}
-                                from your selected courses in{" "}
-                                <b>{req.educationId}</b>
-                            </p>
-                            <button
-                                onClick={() => {
-                                    console.log("requestData:", req);
 
-                                    respondToChangeRequest(
-                                        user.uid,
-                                        req.id,
-                                        true,
-                                        req,
-                                    );
-                                }}
-                            >
-                                <p className="accept">Accept</p>
-                            </button>
-                            <button
-                                onClick={() =>
-                                    respondToChangeRequest(
-                                        user.uid,
-                                        req.id,
-                                        false,
-                                        req,
-                                    )
-                                }
-                            >
-                                <p className="reject">Reject</p>
-                            </button>
-                            <br/>
-                            <span  className="notification-time">
+                            .map((req) => (
+                                <div key={req.id} className="notification-row">
+                                    <p>
+                                        <b>{req.requestedByName}</b> wants to{" "}
+                                        {req.action === "add" ? (
+                                            <>
+                                                add <b>{req.courseName}</b>
+                                            </>
+                                        ) : (
+                                            <>
+                                                remove <b>{req.courseName}</b>
+                                            </>
+                                        )}{" "}
+                                        from your selected courses in{" "}
+                                        <b>{req.educationId}</b>
+                                    </p>
+                                    <span className="notification-time">
                                         {req.createdAt?.seconds
                                             ? new Date(
-                                                  req.createdAt.seconds *
-                                                      1000,
-                                              ).toLocaleString()
+                                                req.createdAt.seconds *
+                                                1000,
+                                            ).toLocaleString()
                                             : ""}
                                     </span>
-                            
-                        </div>
-                    ))}
-                </div>
+                                    <br />
+
+                                    <button
+                                        onClick={() => {
+                                            console.log("requestData:", req);
+
+                                            respondToChangeRequest(
+                                                user.uid,
+                                                req.id,
+                                                true,
+                                                req,
+                                            );
+                                        }}
+                                    >
+                                        <p className="accept">Accept</p>
+                                    </button>
+                                    <button
+                                        onClick={() =>
+                                            respondToChangeRequest(
+                                                user.uid,
+                                                req.id,
+                                                false,
+                                                req,
+                                            )
+                                        }
+                                    >
+                                        <p className="reject">Reject</p>
+                                    </button>
+
+
+                                </div>
+                            ))}
+                    </div>
                 </div>
             )}
 
