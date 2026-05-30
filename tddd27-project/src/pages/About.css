@@ -58,6 +58,7 @@ about-section h2 {
 
 .team-grid {
     display: flex;
+    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
     margin-top: 16px;

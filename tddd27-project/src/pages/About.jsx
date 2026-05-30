@@ -52,6 +52,7 @@ function About() {
                         </div>
                         <div className="team-member">
                             <h3>Emma Davidsson</h3>
+                            <a href="mailto:davidsson470@gmail.com">davidsson470@gmail.com</a>
                         </div>
                     </div>
                 </section>

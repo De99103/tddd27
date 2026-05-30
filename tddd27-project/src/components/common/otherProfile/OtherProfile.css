@@ -99,6 +99,11 @@
     display: flex;
     flex-direction: row;
     margin: 1em;
+    gap: 2em;
+}
+
+.input_to_propose_course {
+    width: 100%;
 }
 
 .visited_profile {
@@ -126,8 +131,6 @@ h3 {
     font-weight: bold;
     padding: 10pt;
 }
-
-
 
 .Removal_proposed,
 .Removal_proposed_sent,
