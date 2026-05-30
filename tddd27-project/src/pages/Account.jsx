@@ -306,156 +306,165 @@ function Account() {
                 <Login />
             </div>
 
-            <OtherProfile />
 
 
+            <div className="notifi_search-section">
+                <div className="notifi_search-top">
 
-            {/* Notifications */}
-            {notifications.length > 0 && (
-                <div className="account-section">
-                    <h2>
-                        {" "}
-                        <img
-                            src={BellIcon}
-                            alt="Bell icon"
-                            className="bell-icon"
-                        />{" "}
-                        Notifications
-                    </h2>
-                    <div className="notifications-scroll">
-                        {[
-                            ...new Map(
-                                notifications.map((n) => [
-                                    n.message + n.createdAt?.seconds,
-                                    n,
-                                ]),
-                            ).values(),
-                        ]
-                            .sort(
-                                (a, b) =>
-                                    (b.createdAt?.seconds || 0) -
-                                    (a.createdAt?.seconds || 0),
-                            )
-                            .map((notif) => (
-                                <div
-                                    key={notif.id}
-                                    className="notification-row"
-                                >
-                                    <p>{notif.message}</p>
-                                    <span className="notification-time">
-                                        {notif.createdAt?.seconds
-                                            ? new Date(
-                                                notif.createdAt.seconds *
-                                                1000,
-                                            ).toLocaleString()
-                                            : ""}
-                                    </span>
-                                </div>
-                            ))}
-                    </div>
+                    {changeRequests.length > 0 && (
+                        <div className="account-section">
+                            <h2>
+                                <img
+                                    src={MailboxIcon}
+                                    alt="mailbox icon"
+                                    className="mailbox-icon"
+                                />{" "}
+                                Pending Course Changes
+                            </h2>
+                            <div className="notifications-scroll">
+                                {changeRequests
+                                    .sort(
+                                        (a, b) =>
+                                            (b.createdAt?.seconds || 0) -
+                                            (a.createdAt?.seconds || 0),
+                                    )
+
+                                    .map((req) => (
+                                        <div key={req.id} className="notification-row">
+                                            <p>
+                                                <b>{req.requestedByName}</b> wants to{" "}
+                                                {req.action === "add" ? (
+                                                    <>
+                                                        add <b>{req.courseName}</b>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        remove <b>{req.courseName}</b>
+                                                    </>
+                                                )}{" "}
+                                                from your selected courses in{" "}
+                                                <b>{req.educationId}</b>
+                                            </p>
+                                            <span className="notification-time">
+                                                {req.createdAt?.seconds
+                                                    ? new Date(
+                                                        req.createdAt.seconds *
+                                                        1000,
+                                                    ).toLocaleString()
+                                                    : ""}
+                                            </span>
+                                            <br />
+
+                                            <button
+                                                onClick={() => {
+                                                    console.log("requestData:", req);
+
+                                                    respondToChangeRequest(
+                                                        user.uid,
+                                                        req.id,
+                                                        true,
+                                                        req,
+                                                    );
+                                                }}
+                                            >
+                                                <p className="accept">Accept</p>
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    respondToChangeRequest(
+                                                        user.uid,
+                                                        req.id,
+                                                        false,
+                                                        req,
+                                                    )
+                                                }
+                                            >
+                                                <p className="reject">Reject</p>
+                                            </button>
+
+
+                                        </div>
+                                    ))}
+                            </div>
+                        </div>
+                    )}
+                    {/* Notifications */}
+                    {notifications.length > 0 && (
+                        <div className="account-section">
+                            <h2>
+                                {" "}
+                                <img
+                                    src={BellIcon}
+                                    alt="Bell icon"
+                                    className="bell-icon"
+                                />{" "}
+                                Notifications
+                            </h2>
+                            <div className="notifications-scroll">
+                                {[
+                                    ...new Map(
+                                        notifications.map((n) => [
+                                            n.message + n.createdAt?.seconds,
+                                            n,
+                                        ]),
+                                    ).values(),
+                                ]
+                                    .sort(
+                                        (a, b) =>
+                                            (b.createdAt?.seconds || 0) -
+                                            (a.createdAt?.seconds || 0),
+                                    )
+                                    .map((notif) => (
+                                        <div
+                                            key={notif.id}
+                                            className="notification-row"
+                                        >
+                                            <p>{notif.message}</p>
+                                            <span className="notification-time">
+                                                {notif.createdAt?.seconds
+                                                    ? new Date(
+                                                        notif.createdAt.seconds *
+                                                        1000,
+                                                    ).toLocaleString()
+                                                    : ""}
+                                            </span>
+                                        </div>
+                                    ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
-            )}
 
-            {changeRequests.length > 0 && (
-                <div className="account-section">
-                    <h2>
-                        <img
-                            src={MailboxIcon}
-                            alt="mailbox icon"
-                            className="mailbox-icon"
-                        />{" "}
-                        Pending Course Changes
-                    </h2>
-                    <div className="notifications-scroll">
-                        {changeRequests
-                            .sort(
-                                (a, b) =>
-                                    (b.createdAt?.seconds || 0) -
-                                    (a.createdAt?.seconds || 0),
-                            )
+                <div className="notifi_search-down">
 
-                            .map((req) => (
-                                <div key={req.id} className="notification-row">
-                                    <p>
-                                        <b>{req.requestedByName}</b> wants to{" "}
-                                        {req.action === "add" ? (
-                                            <>
-                                                add <b>{req.courseName}</b>
-                                            </>
-                                        ) : (
-                                            <>
-                                                remove <b>{req.courseName}</b>
-                                            </>
-                                        )}{" "}
-                                        from your selected courses in{" "}
-                                        <b>{req.educationId}</b>
-                                    </p>
-                                    <span className="notification-time">
-                                        {req.createdAt?.seconds
-                                            ? new Date(
-                                                req.createdAt.seconds *
-                                                1000,
-                                            ).toLocaleString()
-                                            : ""}
-                                    </span>
-                                    <br />
-
-                                    <button
-                                        onClick={() => {
-                                            console.log("requestData:", req);
-
-                                            respondToChangeRequest(
-                                                user.uid,
-                                                req.id,
-                                                true,
-                                                req,
-                                            );
-                                        }}
-                                    >
-                                        <p className="accept">Accept</p>
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            respondToChangeRequest(
-                                                user.uid,
-                                                req.id,
-                                                false,
-                                                req,
-                                            )
-                                        }
-                                    >
-                                        <p className="reject">Reject</p>
-                                    </button>
+                    <OtherProfile />
 
 
-                                </div>
-                            ))}
-                    </div>
-                </div>
-            )}
-
-            {/* Share with someone */}
-            {/* User types email → look up their uid in Firestore
+                    {/* Share with someone */}
+                    {/* User types email → look up their uid in Firestore
             → add uid to sharedWith array → they can now edit */}
-            <div className="account-section">
-                <h2>Share with someone</h2>
-                <div className="share-row">
-                    <input
-                        className="share-input"
-                        type="text"
-                        placeholder="Enter their email or username!"
-                        value={shareEmail}
-                        onChange={(e) => setShareEmail(e.target.value)}
-                    />
-                    <button
-                        className="share-btn"
-                        onClick={handleAddCollaborator}
-                    >
-                        Give Access
-                    </button>
+                    <div className="account-section">
+                        <h2>Share with someone</h2>
+                        <div className="share-row">
+                            <input
+                                className="share-input"
+                                type="text"
+                                placeholder="Enter their email or username!"
+                                value={shareEmail}
+                                onChange={(e) => setShareEmail(e.target.value)}
+                            />
+                            <button
+                                className="share-btn"
+                                onClick={handleAddCollaborator}
+                            >
+                                Give Access
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
-
             {/* Educations */}
             <div className="educations-section">
                 <h2>Your Educations</h2>

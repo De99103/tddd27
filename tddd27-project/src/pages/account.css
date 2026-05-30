@@ -19,11 +19,29 @@
 }
 
 .notifications-scroll {
-    max-height: 300px; /* shows last 4 notifications */
+    max-height: 300px;
+    /* shows last 4 notifications */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.notifi_search-section {
+    flex-direction: row;
+    margin-top: 0;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%; 
+    
+}
+
+.notifi_search-top,
+.notifi_search-down {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
 }
 
 /* share */
