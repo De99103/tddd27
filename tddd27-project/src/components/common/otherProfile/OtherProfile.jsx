@@ -14,7 +14,6 @@ import {
 import { auth } from "../../../fireBase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-
 function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
     const [courseId, setCourseId] = useState("");
     const [sent, setSent] = useState(false);
@@ -40,7 +39,12 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
         setTimeout(() => setSent(false), 3000);
     }
 
-    if (sent) return <p className="adding_proposal_sent">Adding proposal has been sent!</p>;
+    if (sent)
+        return (
+            <p className="adding_proposal_sent">
+                Adding proposal has been sent!
+            </p>
+        );
 
     return (
         <div>
@@ -68,14 +72,18 @@ function ProposeRemoveCourse({ course, educationId, onPropose }) {
         return (
             <div>
                 <p>{course.name || course.id}</p>
-                <p className = "Removal_proposed_sent">Removal proposed has been sent! </p>
+                <p className="Removal_proposed_sent">
+                    Removal proposed has been sent!{" "}
+                </p>
             </div>
         );
 
     return (
         <div>
             <p>{course.name || course.id}</p>
-            <button  className = "Removal_proposed" onClick={handlePropose}>− Propose removal</button>
+            <button className="Removal_proposed" onClick={handlePropose}>
+                − Propose removal
+            </button>
         </div>
     );
 }
@@ -287,54 +295,61 @@ function OtherProfile() {
                         {profile.educations?.map((education) => (
                             <div className="education_card" key={education.id}>
                                 <h4>{education.name || education.id}</h4>
+                                <div className="multiple_programs">
+                                    <div>
+                                        <h5>Mandatory courses</h5>
+                                        {education.mandatoryCourses?.map(
+                                            (course) => (
+                                                <p
+                                                    className="courses_in_profile_search"
+                                                    key={course.id}
+                                                >
+                                                    {course.name || course.id}
+                                                </p>
+                                            ),
+                                        )}
+                                    </div>
 
-                                <div>
-                                    <h5>Mandatory courses</h5>
-                                    {education.mandatoryCourses?.map(
-                                        (course) => (
-                                            <p className="courses_in_profile_search" key={course.id}>
-                                                {course.name || course.id}
-                                            </p>
-                                        ),
-                                    )}
-                                </div>
+                                    <div>
+                                        <h5>Selected courses</h5>
+                                        {education.selectedCourses?.map(
+                                            (course) => (
+                                                <div
+                                                    className="courses_in_profile_search"
+                                                    key={course.id}
+                                                >
+                                                    {hasAccess ? (
+                                                        <ProposeRemoveCourse
+                                                            course={course}
+                                                            educationId={
+                                                                education.id
+                                                            }
+                                                            onPropose={
+                                                                proposeCourseChange
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <p>
+                                                            {course.name ||
+                                                                course.id}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ),
+                                        )}
 
-                                <div>
-                                    <h5>Selected courses</h5>
-                                    {education.selectedCourses?.map(
-                                        (course) => (
-                                            <div className="courses_in_profile_search"key={course.id}>
-                                                {hasAccess ? (
-                                                    <ProposeRemoveCourse
-                                                        course={course}
-                                                        educationId={
-                                                            education.id
-                                                        }
-                                                        onPropose={
-                                                            proposeCourseChange
-                                                        }
-                                                    />
-                                                ) : (
-                                                    <p>
-                                                        {course.name ||
-                                                            course.id}
-                                                    </p>
-                                                )}
-                                            </div>
-                                        ),
-                                    )}
-
-                                    {/* Propose adding a new course */}
-                                    {hasAccess && (
-                                        <ProposeAddCourse
-                                            educationId={education.id}
-                                            ownerId={
-                                                userId ||
-                                                selectedDisplayName?.id
-                                            }
-                                            requestedBy={currentUser}
-                                        />
-                                    )}
+                                        {/* Propose adding a new course */}
+                                        {hasAccess && (
+                                            <ProposeAddCourse
+                                                educationId={education.id}
+                                                ownerId={
+                                                    userId ||
+                                                    selectedDisplayName?.id
+                                                }
+                                                requestedBy={currentUser}
+                                            />
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -345,7 +360,6 @@ function OtherProfile() {
             {profileMessage && (
                 <p className="profile_message">{profileMessage}</p>
             )}
-
         </div>
     );
 }
