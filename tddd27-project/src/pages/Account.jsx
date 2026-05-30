@@ -366,7 +366,15 @@ function Account() {
                         />{" "}
                         Pending Course Changes
                     </h2>
-                    {changeRequests.map((req) => (
+                    <div className="notifications-scroll">
+                    {changeRequests
+                    .sort(
+                                (a, b) =>
+                                    (b.createdAt?.seconds || 0) -
+                                    (a.createdAt?.seconds || 0),
+                            )
+                    
+                    .map((req) => (
                         <div key={req.id} className="notification-row">
                             <p>
                                 <b>{req.requestedByName}</b> wants to{" "}
@@ -408,8 +416,19 @@ function Account() {
                             >
                                 <p className="reject">Reject</p>
                             </button>
+                            <br/>
+                            <span  className="notification-time">
+                                        {req.createdAt?.seconds
+                                            ? new Date(
+                                                  req.createdAt.seconds *
+                                                      1000,
+                                              ).toLocaleString()
+                                            : ""}
+                                    </span>
+                            
                         </div>
                     ))}
+                </div>
                 </div>
             )}
 
