@@ -110,6 +110,7 @@ function Account() {
     const [user, setUser] = useState(null);
     const [educations, setEducations] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isPublic, setIsPublic] = useState(false);
     const [shareEmail, setShareEmail] = useState("");
     const [notifications, setNotifications] = useState([]);
     const [openEducationId, setOpenEducationId] = useState(null);
@@ -257,7 +258,7 @@ function Account() {
                 </p>
             </div>
         );
-
+    
     async function handleAddCollaborator() {
         try {
             if (!shareEmail) {
@@ -320,7 +321,7 @@ function Account() {
                                     )
 
                                     .map((req) => (
-
+                                        
                                         <div
                                             key={req.id}
                                             className="notification-row"
