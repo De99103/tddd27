@@ -27,7 +27,6 @@
     width: 80%;
     justify-self: center;
     gap: 1.5rem;
-
 }
 
 .notifi_search-top {
@@ -35,28 +34,30 @@
     gap: 8px;
     align-items: flex-start;
     justify-content: center;
-
+    width: 100%;
 }
 
 .notifi_search-down {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 1em;
 }
 
 .search-share-half {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
+    width: 51%;
     gap: 8px;
     overflow: hidden;
-    min-width: 0;
 }
 
-
+.share-half {
+    width: 48%;
+}
 
 .notifi_search-down .other_profile_page {
     margin-top: 0;
@@ -64,22 +65,20 @@
     display: flex;
     align-items: center;
     flex: 1;
-
 }
 
 .search-share-label {
     color: #7c809b;
     font-size: 1rem;
     white-space: nowrap;
-
 }
 
 .search-share-divider {
-    width: 2px;
-    height: 24px;
-    background: #7c809b55;
-    margin: 0 30px;
-    flex-shrink: 0;
+    width: 3px;
+    height: 44px;
+    background: #a1a1a155;
+    margin: 0 10px;
+    
 }
 
 .search-share-input {
@@ -89,9 +88,7 @@
     flex: 1;
     padding: 8px 12px;
     min-width: 0;
-
 }
-
 
 /* search_profile_container from pther profile page.*/
 .notifi_search-down .search_profile_container {
@@ -130,6 +127,7 @@
     display: flex;
     gap: 12px;
     align-items: center;
+    width: 100%;
 }
 
 .share-btn {
@@ -251,4 +249,31 @@
     border-radius: 0.5em;
     margin: 5px;
     cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .notifi_search-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .notifi_search-down {
+        flex-direction: column;
+    }
+
+    .search-share-divider {
+        display: none;
+    }
+
+    .search-share-half {
+        justify-content: center;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .share-half {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1em;
+    }
 }

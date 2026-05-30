@@ -436,7 +436,7 @@ function Account() {
 
                 <div className="notifi_search-down">
                     <div className="search-share-half">
-                        <span className="search-share-label">Search for a profile...</span>
+                        <p className="search-share-label">Search for a profile:</p>
                         <OtherProfile />
                     </div>
                     <div className="search-share-divider" />
