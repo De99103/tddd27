@@ -2,11 +2,9 @@ import { useState } from "react";
 import {
     Login,
     Course,
-    DeleteAccountButton,
     Popup,
 } from "../components/common";
 import CoursesTable from "../components/common/courses_tabell/CoursesTable";
-import { deleteAccount } from "../fireBase/deleteUser";
 import { saveCourse } from "../fireBase/userData";
 
 
@@ -62,8 +60,7 @@ function Home() {
 
         const spec = course.specialisation;
 
-        // to showing the mandatory courses too  / not working any more due to changade the structure for the files!! 
-        if (spec == null) return course.ecv === "C";
+        if (spec == null) return course.ecv === true;
 
         if (Array.isArray(spec)) {
             return spec
@@ -76,11 +73,12 @@ function Home() {
 
     const visibleCourses = courses.filter((course) => {
         if (!course) return false;
+        if (selectedCourse) return course.course_code === selectedCourse.course_code; // to filter by the selected course if there is one
         return courseMatchesSpecialisation(course, selectedSpecialisation);
     });
 
     const selectedProfileCourses = visibleCourses.filter((course) => {
-        return course.ecv === "C" || course.ecv === "E";
+        return course.ecv === true || course.ecv === true;
     });
 
 
@@ -140,6 +138,7 @@ function Home() {
                 educationId={selectedProgram?.id}        //  for Firebase
                 educationName={selectedProgram?.name}    //  for display                
                 setSelectedCourse={setSelectedCourse}
+                selectedCourse={selectedCourse} 
             />
 
         </div>

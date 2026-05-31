@@ -11,16 +11,16 @@ import infoIcon from "/src/assets/images/info.png";
 function Course({
     programOptions = [],
     selectedProgram = null,
-    onProgramChange = () => {},
+    onProgramChange = () => { },
 
     courses = [],
     selectedCourse = null,
-    setSelectedCourse = () => {},
+    setSelectedCourse = () => { },
 
     selectedSpecialisation = null,
-    setSelectedSpecialisation = () => {},
+    setSelectedSpecialisation = () => { },
 
-    onSaveAll = () => {},
+    onSaveAll = () => { },
 }) {
     const specialisations = selectedProgram?.specialisations || [];
 
@@ -214,12 +214,9 @@ function Course({
                                     />
 
                                     <div className="info-tooltip">
-                                        This filters the course table — save
-                                        courses individually below. Saves all
-                                        courses for the selected specialization
-                                        at once.
-                                        <b>OR</b> You can still add or remove
-                                        individual courses afterwards.
+                                        Selecting a specialization filters the course table to show only relevant courses.
+                                        Use <b>Save all courses</b> to save them all at once, or add courses individually.
+                                        You can also add or remove courses on the Account page.
                                     </div>
                                 </div>
                                 <div className="save-all-row">

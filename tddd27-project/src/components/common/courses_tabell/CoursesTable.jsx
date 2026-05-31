@@ -6,8 +6,8 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { saveCourse } from "../../../fireBase/userData";
 
 const CoursesTable = ({ courses = [], educationId = null, educationName = null }) => {    //dubag: 
-    console.log("CoursesTable courses count:", courses.length);  // ADD THIS
-    console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); // ADD THIS
+    console.log("CoursesTable courses count:", courses.length);  
+    console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); 
     console.log("CoursesTable ALL courses:", courses.map(c => `${c.course_code} | ${c.specialisation} | ${c.ecv}`));
 
 
