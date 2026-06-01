@@ -5,9 +5,10 @@ import { db } from "../../../fireBase/firebase";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { saveCourse } from "../../../fireBase/userData";
 
-const CoursesTable = ({ courses = [], educationId = null, educationName = null }) => {    //dubag: 
-    console.log("CoursesTable courses count:", courses.length);  
-    console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]); 
+const CoursesTable = ({ courses = [], educationId = null, educationName = null }) => {
+    //dubag: 
+    console.log("CoursesTable courses count:", courses.length);
+    console.log("CoursesTable specialisations:", [...new Set(courses.map(c => c.specialisation))]);
     console.log("CoursesTable ALL courses:", courses.map(c => `${c.course_code} | ${c.specialisation} | ${c.ecv}`));
 
 
@@ -32,8 +33,24 @@ const CoursesTable = ({ courses = [], educationId = null, educationName = null }
     const addcourse = async (e, course) => {
         e.stopPropagation();
 
+        // Prevent mandatory courses from being added to selected courses
+        if (course.mandatory) {
+            alert("This is a mandatory course, it's already part of your program!");
+            return;
+        }
+
         try {
-            await saveCourse(
+            // Check if course is already saved in selectedCourses
+            const { getDoc, doc } = await import("firebase/firestore");
+            const { auth } = await import("../../../fireBase/firebase");
+
+            const ref = doc(db, "users", auth.currentUser.uid, "educations", educationId, "selectedCourses", course.course_code);
+            const existing = await getDoc(ref);
+
+            if (existing.exists()) {
+                alert(`${course.course_code} is already in your selected courses!`);
+                return;
+            } await saveCourse(
                 educationId,
                 "selected",
                 course.course_code,

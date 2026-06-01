@@ -14,6 +14,8 @@ import {
 import { auth } from "../../../fireBase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
+// Lets a collaborator propose adding a new course (by course code) to the profile owner's selected courses.
+// Sends a change request + notification to the owner. Resets after 3 seconds so another can be proposed.
 function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
     const [courseId, setCourseId] = useState("");
     const [sent, setSent] = useState(false);
@@ -33,9 +35,7 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
             `${requestedBy.displayName} wants to add "${courseId.toUpperCase()}" to your selected courses`,
         );
         setSent(true);
-        setCourseId(""); // clear input
-
-        // reset after 3 seconds so they can propose another
+        setCourseId("");
         setTimeout(() => setSent(false), 3000);
     }
 
@@ -62,6 +62,8 @@ function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
     );
 }
 
+// Lets a collaborator propose removing an existing course from the profile owner's selected courses.
+// Sends a change request + notification to the owner.
 function ProposeRemoveCourse({ course, educationId, onPropose }) {
     const [sent, setSent] = useState(false);
 
@@ -75,7 +77,7 @@ function ProposeRemoveCourse({ course, educationId, onPropose }) {
             <div>
                 <p>{course.name || course.id}</p>
                 <p className="Removal_proposed_sent">
-                    Removal proposed has been sent!{" "}
+                    Removal proposed has been sent!
                 </p>
             </div>
         );
@@ -94,8 +96,7 @@ function OtherProfile() {
     const [displayNameOptions, setDisplayNameOptions] = useState([]);
     const [displayName, setDisplayName] = useState("");
     const [selectedDisplayName, setSelectedDisplayName] = useState(null);
-
-    const [profile, setProfile] = useState(null); // State to hold the profile data
+    const [profile, setProfile] = useState(null);
 
     const navigate = useNavigate();
     const { userId } = useParams();
@@ -103,11 +104,14 @@ function OtherProfile() {
     const [profileMessage, setProfileMessage] = useState("");
     const [currentUser, setCurrentUser] = useState(null);
     const [hasAccess, setHasAccess] = useState(false);
+
+    // Track the currently logged-in user.
     useEffect(() => {
         return onAuthStateChanged(auth, (u) => setCurrentUser(u));
     }, []);
 
-    // check if visitor is in sharedWith
+    // Check if the current user is in the profile's sharedWith list.
+    // Controls whether propose add/remove buttons are shown.
     useEffect(() => {
         if (!profile || !currentUser) {
             setHasAccess(false);
@@ -117,21 +121,22 @@ function OtherProfile() {
         setHasAccess(sharedWith.includes(currentUser.uid));
     }, [profile, currentUser]);
 
+    // Load the display name for the selected user (used for showing their name).
     useEffect(() => {
         async function loadName() {
             try {
                 if (!selectedDisplayName?.id) return;
-
                 const name = await getName(selectedDisplayName.id);
                 setDisplayName(name || "");
             } catch (error) {
                 console.error("Error loading name:", error);
             }
         }
-
         loadName();
     }, [selectedDisplayName]);
 
+    // Listen in real-time to the selected user's Firestore doc.
+    // Only loads their profile if it's public or the current user has access.
     useEffect(() => {
         if (!selectedDisplayName?.id) {
             setProfile(null);
@@ -149,14 +154,11 @@ function OtherProfile() {
                 const data = userDoc.data();
                 const sharedWith = data?.sharedWith || [];
 
-                // show profile if public OR if current user is a collaborator
                 if (
                     data.isPublic ||
                     (currentUser && sharedWith.includes(currentUser.uid))
                 ) {
-                    const educations = await getPublicEducations(
-                        selectedDisplayName.id,
-                    );
+                    const educations = await getPublicEducations(selectedDisplayName.id);
                     setProfile({ ...data, educations });
                 } else {
                     setProfile(null);
@@ -164,9 +166,10 @@ function OtherProfile() {
             },
         );
 
-        return () => unsubscribe(); // cleanup on unmount
+        return () => unsubscribe();
     }, [selectedDisplayName, currentUser]);
 
+    // Load all users for the search autocomplete dropdown.
     useEffect(() => {
         async function loadUsers() {
             try {
@@ -176,11 +179,11 @@ function OtherProfile() {
                 console.error("Error loading users:", error);
             }
         }
-
         loadUsers();
     }, []);
 
-    //load profile from URL
+    // Load profile directly from URL if a userId param is present (e.g. /profile/:userId).
+    // Same access logic as the search — public or sharedWith only.
     useEffect(() => {
         if (!userId) return;
 
@@ -210,16 +213,8 @@ function OtherProfile() {
         return () => unsubscribe();
     }, [userId, currentUser]);
 
-    // check if visitor is in sharedWith
-    useEffect(() => {
-        if (!profile || !currentUser) {
-            setHasAccess(false);
-            return;
-        }
-        const sharedWith = profile.sharedWith || [];
-        setHasAccess(sharedWith.includes(currentUser.uid));
-    }, [profile, currentUser]);
-
+    // Sends a course change request (add or remove) to the profile owner.
+    // Used by both ProposeAddCourse and ProposeRemoveCourse.
     async function proposeCourseChange(educationId, action, course) {
         const ownerId = userId || selectedDisplayName?.id;
         await requestCourseChange(ownerId, {
@@ -241,6 +236,8 @@ function OtherProfile() {
             <div className="search_profile_container">
                 <p>Search for </p>
 
+                {/* Search autocomplete — on selection, checks access and navigates to /profile/:id
+                    or shows a private profile message if the user doesn't have access. */}
                 <Autocomplete
                     options={displayNameOptions}
                     label=""
@@ -261,15 +258,9 @@ function OtherProfile() {
                             const data = userDoc.data();
                             const sharedWith = data?.sharedWith || [];
 
-                            console.log("currentUser:", currentUser);
-                            console.log("sharedWith:", sharedWith);
-                            console.log("isPublic:", data?.isPublic);
-
-                            // allow if public OR if current user is in sharedWith
                             if (
                                 data?.isPublic ||
-                                (currentUser &&
-                                    sharedWith.includes(currentUser.uid))
+                                (currentUser && sharedWith.includes(currentUser.uid))
                             ) {
                                 navigate(`/profile/${displayName.id}`);
                             } else {
@@ -286,6 +277,8 @@ function OtherProfile() {
 
                 <p>'s profile</p>
             </div>
+
+            {/* Profile content — only shown if the profile is accessible */}
             {profile && (
                 <div className="other_profile_overlay">
                     <div className="visited_profile">
@@ -298,56 +291,45 @@ function OtherProfile() {
                             <div className="education_card" key={education.id}>
                                 <h4>{education.name || education.id}</h4>
                                 <div className="multiple_programs">
+
+                                    {/* Mandatory courses — read only, no propose buttons */}
                                     <div>
                                         <h5>Mandatory courses</h5>
-                                        {education.mandatoryCourses?.map(
-                                            (course) => (
-                                                <p
-                                                    className="courses_in_profile_search"
-                                                    key={course.id}
-                                                >
-                                                    {course.name || course.id}
-                                                </p>
-                                            ),
-                                        )}
+                                        {education.mandatoryCourses?.map((course) => (
+                                            <p
+                                                className="courses_in_profile_search"
+                                                key={course.id}
+                                            >
+                                                {course.name || course.id}
+                                            </p>
+                                        ))}
                                     </div>
 
+                                    {/* Selected courses — collaborators see propose remove buttons */}
                                     <div>
                                         <h5>Selected courses</h5>
-                                        {education.selectedCourses?.map(
-                                            (course) => (
-                                                <div
-                                                    className="courses_in_profile_search"
-                                                    key={course.id}
-                                                >
-                                                    {hasAccess ? (
-                                                        <ProposeRemoveCourse
-                                                            course={course}
-                                                            educationId={
-                                                                education.id
-                                                            }
-                                                            onPropose={
-                                                                proposeCourseChange
-                                                            }
-                                                        />
-                                                    ) : (
-                                                        <p>
-                                                            {course.name ||
-                                                                course.id}
-                                                        </p>
-                                                    )}
-                                                </div>
-                                            ),
-                                        )}
+                                        {education.selectedCourses?.map((course) => (
+                                            <div
+                                                className="courses_in_profile_search"
+                                                key={course.id}
+                                            >
+                                                {hasAccess ? (
+                                                    <ProposeRemoveCourse
+                                                        course={course}
+                                                        educationId={education.id}
+                                                        onPropose={proposeCourseChange}
+                                                    />
+                                                ) : (
+                                                    <p>{course.name || course.id}</p>
+                                                )}
+                                            </div>
+                                        ))}
 
-                                        {/* Propose adding a new course */}
+                                        {/* Only collaborators can propose adding a new course */}
                                         {hasAccess && (
                                             <ProposeAddCourse
                                                 educationId={education.id}
-                                                ownerId={
-                                                    userId ||
-                                                    selectedDisplayName?.id
-                                                }
+                                                ownerId={userId || selectedDisplayName?.id}
                                                 requestedBy={currentUser}
                                             />
                                         )}
@@ -359,6 +341,7 @@ function OtherProfile() {
                 </div>
             )}
 
+            {/* Shown when a private profile is selected */}
             {profileMessage && (
                 <p className="profile_message">{profileMessage}</p>
             )}
