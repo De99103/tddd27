@@ -5438,28 +5438,7 @@
       "elective": true,
       "mandatory": false
     },
-    {
-      "year": 5,
-      "semester": 9,
-      "semester_season": "Autumn 2030",
-      "period": "2",
-      "block": "3",
-      "course_code": "TDDD89",
-      "course_name": "Scientific Method",
-      "course_name_sv": "Vetenskaplig metod",
-      "credits_hp": 6,
-      "level": "A1F",
-      "specialisation": [
-        "All"
-      ],
-      "examiner_name": null,
-      "examination": [],
-      "department": "IDA",
-      "course_type": "O",
-      "voluntary": false,
-      "elective": false,
-      "mandatory": true
-    },
+    
     {
       "year": 5,
       "semester": 9,
