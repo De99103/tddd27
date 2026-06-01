@@ -26,7 +26,7 @@
     justify-content: space-between;
     width: 80%;
     /* justify-self: center; */
-    margin: 0 auto; 
+    margin: 0 auto;
     gap: 1.5rem;
 }
 
@@ -79,7 +79,7 @@
     height: 44px;
     background: #a1a1a155;
     margin: 0 10px;
-    
+
 }
 
 .search-share-input {
@@ -175,8 +175,10 @@
 }
 
 .courses-section h4 {
+    font-size: 1.4em;
     color: #7c809b;
-    margin: 16px 0 8px 0;
+    margin: 25px 0 8px 0;
+    align-self: center;
 }
 
 /* course rows */
@@ -226,6 +228,7 @@
 .grade-input {
     font-size: 16px;
     text-align: center;
+    width: 5ch; /* 5 characters wide so its beacaming not too long ! */
 }
 
 .bell-icon,
