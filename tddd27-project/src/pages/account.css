@@ -228,7 +228,8 @@
 .grade-input {
     font-size: 16px;
     text-align: center;
-    width: 5ch; /* 5 characters wide so its beacaming not too long ! */
+    width: 5ch;
+    /* 5 characters wide so its beacaming not too long ! */
 }
 
 .bell-icon,
@@ -253,6 +254,18 @@
     border-radius: 0.5em;
     margin: 5px;
     cursor: pointer;
+}
+
+.course-grade-value {
+    font-size: 1rem;
+    color: #5f637c;
+    justify-self: center; 
+}
+
+.grade-placeholder {
+    font-size: 0.75rem;
+    color: #bbb;
+    font-style: italic;
 }
 
 @media (max-width: 767px) {

@@ -76,7 +76,6 @@ const CourseRow = ({ course }) => {
                             type="text"
                             value={grade}
                             onChange={(e) => setGrade(e.target.value)}
-                            autoFocus
                         />
                         <button className="grade-btn" onClick={handleSaveGrade}>
                             Save
@@ -84,7 +83,9 @@ const CourseRow = ({ course }) => {
                     </>
                 ) : (
                     <>
-                        <span>{grade || "—"}</span>
+                        <span className="course-grade-value">
+                            {grade || <span className="grade-placeholder">Add a grade</span>}
+                        </span>
                         <button
                             className="grade-btn"
                             onClick={() => setIsEditing(true)}

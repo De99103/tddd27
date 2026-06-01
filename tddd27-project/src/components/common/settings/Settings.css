@@ -57,7 +57,7 @@
     filter: drop-shadow(#5c5c5c 10px 5px 2px);
 }
 
-.account-section {
+.account-section_settings {
     display: flex;
    align-self: center !important;
     flex-direction: column;

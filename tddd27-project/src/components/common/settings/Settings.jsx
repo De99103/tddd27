@@ -53,7 +53,7 @@ function Settings() {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="settings_popup">
-                            <div className="account-section">
+                            <div className="account-section_settings">
                                 <h2 className="title_in_settings">
                                     Profile Visibility
                                 </h2>
