@@ -16,23 +16,42 @@ import { onAuthStateChanged } from "firebase/auth";
 
 // Lets a collaborator propose adding a new course (by course code) to the profile owner's selected courses.
 // Sends a change request + notification to the owner. Resets after 3 seconds so another can be proposed.
-function ProposeAddCourse({ educationId, ownerId, requestedBy }) {
+function ProposeAddCourse({ educationId, ownerId, requestedBy, mandatoryCourses = [], selectedCourses = [] }) {
     const [courseId, setCourseId] = useState("");
     const [sent, setSent] = useState(false);
 
     async function handlePropose() {
+
         if (!courseId.trim()) return;
+        const code = courseId.trim().toUpperCase(); 
+
+        const validFormat = /^[A-Z]{2,6}\d{2,5}$/.test(code);
+        if (!validFormat) {
+            alert(`"${code}" doesn't look like a valid course code. Example: TNM084 or tddd27`);
+            return;
+        }
+        // make it not possible to propose adding a course that is already mandatory in the profile,
+        if (mandatoryCourses.includes(code)) {
+            alert("This course is already a mandatory course in the profile, cannot be added as a selected course.");
+            return;
+        }
+
+        // Prevent proposing a course that's already in selected courses
+        if (selectedCourses.includes(code)) {
+            alert(`${code} is already in their selected courses!`);
+            return;
+        }
         await requestCourseChange(ownerId, {
             requestedBy: requestedBy.uid,
             requestedByName: requestedBy.displayName,
             educationId,
             action: "add",
-            courseId: courseId.trim().toUpperCase(),
-            courseName: courseId.trim().toUpperCase(),
+            courseId: code,
+            courseName: code,
         });
         await sendNotification(
             ownerId,
-            `${requestedBy.displayName} wants to add "${courseId.toUpperCase()}" to your selected courses`,
+            `${requestedBy.displayName} wants to add "${code}" to your selected courses`,
         );
         setSent(true);
         setCourseId("");
@@ -331,6 +350,10 @@ function OtherProfile() {
                                                 educationId={education.id}
                                                 ownerId={userId || selectedDisplayName?.id}
                                                 requestedBy={currentUser}
+                                                mandatoryCourses={education.mandatoryCourses?.map(c => c.id) || []}
+                                                selectedCourses={education.selectedCourses?.map(c => c.id || c.course_code) || []}
+
+
                                             />
                                         )}
                                     </div>

@@ -15,8 +15,8 @@ import { auth, db } from "./firebase";
 import { deleteUser } from "firebase/auth";
 
 import mtData from "../assets/data/MT_courses.json";
-import dtData from "../assets/data/DT.json";
-import itData from "../assets/data/IT_courses_fixed.json";
+import dtData from "../assets/data/DT_courses.json";
+import itData from "../assets/data/IT_courses.json";
 
 // helper to find course info across all programs
 function findCourseInfo(courseCode) {

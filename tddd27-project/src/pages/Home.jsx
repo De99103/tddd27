@@ -9,9 +9,9 @@ import { saveCourse } from "../fireBase/userData";
 
 
 //json files for the different programs
-import mtData_new from "../assets/data/MT_courses.json"; // the new link for the MT program
-import dtData from "../assets/data/DT.json";
-import itData from "../assets/data/IT_courses_fixed.json";
+import mtData from "../assets/data/MT_courses.json"; // the new link for the MT program
+import dtData from "../assets/data/DT_courses.json";
+import itData from "../assets/data/IT_courses.json";
 
 function Home() {
     const [courses, setCourses] = useState([]);
@@ -25,8 +25,8 @@ function Home() {
         {
             id: "MT",
             name: "Civilingenjörsprogram i medieteknik (MT)", // our program ..
-            courses: mtData_new.courses || [],
-            specialisations: mtData_new.program?.specialisations || [],
+            courses: mtData.courses || [],
+            specialisations: mtData.program?.specialisations || [],
 
         },
         {
