@@ -18,6 +18,7 @@ import {
     deleteCourse,
 } from "../fireBase/userData";
 import Settings from "../components/common/settings/Settings";
+import { useNavigate } from "react-router-dom";
 
 import BellIcon from "/src/assets/images/bell icon.png";
 import MailboxIcon from "/src/assets/images/mailbox icon.png";
@@ -122,138 +123,99 @@ function Account() {
     const [notifications, setNotifications] = useState([]);
     const [openEducationId, setOpenEducationId] = useState(null);
     const [changeRequests, setChangeRequests] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (loggedInUser) => {
-            if (loggedInUser) {
-                setUser(loggedInUser);
+    const unsubscribers = [];
 
-                // fetch isPublic
-                const userDoc = await getDoc(
-                    doc(db, "users", loggedInUser.uid),
-                );
-                if (userDoc.exists()) {
-                    setIsPublic(userDoc.data().isPublic || false);
-                }
+    const unsubscribeAuth = onAuthStateChanged(auth, async (loggedInUser) => {
+        // Cancel all previous listeners on auth change
+        unsubscribers.forEach(fn => fn());
+        unsubscribers.length = 0;
 
-                // real-time notifications
-                onSnapshot(
-                    collection(db, "users", loggedInUser.uid, "notifications"),
-                    (snapshot) => {
-                        setNotifications(
-                            snapshot.docs.map((d) => ({
-                                id: d.id,
-                                ...d.data(),
-                            })),
-                        );
-                    },
-                );
-                onSnapshot(
-                    collection(db, "users", loggedInUser.uid, "changeRequests"),
-                    (snapshot) => {
-                        setChangeRequests(
-                            snapshot.docs.map((d) => ({
-                                id: d.id,
-                                ...d.data(),
-                            })),
-                        );
-                    },
-                );
-                // real-time educations
-                onSnapshot(
-                    collection(db, "users", loggedInUser.uid, "educations"),
-                    (educationSnapshot) => {
-                        educationSnapshot.docs.forEach((eduDoc) => {
-                            const eduId = eduDoc.id;
+        if (!loggedInUser) {
+            setUser(null);
+            setEducations([]);
+            setNotifications([]);
+            setChangeRequests([]);
+            setLoading(false);
+            return;
+        }
 
-                            // real-time mandatory courses
-                            onSnapshot(
-                                collection(
-                                    db,
-                                    "users",
-                                    loggedInUser.uid,
-                                    "educations",
-                                    eduId,
-                                    "mandatoryCourses",
-                                ),
-                                (mandatorySnapshot) => {
-                                    onSnapshot(
-                                        collection(
-                                            db,
-                                            "users",
-                                            loggedInUser.uid,
-                                            "educations",
-                                            eduId,
-                                            "selectedCourses",
-                                        ),
-                                        (selectedSnapshot) => {
-                                            const mapCourse = (
-                                                d,
-                                                isMandatory,
-                                            ) => ({
-                                                course_code: d.id,
-                                                educationId: eduId,
-                                                course_name:
-                                                    d.data().courseName || "",
-                                                year: d.data().year || "",
-                                                semester:
-                                                    d.data().semester || "",
-                                                credits_hp:
-                                                    d.data().credits_hp || "",
-                                                period: d.data().period || "",
-                                                grade: d.data().grade || "",
-                                                mandatory: isMandatory,
-                                                elective: !isMandatory,
-                                            });
+        setUser(loggedInUser);
 
-                                            setEducations((prev) => {
-                                                const updated = [...prev];
-                                                const index = updated.findIndex(
-                                                    (e) => e.id === eduId,
-                                                );
-                                                const newEdu = {
-                                                    id: eduId,
-                                                    ...eduDoc.data(),
-                                                    mandatoryCourses:
-                                                        mandatorySnapshot.docs.map(
-                                                            (d) =>
-                                                                mapCourse(
-                                                                    d,
-                                                                    true,
-                                                                ),
-                                                        ),
-                                                    selectedCourses:
-                                                        selectedSnapshot.docs.map(
-                                                            (d) =>
-                                                                mapCourse(
-                                                                    d,
-                                                                    false,
-                                                                ),
-                                                        ),
-                                                };
-                                                if (index >= 0) {
-                                                    updated[index] = newEdu;
-                                                } else {
-                                                    updated.push(newEdu);
-                                                }
-                                                return updated;
-                                            });
+        const userDoc = await getDoc(doc(db, "users", loggedInUser.uid));
+        if (userDoc.exists()) {
+            setIsPublic(userDoc.data().isPublic || false);
+        }
 
-                                            setLoading(false);
-                                        },
-                                    );
-                                },
+        unsubscribers.push(
+            onSnapshot(collection(db, "users", loggedInUser.uid, "notifications"), (snapshot) => {
+                setNotifications(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+            })
+        );
+
+        unsubscribers.push(
+            onSnapshot(collection(db, "users", loggedInUser.uid, "changeRequests"), (snapshot) => {
+                setChangeRequests(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+            })
+        );
+
+        unsubscribers.push(
+            onSnapshot(collection(db, "users", loggedInUser.uid, "educations"), (educationSnapshot) => {
+                educationSnapshot.docs.forEach((eduDoc) => {
+                    const eduId = eduDoc.id;
+
+                    const unsubMandatory = onSnapshot(
+                        collection(db, "users", loggedInUser.uid, "educations", eduId, "mandatoryCourses"),
+                        (mandatorySnapshot) => {
+                            const unsubSelected = onSnapshot(
+                                collection(db, "users", loggedInUser.uid, "educations", eduId, "selectedCourses"),
+                                (selectedSnapshot) => {
+                                    const mapCourse = (d, isMandatory) => ({
+                                        course_code: d.id,
+                                        educationId: eduId,
+                                        course_name: d.data().courseName || "",
+                                        year: d.data().year || "",
+                                        semester: d.data().semester || "",
+                                        credits_hp: d.data().credits_hp || "",
+                                        period: d.data().period || "",
+                                        grade: d.data().grade || "",
+                                        mandatory: isMandatory,
+                                        elective: !isMandatory,
+                                    });
+
+                                    setEducations((prev) => {
+                                        const updated = [...prev];
+                                        const index = updated.findIndex((e) => e.id === eduId);
+                                        const newEdu = {
+                                            id: eduId,
+                                            ...eduDoc.data(),
+                                            mandatoryCourses: mandatorySnapshot.docs.map((d) => mapCourse(d, true)),
+                                            selectedCourses: selectedSnapshot.docs.map((d) => mapCourse(d, false)),
+                                        };
+                                        if (index >= 0) updated[index] = newEdu;
+                                        else updated.push(newEdu);
+                                        return updated;
+                                    });
+
+                                    setLoading(false);
+                                }
                             );
-                        });
-                    },
-                );
-            } else {
-                setLoading(false);
-            }
-        });
+                            unsubscribers.push(unsubSelected);
+                        }
+                    );
+                    unsubscribers.push(unsubMandatory);
+                });
+            })
+        );
+    });
 
-        return unsubscribe;
-    }, []);
+    return () => {
+        unsubscribeAuth();
+        unsubscribers.forEach(fn => fn());
+    };
+}, []);
 
     if (loading) return <p>Loading...</p>;
     if (!user)
