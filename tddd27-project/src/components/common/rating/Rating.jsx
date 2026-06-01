@@ -5,7 +5,6 @@ import { auth } from "../../../fireBase/firebase";
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 
-
 function Rating({ courseId = null }) {
     const [rating, setRating] = useState("");
 
@@ -24,10 +23,10 @@ function Rating({ courseId = null }) {
         }
 
         try {
-            // debugg : 
+            // debugg :
             console.log("auth.currentUser:", auth.currentUser);
             console.log("writing to path:", `courseStats/${courseId}/ratings`);
-            // Det nya sättet att skriva i Firebase 
+            // Det nya sättet att skriva i Firebase
             await addDoc(collection(db, "courseStats", courseId, "ratings"), {
                 rating: value,
                 createdAt: new Date(),
@@ -36,12 +35,16 @@ function Rating({ courseId = null }) {
         } catch (error) {
             console.error("Error saving to Firebase:", error);
         }
-
     }
 
     return (
         <div className="rating_container">
-            <ToggleGroup.Root className="ToggleGroup" type="single" value={rating} onValueChange={onvaluechange}>
+            <ToggleGroup.Root
+                className="ToggleGroup"
+                type="single"
+                value={rating}
+                onValueChange={onvaluechange}
+            >
                 <ToggleGroup.Item className="ToggleGroupItem" value="1">
                     1
                 </ToggleGroup.Item>

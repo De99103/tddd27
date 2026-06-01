@@ -9,12 +9,6 @@ function Hamburger({ isOpen }) {
                 <div className="burger burger3"></div>
             </div>
 
-            {/* Vill få detta att funkar med separat CSS-fil
-Fattar inte hur man importerar variabeln "isOpen" till CSS-filen */}
-
-            {/* transform: ${isOpen ? "rotate(-45deg)" : "rotate(0)"}; */}
-            {/* opacity: ${isOpen ? 0 : 1}; */}
-
             <style>{`
 
                 .burger1 {

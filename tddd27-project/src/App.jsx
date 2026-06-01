@@ -9,7 +9,6 @@ import Account from "./pages/Account";
 import Home from "./pages/Home";
 import OtherProfile from "./components/common/otherProfile/OtherProfile";
 
-
 function App() {
     return (
         <BrowserRouter>
@@ -21,12 +20,7 @@ function App() {
                     <Route path="/account" element={<Account />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/profile/:userId" element={<OtherProfile />} />
-
-                    
                 </Routes>
-
-
-            
             </div>
         </BrowserRouter>
     );

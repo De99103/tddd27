@@ -16,23 +16,32 @@ import { onAuthStateChanged } from "firebase/auth";
 
 // Lets a collaborator propose adding a new course (by course code) to the profile owner's selected courses.
 // Sends a change request + notification to the owner. Resets after 3 seconds so another can be proposed.
-function ProposeAddCourse({ educationId, ownerId, requestedBy, mandatoryCourses = [], selectedCourses = [] }) {
+function ProposeAddCourse({
+    educationId,
+    ownerId,
+    requestedBy,
+    mandatoryCourses = [],
+    selectedCourses = [],
+}) {
     const [courseId, setCourseId] = useState("");
     const [sent, setSent] = useState(false);
 
     async function handlePropose() {
-
         if (!courseId.trim()) return;
-        const code = courseId.trim().toUpperCase(); 
+        const code = courseId.trim().toUpperCase();
 
         const validFormat = /^[A-Z]{2,6}\d{2,5}$/.test(code);
         if (!validFormat) {
-            alert(`"${code}" doesn't look like a valid course code. Example: TNM084 or tddd27`);
+            alert(
+                `"${code}" doesn't look like a valid course code. Example: TNM084 or tddd27`,
+            );
             return;
         }
         // make it not possible to propose adding a course that is already mandatory in the profile,
         if (mandatoryCourses.includes(code)) {
-            alert("This course is already a mandatory course in the profile, cannot be added as a selected course.");
+            alert(
+                "This course is already a mandatory course in the profile, cannot be added as a selected course.",
+            );
             return;
         }
 
@@ -177,7 +186,9 @@ function OtherProfile() {
                     data.isPublic ||
                     (currentUser && sharedWith.includes(currentUser.uid))
                 ) {
-                    const educations = await getPublicEducations(selectedDisplayName.id);
+                    const educations = await getPublicEducations(
+                        selectedDisplayName.id,
+                    );
                     setProfile({ ...data, educations });
                 } else {
                     setProfile(null);
@@ -279,7 +290,8 @@ function OtherProfile() {
 
                             if (
                                 data?.isPublic ||
-                                (currentUser && sharedWith.includes(currentUser.uid))
+                                (currentUser &&
+                                    sharedWith.includes(currentUser.uid))
                             ) {
                                 navigate(`/profile/${displayName.id}`);
                             } else {
@@ -310,50 +322,71 @@ function OtherProfile() {
                             <div className="education_card" key={education.id}>
                                 <h4>{education.name || education.id}</h4>
                                 <div className="multiple_programs">
-
                                     {/* Mandatory courses — read only, no propose buttons */}
                                     <div>
                                         <h5>Mandatory courses</h5>
-                                        {education.mandatoryCourses?.map((course) => (
-                                            <p
-                                                className="courses_in_profile_search"
-                                                key={course.id}
-                                            >
-                                                {course.name || course.id}
-                                            </p>
-                                        ))}
+                                        {education.mandatoryCourses?.map(
+                                            (course) => (
+                                                <p
+                                                    className="courses_in_profile_search"
+                                                    key={course.id}
+                                                >
+                                                    {course.name || course.id}
+                                                </p>
+                                            ),
+                                        )}
                                     </div>
 
                                     {/* Selected courses — collaborators see propose remove buttons */}
                                     <div>
                                         <h5>Selected courses</h5>
-                                        {education.selectedCourses?.map((course) => (
-                                            <div
-                                                className="courses_in_profile_search"
-                                                key={course.id}
-                                            >
-                                                {hasAccess ? (
-                                                    <ProposeRemoveCourse
-                                                        course={course}
-                                                        educationId={education.id}
-                                                        onPropose={proposeCourseChange}
-                                                    />
-                                                ) : (
-                                                    <p>{course.name || course.id}</p>
-                                                )}
-                                            </div>
-                                        ))}
+                                        {education.selectedCourses?.map(
+                                            (course) => (
+                                                <div
+                                                    className="courses_in_profile_search"
+                                                    key={course.id}
+                                                >
+                                                    {hasAccess ? (
+                                                        <ProposeRemoveCourse
+                                                            course={course}
+                                                            educationId={
+                                                                education.id
+                                                            }
+                                                            onPropose={
+                                                                proposeCourseChange
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <p>
+                                                            {course.name ||
+                                                                course.id}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ),
+                                        )}
 
                                         {/* Only collaborators can propose adding a new course */}
                                         {hasAccess && (
                                             <ProposeAddCourse
                                                 educationId={education.id}
-                                                ownerId={userId || selectedDisplayName?.id}
+                                                ownerId={
+                                                    userId ||
+                                                    selectedDisplayName?.id
+                                                }
                                                 requestedBy={currentUser}
-                                                mandatoryCourses={education.mandatoryCourses?.map(c => c.id) || []}
-                                                selectedCourses={education.selectedCourses?.map(c => c.id || c.course_code) || []}
-
-
+                                                mandatoryCourses={
+                                                    education.mandatoryCourses?.map(
+                                                        (c) => c.id,
+                                                    ) || []
+                                                }
+                                                selectedCourses={
+                                                    education.selectedCourses?.map(
+                                                        (c) =>
+                                                            c.id ||
+                                                            c.course_code,
+                                                    ) || []
+                                                }
                                             />
                                         )}
                                     </div>

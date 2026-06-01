@@ -23,7 +23,7 @@ function Header() {
                     <a href="/" className="navbar-link">
                         Home
                     </a>
-                   
+
                     <a href="/account" className="navbar-link">
                         Account
                     </a>
@@ -35,8 +35,6 @@ function Header() {
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>
             </span>
-
-            {/* Samma sak här med att försöka få den här CSS in i sin egna fil, men har problem med variablen "hamburgerOpen" */}
 
             <style>{`
                 @media screen and (max-width: 767px) {
