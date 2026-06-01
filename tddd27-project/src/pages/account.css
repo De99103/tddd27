@@ -79,7 +79,6 @@
     height: 44px;
     background: #a1a1a155;
     margin: 0 10px;
-
 }
 
 .search-share-input {
@@ -121,6 +120,7 @@
     align-content: center;
     gap: 8px;
     font-size: 1.5em;
+    flex-wrap: wrap;
 }
 
 /* share */
@@ -184,10 +184,27 @@
 /* course rows */
 .course-row {
     display: flex;
-    gap: 12px; 
+    gap: 12px;
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     align-items: center;
+    justify-content: space-between;
+}
+
+.code_and_name {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 5em;
+}
+
+.HP_year_and_grade {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 3em;
 }
 
 .course-code {
@@ -259,7 +276,7 @@
 .course-grade-value {
     font-size: 1rem;
     color: #5f637c;
-    justify-self: center; 
+    justify-self: center;
 }
 
 .grade-placeholder {
@@ -329,5 +346,26 @@
         width: 100%;
         justify-content: center;
         margin-top: 1em;
+    }
+
+    .course-row {
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .course-grade {
+        justify-content: flex-start;
+    }
+
+    .code_and_name {
+        text-align: left;
+        align-self: flex-start;
+        gap: 1em;
+    }
+
+    .HP_year_and_grade {
+        display: flex;
+        justify-content: space-between;
     }
 }
