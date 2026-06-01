@@ -184,7 +184,7 @@
 /* course rows */
 .course-row {
     display: flex;
-    /* gap: 12px; */
+    gap: 12px; 
     padding: 10px 0;
     border-bottom: 1px solid #eee;
     align-items: center;
@@ -266,6 +266,43 @@
     font-size: 0.75rem;
     color: #bbb;
     font-style: italic;
+}
+
+/*delete button settings*/
+.delete-btn-wrapper {
+    position: relative;
+    display: inline-flex;
+}
+
+.delete-btn {
+    font-size: 0.65rem;
+    color: #af0000;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px 4px;
+}
+
+.delete-btn:hover {
+    color: #e74c3c;
+}
+
+.delete-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #5f637c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.delete-btn-wrapper:hover .delete-tooltip {
+    display: block;
 }
 
 @media (max-width: 767px) {

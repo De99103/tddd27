@@ -99,12 +99,12 @@ const CourseRow = ({ course }) => {
                             Edit
                         </button>
                         {!course.mandatory && (
-                            <button
-                                className="grade-btn"
-                                onClick={handleDeleteCourse}
-                            >
-                                Remove
-                            </button>
+                            <div className="delete-btn-wrapper">
+                                <button className="grade-btn delete-btn" onClick={handleDeleteCourse}>
+                                    ✕
+                                </button>
+                                <span className="delete-tooltip">Remove course</span>
+                            </div>
                         )}
                     </>
                 )}
