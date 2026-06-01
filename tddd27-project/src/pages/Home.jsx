@@ -106,7 +106,10 @@ function Home() {
 
             <div className="welcome-text">
                 <h1>Welcome{user ? `, ${user.displayName}!` : " to LiU-Courses!"}</h1>
-                <p>New here? Check out the <a href="/about">About page</a> to get started.</p>
+                <p>
+                    {user ? "Need help? " : "New here? "}
+                    Check out the <a href="/about">About page</a> to get started.
+                </p>
             </div>
 
             <Course
