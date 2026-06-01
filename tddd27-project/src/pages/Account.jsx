@@ -30,6 +30,12 @@ const CourseRow = ({ course }) => {
     const [isEditing, setIsEditing] = useState(false);
 
     async function handleSaveGrade() {
+        const validGrades = ["3", "4", "5", "U", "G"];
+        if (grade && !validGrades.includes(grade.toUpperCase())) {
+            alert("Invalid grade! Only 3, 4, 5, U or G are allowed.");
+            return;
+        }
+
         try {
             await saveCourse(
                 course.educationId,
@@ -75,7 +81,7 @@ const CourseRow = ({ course }) => {
                             className="grade-input"
                             type="text"
                             value={grade}
-                            onChange={(e) => setGrade(e.target.value)}
+                            onChange={(e) => setGrade(e.target.value.toUpperCase())}
                         />
                         <button className="grade-btn" onClick={handleSaveGrade}>
                             Save

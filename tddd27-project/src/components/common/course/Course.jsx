@@ -48,6 +48,13 @@ function Course({
             if (!selectedProgram) { alert("Select a program first!"); return; }
             if (!selectedCourse) { alert("Select a course first!"); return; }
 
+            // Validate grade
+            const validGrades = ["3", "4", "5", "U", "G", ""];
+            if (!validGrades.includes(courseGrade.toUpperCase())) {
+                alert("Invalid grade! Only 3, 4, 5, U or G are allowed.");
+                return;
+            }
+
             const educationId = selectedProgram.id || selectedProgram.name;
             const courseId = selectedCourse.course_code;
             const courseType = selectedCourse.mandatory === true ? "mandatory" : "selectedCourses";
@@ -168,7 +175,7 @@ function Course({
                                 className="input"
                                 type="text"
                                 value={courseGrade}
-                                onChange={(e) => setCourseGrade(e.target.value)}
+                                onChange={(e) => setCourseGrade(e.target.value.toUpperCase())}
                             />
                         </div>
                     </div>
