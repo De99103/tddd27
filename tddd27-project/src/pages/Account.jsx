@@ -258,7 +258,7 @@ function Account() {
                 </p>
             </div>
         );
-    
+
     async function handleAddCollaborator() {
         try {
             if (!shareEmail) {
@@ -321,7 +321,7 @@ function Account() {
                                     )
 
                                     .map((req) => (
-                                        
+
                                         <div
                                             key={req.id}
                                             className="notification-row"
@@ -492,14 +492,16 @@ function Account() {
                                     {edu.mandatoryCourses.length > 0 && (
                                         <div>
                                             <h4>Mandatory Courses</h4>
-                                            {edu.mandatoryCourses.map(
-                                                (course) => (
-                                                    <CourseRow
-                                                        key={course.course_code}
-                                                        course={course}
-                                                    />
-                                                ),
-                                            )}
+                                            {edu.mandatoryCourses
+                                                .sort((a, b) => Number(a.year) - Number(b.year) || Number(a.semester) - Number(b.semester))
+                                                .map(
+                                                    (course) => (
+                                                        <CourseRow
+                                                            key={course.course_code}
+                                                            course={course}
+                                                        />
+                                                    ),
+                                                )}
                                         </div>
                                     )}
 
@@ -507,14 +509,17 @@ function Account() {
                                     {edu.selectedCourses.length > 0 && (
                                         <div>
                                             <h4>Selected Courses</h4>
-                                            {edu.selectedCourses.map(
-                                                (course) => (
-                                                    <CourseRow
-                                                        key={course.course_code}
-                                                        course={course}
-                                                    />
-                                                ),
-                                            )}
+                                            {edu.selectedCourses
+                                                .sort((a, b) => Number(a.year) - Number(b.year) || Number(a.semester) - Number(b.semester))
+
+                                                .map(
+                                                    (course) => (
+                                                        <CourseRow
+                                                            key={course.course_code}
+                                                            course={course}
+                                                        />
+                                                    ),
+                                                )}
                                         </div>
                                     )}
                                 </div>
