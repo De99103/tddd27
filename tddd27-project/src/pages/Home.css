@@ -6,3 +6,22 @@
     place-items: center;
 
 }
+.welcome-text {
+    text-align: center;
+    margin: 1rem 0;
+    
+}
+.welcome-text h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.welcome-text p {
+    color: #818181;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+.welcome-text a {
+    color: #5f637c;
+    font-weight: bold;
+}

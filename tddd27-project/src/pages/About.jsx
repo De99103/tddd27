@@ -30,7 +30,7 @@ function About() {
                     <p>
                         LiU-Courses was built as part of TDDD27 — Advanced Web Programming
                         at Linköping University. It supports the following programs:
-                        MT, DT, ED, and IT.
+                        MT, DT, and IT.
                     </p>
                 </section>
 
@@ -39,7 +39,7 @@ function About() {
                     <p>
                         Your data is private by default. We store your Google display name,
                         email, saved courses, grades, and sharing settings in Firebase Firestore.
-                        You can delete your account and all data at any time from the Account page.
+                        You can delete your account and all data at any time from Settings on the Account page.
                     </p>
                 </section>
 
