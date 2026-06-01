@@ -48,6 +48,7 @@
     position: absolute;
     justify-self: center;
     align-self: center;
+    justify-content: center !important;
     flex-direction: column;
     background-image: url("/src/assets/images/rutat_papper.png");
     width: 40vw;
@@ -57,6 +58,9 @@
 }
 
 .account-section {
+    display: flex;
+   align-self: center !important;
+    flex-direction: column;
     width: fit-content;
     margin: auto;
 }
