@@ -1,6 +1,6 @@
 import "./Settings.css";
 import settingsIcon from "/src/assets/images/settings_icon.png";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { auth, db } from "../../../fireBase/firebase.js";
 import { updateProfileVisibility } from "../../../fireBase/userData.js";
 import DeleteAccountButton from "../deleteAccountButton/DeleteAccountButton";

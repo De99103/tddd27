@@ -41,29 +41,33 @@ LiU-Courses
 
 ## Description
 
-A website that lets you keep up with your courses, HP:s and grades. Keeps track of requrements fro CSN, Bachelor projects, and Master's courses. It allows you to log in to save your progress and manually imput courses and programs.
+A website that lets you keep up with your courses, HP:s and grades. It allows you to log in to save your progress and manually imput courses and programs.
 
-By using Claude AI, we could create a JSON file for MT courses to start working with. We are currently waiting for a response from the helpdesk to gain access to an API for all programs at LiU.
-
-### Features {what we have now! 30 April}
+By using Claude AI, we could create a JSON file for MT courses to start working with.
+### Features {what we have now! 1 June}
 
 - User login with Firebase Authentication
 - Select an engineering program from local JSON data
 - Load courses automatically based on the selected program
-- Search and select a course with autocomplete
+- Search and select a course with component autocomplete
 - Show course department automatically from the selected course data
 - Display courses grouped by year and semester
 - Show course cards with course code, name, credits, and period
 - Save selected course data to Firebase per user and per education
-- Store course grade, notes (working on it), and rating
-- Save public course ratings for shared course statistics
+- Store course grade, and rating
+- Save public course ratings for shared course statistics (not implemented to focus on client to client functionality instead)
+- Ability to set profile to private/public to change visibility in profile search
+- The user can share its course plan with other users to propose changes
+- The above is displayed in a "pending course changes" component and other notificatiosn can be seen in a similar component
+- GitLab is connected to a GitHub repository that uses vercel to host a webpage for the project: https://tddd27.vercel.app/
 
-### Firebase data structure {version 30 April}
+### Firebase data structure {version 1 June}
 
 User course data is stored under `users/{userId}/educations/{educationId}`. Each education has its own course collections, such as `mandatoryCourses` and `selectedCourses`, so changing or adding a new education does not overwrite previous data. Each course is saved by `courseId` and contains fields like `grade`, `notes`, and `rating`.
 
 Public course ratings are also saved under `courseStats/{courseId}/ratings`, so everyone can view course statistics without seeing private user data.
 
+Users visibility is stored under `users/{userId}/{isPublic}` and the user they have shared their porifle with, under `users/{userId}/{sharedWith}`.
 
 ## Installation
 
@@ -73,15 +77,13 @@ This project uses Node.js and npm, together with JavaScript libraries and tools 
 
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
-* Users can select a master profile/specialization.
-* Users can save selected courses.
-* Later, users will optionally make profiles public.
 * Public users can:
-    * show selected courses
     * show specialization (plan)
-    * appear in course matching
     * allow others to see who selected the same course
 * Ratings remain optionally anonymous depending on user privacy settings.
+* Create tracking for HP:s requirments for CSN, doing the Bachelors/master thesis, etc.
+* Be able to input peronal notes about each course
+* Having public statistics of vourses based on users anonymous rating 
 
 ## License
 
