@@ -37,11 +37,11 @@ function DeleteAccountButton() {
                         onClick={handleDeleteAccount}
                         className="delete-btn"
                     >
-                        <img
+                        {/* <img
                             src={deleteICon}
                             alt="Delete account"
                             className="delete-icon"
-                        />
+                        /> */}
                         <p>Delete account</p>
                     </button>
                 </div>
