@@ -58,12 +58,21 @@ function Home() {
     // - No specialisation selected → show all courses
     // - Course has no specialisation (null) → always show (mandatory/general elective)
     // - Otherwise → only show if specialisation matches exactly
-    const courseMatchesSpecialisation = (course, selectedSpecialisation) => {
+   const courseMatchesSpecialisation = (course, selectedSpecialisation) => {
         if (!selectedSpecialisation) return true;
-        if (course.specialisation === null) return true;
-        return course.specialisation.trim() === selectedSpecialisation.trim();
-    };
 
+        const spec = course.specialisation;
+
+        if (spec == null) return course.ecv === true;
+
+        if (Array.isArray(spec)) {
+            return spec
+                .map(s => s.trim())
+                .includes(selectedSpecialisation.trim());
+        }
+
+        return spec.trim() === selectedSpecialisation.trim();
+    };
     // Filters courses to show in the table:
     // - If a course is selected from the autocomplete → show only that course
     // - Otherwise → filter by specialisation
