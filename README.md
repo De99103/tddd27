@@ -79,3 +79,7 @@ Then open the local URL shown in the terminal, usually `http://localhost:5173`.
 ## Project status
 
 Done. 
+
+
+## Link to videos
+https://liuonline-my.sharepoint.com/:f:/g/personal/emmda989_student_liu_se/IgAU3ybiBTEKSZpexDYHtZWgAUcbF2-K67FBq0oE90NkGLg?e=qEN8Zm
