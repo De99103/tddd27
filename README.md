@@ -84,16 +84,27 @@ Users visibility is stored under `users/{userId}/{isPublic}` and the user they h
 
 ## Installation
 
-This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Firebase Authentication (including Google sign-in), Vite, and ESLint.
+This project uses Node.js and npm, together with the JavaScript libraries and tools defined in `package.json`, including React, React Router, Firebase and Vite.
 
+```bash
+git clone https://gitlab.liu.se/deeso509/tddd27_2026.git
+cd tddd27_2026
+npm install
+```
 
+Start the development server with:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in the terminal, usually `http://localhost:5173`.
 
 ## Roadmap
 
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
 * Public users can:
-    * show specialization (plan)
     * allow others to see who selected the same course
 * Ratings remain optionally anonymous depending on user privacy settings.
 * Create tracking for HP:s requirments for CSN, doing the Bachelors/master thesis, etc.
