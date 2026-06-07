@@ -44,6 +44,19 @@ LiU-Courses
 A website that lets you keep up with your courses, HP:s and grades. It allows you to log in to save your progress and manually imput courses and programs.
 
 By using Claude AI, we could create a JSON file for MT courses to start working with.
+
+
+## Application Data Flow
+
+The diagram below gives an overview of how data moves through the application. It shows how the user interacts with the React frontend, how Firebase handles authentication and database communication, how Firestore Security Rules control access, and how updated data is returned to the user interface.
+
+The application uses local JSON files for static course data, while user-specific data such as saved courses, grades, sharing information, notifications, and course change requests are stored in Cloud Firestore.
+
+![LiU-Courses data flow](tddd27-project/src/assets/images/liu_courses_data_flow.svg)
+
+In this flow, Firebase Authentication identifies the logged-in user, while Firestore Security Rules use values such as `uid`, `isPublic`, and `sharedWith` to decide whether a database request should be allowed. Cloud Firestore stores both top-level collections and user-specific subcollections, and real-time listeners update the React interface when data changes.
+
+
 ### Features {what we have now! 1 June}
 
 - User login with Firebase Authentication
@@ -73,6 +86,8 @@ Users visibility is stored under `users/{userId}/{isPublic}` and the user they h
 
 This project uses Node.js and npm, together with JavaScript libraries and tools defined in package.json, such as React, React Router, Firebase Authentication (including Google sign-in), Vite, and ESLint.
 
+
+
 ## Roadmap
 
 If you have ideas for releases in the future, it is a good idea to list them in the README.
@@ -85,8 +100,7 @@ If you have ideas for releases in the future, it is a good idea to list them in 
 * Be able to input peronal notes about each course
 * Having public statistics of vourses based on users anonymous rating 
 
-## License
 
 ## Project status
 
-In development.
+Done. 
